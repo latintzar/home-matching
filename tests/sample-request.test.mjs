@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {sampleBodyWithinLimit,forwardedGuestCookie} from '../src/lib/sample/request.mjs';
+import {sampleBodyWithinLimit,forwardedGuestCookie,samplePath} from '../src/lib/sample/request.mjs';
 
 test('sample body cap rejects declared, streamed and multibyte oversize before JSON parsing',async()=>{
  assert.equal(await sampleBodyWithinLimit(new Request('http://localhost',{method:'POST',headers:{'content-length':'40000'},body:'{}'})),false);
@@ -13,4 +13,13 @@ test('renewing a malformed guest cookie replaces its old forwarded pair',()=>{
  const cookie=forwardedGuestCookie('language=es; leo_home_sample_guest=malformed; other=value','new-guest');
  assert.equal(cookie,'language=es; other=value; leo_home_sample_guest=new-guest');
  assert.equal((cookie.match(/leo_home_sample_guest=/g)||[]).length,1);
+});
+
+test('mounted roots normalize with either Next pathname representation',()=>{
+ assert.equal(samplePath('/apps/home-matching','/apps/home-matching'),'/');
+ assert.equal(samplePath('/apps/home-matching/','/apps/home-matching'),'/');
+ assert.equal(samplePath('/','/apps/home-matching'),'/');
+ assert.equal(samplePath('/apps/home-matching/api/notes','/apps/home-matching'),'/api/notes');
+ assert.equal(samplePath('/api/notes','/apps/home-matching'),'/api/notes');
+ assert.equal(samplePath('/apps/home-matching-other','/apps/home-matching'),'/apps/home-matching-other');
 });

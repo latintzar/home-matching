@@ -12,3 +12,5 @@ export async function sampleBodyWithinLimit(request, maximum=32768) {
 export function forwardedGuestCookie(cookie,guest) {
   return [...(cookie||'').split(';').map(pair=>pair.trim()).filter(pair=>pair&&!/^leo_home_sample_guest\s*=/.test(pair)),'leo_home_sample_guest='+guest].join('; ');
 }
+
+export function samplePath(pathname,base){return base&&pathname===base?'/':base&&pathname.startsWith(base+'/')?pathname.slice(base.length):pathname;}

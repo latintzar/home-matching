@@ -274,7 +274,7 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lib/prompts](areas/src-lib-prompts.md) | 7 | 23 |
 | [src/lib/recommender](areas/src-lib-recommender.md) | 12 | 88 |
 | [src/lib/room-analysis-helpers.ts](areas/src-lib-room-analysis-helpers.ts.md) | 1 | 3 |
-| [src/lib/sample](areas/src-lib-sample.md) | 6 | 32 |
+| [src/lib/sample](areas/src-lib-sample.md) | 7 | 35 |
 | [src/lib/save-stage-result.ts](areas/src-lib-save-stage-result.ts.md) | 1 | 1 |
 | [src/lib/schemas](areas/src-lib-schemas.md) | 2 | 7 |
 | [src/lib/scraper-normalizer.ts](areas/src-lib-scraper-normalizer.ts.md) | 1 | 4 |

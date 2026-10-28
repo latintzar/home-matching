@@ -7126,6 +7126,12 @@
       ]
     },
     {
+      "path": "src/lib/sample/request.mjs",
+      "reference": "modules/src/lib/sample/request.mjs.md",
+      "symbols": 3,
+      "imports": []
+    },
+    {
       "path": "src/lib/sample/seed.mjs",
       "reference": "modules/src/lib/sample/seed.mjs.md",
       "symbols": 4,
@@ -7296,6 +7302,7 @@
       "reference": "modules/src/middleware.ts.md",
       "symbols": 2,
       "imports": [
+        "@/lib/sample/request.mjs",
         "next/server",
         "next/server"
       ]
@@ -38624,6 +38631,39 @@
       ]
     },
     {
+      "module": "src/lib/sample/request.mjs",
+      "source_path": "src/lib/sample/request.mjs",
+      "line": 2,
+      "name": "sampleBodyWithinLimit",
+      "kind": "function",
+      "parameters": [
+        "request",
+        "maximum"
+      ]
+    },
+    {
+      "module": "src/lib/sample/request.mjs",
+      "source_path": "src/lib/sample/request.mjs",
+      "line": 12,
+      "name": "forwardedGuestCookie",
+      "kind": "function",
+      "parameters": [
+        "cookie",
+        "guest"
+      ]
+    },
+    {
+      "module": "src/lib/sample/request.mjs",
+      "source_path": "src/lib/sample/request.mjs",
+      "line": 16,
+      "name": "samplePath",
+      "kind": "function",
+      "parameters": [
+        "pathname",
+        "base"
+      ]
+    },
+    {
       "module": "src/lib/sample/seed.mjs",
       "source_path": "src/lib/sample/seed.mjs",
       "line": 17,
@@ -39663,7 +39703,7 @@
     {
       "module": "src/middleware.ts",
       "source_path": "src/middleware.ts",
-      "line": 20,
+      "line": 21,
       "name": "getLocale",
       "kind": "function",
       "parameters": [
@@ -39673,7 +39713,7 @@
     {
       "module": "src/middleware.ts",
       "source_path": "src/middleware.ts",
-      "line": 44,
+      "line": 45,
       "name": "middleware",
       "kind": "function",
       "parameters": [

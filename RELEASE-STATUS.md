@@ -6,7 +6,7 @@ This release contains the full original Leo.casa Next application, native worksp
 
 - Fresh root npm installation, full Next build and TypeScript check pass on Node22.23.2. The standalone native workspace serves from the same source with eight authored homes, recovered generated images, cached evidence and original deterministic V2 fit.
 - Actual Chromium visits dashboard, recommendations, property, saved, viewings, profile, intake/recommendations and catalogue at1600×1000 and390×844. All16views return200 with zero missing resources, foreign requests, browser errors or page overflow. Native saves/notes persist; household changes rerank cached evidence; two guests remain separate; CSRF, readonly catalogue and disabled provider routes are exercised.
-- Thirteen original scoring tests, nine private-configuration tests and thirteen native-storage/fit/request/lazy-resource tests cover the executable contracts. Source links and package scans are checked separately in the publication handoff.
+- Thirteen original scoring tests, nine private-configuration tests and fourteen native-storage/fit/request/lazy-resource tests cover the executable contracts. Source links and package scans are checked separately in the publication handoff.
 - The deployed native artifact is about121MB of application/dependencies rather than a full build installation. SQLite state is private and external to source/static roots.
 
 ## Recipient integration acceptance

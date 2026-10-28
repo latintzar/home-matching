@@ -8,6 +8,7 @@ with sync_playwright() as p:
  a=b.new_context(viewport={'width':1600,'height':1000}); page=a.new_page(); foreign=[]
  page.route('**/*',lambda route: route.continue_() if route.request.url.startswith((origin,'data:','blob:')) else (foreign.append(route.request.url.split('/')[2]),route.abort())[-1])
  r=page.goto(base,wait_until='networkidle');checks['root_to_native_dashboard']=r.status==200 and page.url==base+'/dashboard'
+ if not checks['root_to_native_dashboard']:print(json.dumps({'entry_status':r.status,'entry_path':urlsplit(page.url).path,'entry_host':urlsplit(page.url).netloc}))
  cookies=a.cookies();g=next(c for c in cookies if c['name']=='leo_home_sample_guest');checks['scoped_httponly_cookie']=g['httpOnly'] and g['sameSite']=='Lax' and g['path']==os.environ.get('NATIVE_TEST_BASE_PATH','/apps/home-matching')
  session=a.request.get(base+'/api/sample/session').json(); user=session['user'];checks['bearer_not_public_user_id']=user['id']!=g['value']
  page.goto(base+'/property/1000000001',wait_until='networkidle');page.get_by_placeholder('Escribe una nota...').fill('Review afternoon light during the viewing.');page.get_by_role('button',name='Añadir',exact=True).click();page.get_by_text('Review afternoon light during the viewing.',exact=True).wait_for();page.reload(wait_until='networkidle');checks['native_note_persists']=page.get_by_text('Review afternoon light during the viewing.',exact=True).count()==1
@@ -30,4 +31,6 @@ with sync_playwright() as p:
  a.request.delete(base+'/api/sample/session')
  a.close();z.close();b.close()
 Path(os.environ.get('NATIVE_TEST_RESULT','/tmp/home-native-interaction-proof.json')).write_text(json.dumps(checks,indent=2)+'\n')
-print(json.dumps(checks,indent=2));assert all(checks.values())
+print(json.dumps(checks,indent=2));
+if not all(checks.values()):print(json.dumps({'foreign_hosts':foreign}))
+assert all(checks.values())

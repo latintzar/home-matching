@@ -1,4 +1,4 @@
-import {sampleBodyWithinLimit,forwardedGuestCookie} from '@/lib/sample/request.mjs';
+import {sampleBodyWithinLimit,forwardedGuestCookie,samplePath} from '@/lib/sample/request.mjs';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
@@ -48,7 +48,7 @@ export async function middleware(request: NextRequest) {
   if(process.env.SAMPLE_MODE==='1') {
     const allowedApis=['/api/sample/query','/api/sample/session','/api/recommender/profile','/api/recommender/generate','/api/catalogue','/api/saved','/api/viewings','/api/notes','/api/user/settings','/api/profile/switch','/api/profile/create'];
     const base=request.nextUrl.basePath || process.env.NEXT_PUBLIC_BASE_PATH || '';
-    const path=base&&pathname.startsWith(base+'/')?pathname.slice(base.length):pathname;
+    const path=samplePath(pathname,base);
     if(!path.startsWith('/api/')&&(path.startsWith('/_next/')||path.startsWith('/images/')||path.startsWith('/fonts/')||/\.(?:ico|png|webp|jpg|svg|css|js|woff2?|ttf)$/.test(path)))return NextResponse.next();
     if(path.startsWith('/api/')&&!allowedApis.includes(path)&&!/^\/api\/property\/[a-zA-Z0-9-]+\/(notes|viewing)$/.test(path)) {
       return NextResponse.json({error:'Configura tu proveedor para esta acción.',code:'RECIPIENT_SERVICE_REQUIRED'},{status:503});
