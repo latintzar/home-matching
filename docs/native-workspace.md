@@ -29,7 +29,7 @@ The adapter bounds queries, rows and state: 24,000 serialized query characters, 
 
 ## Deployment
 
-`tools/sample-app.py build` creates `.next/standalone` with public/static files, launcher and a mode/base-path receipt. Start the artifact with its recorded prefix and an external state path. A proxy preserves the complete prefix, including API and asset paths. Forward the trusted public Host/protocol. Node 22's built-in SQLite is experimental; use the tested Node 22.18+ line. Python is only the safe process launcher.
+`tools/sample-app.py build` creates `.next/standalone` with public/static files, launcher and a mode/base-path receipt. Start the artifact with its recorded prefix and an external state path. A proxy preserves the complete prefix, including API and asset paths. Forward the trusted public Host/protocol and overwrite client-supplied forwarding headers. Sample redirects preserve the installation origin; sample mode disables Next15 middleware URL normalization so loopback127.0.0.1 stays on that same origin. Node 22's built-in SQLite is experimental; use the tested Node 22.18+ line. Python is only the safe process launcher.
 
 Sample mode clears ambient credentials and cloud profiles; it selects local storage, blocks unconfigured provider routes in middleware, and retains the original provider implementations for recipient configuration. Optional Supabase/Google/Stripe SDKs initialize at feature use instead of module import. Actual model analysis, voice, acquired listings, measured commute, billing and cloud-account setup require recipient services. Their successful operation is separate from cached matching.
 

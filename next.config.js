@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  skipMiddlewareUrlNormalize:process.env.SAMPLE_MODE==='1',
   experimental: {cpus:2},
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   env: {NEXT_PUBLIC_BASE_PATH:process.env.NEXT_PUBLIC_BASE_PATH||'',NEXT_PUBLIC_SAMPLE_MODE:process.env.SAMPLE_MODE==='1'?'1':'0'},

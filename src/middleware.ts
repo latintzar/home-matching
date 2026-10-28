@@ -67,11 +67,10 @@ export async function middleware(request: NextRequest) {
     if(fresh)headers.set('cookie',forwardedGuestCookie(headers.get('cookie'),guest));
     let response;
     if(path==='/'||path==='/es'||path==='/en'||path==='/auth/signin') {
-      const target=request.nextUrl.clone();
+      const target=new URL((base||'')+'/dashboard',request.url);
       const publicHost=request.headers.get('x-forwarded-host')||request.headers.get('host');
       if(publicHost&&!/[\\/@#?\s,]/.test(publicHost))target.host=publicHost;
       if(request.headers.get('x-forwarded-proto')==='https')target.protocol='https:';
-      target.pathname='/dashboard';
       response=NextResponse.redirect(target);
     }else response=NextResponse.next({request:{headers}});
     if(fresh)response.cookies.set('leo_home_sample_guest',guest!,{httpOnly:true,sameSite:'lax',secure:request.nextUrl.protocol==='https:'||request.headers.get('x-forwarded-proto')==='https',path:base||'/',maxAge:12*60*60});
