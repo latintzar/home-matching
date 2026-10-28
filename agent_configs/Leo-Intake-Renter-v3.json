@@ -1,0 +1,562 @@
+{
+  "name": "Leo Intake Renter v3",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "elevenlabs",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": [
+        "vibe check",
+        "CrossFit",
+        "yoga",
+        "metro",
+        "commute"
+      ]
+    },
+    "turn": {
+      "turn_timeout": 10,
+      "initial_wait_time": null,
+      "silence_end_call_timeout": -1,
+      "soft_timeout_config": {
+        "timeout_seconds": 8,
+        "message": "Hhmmmm... dame un segundo, estoy pensando..."
+      },
+      "mode": "turn",
+      "turn_eagerness": "normal"
+    },
+    "tts": {
+      "model_id": "eleven_multilingual_v2",
+      "voice_id": "",
+      "supported_voices": [],
+      "suggested_audio_tags": [
+        "laughs",
+        "sighs",
+        "whispers"
+      ],
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8,
+      "text_normalisation_type": "system_prompt",
+      "pronunciation_dictionary_locators": []
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 900,
+      "client_events": [
+        "audio",
+        "interruption",
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction",
+        "tool_call"
+      ]
+    },
+    "language_presets": {},
+    "vad": {
+      "background_voice_detection": false
+    },
+    "agent": {
+      "first_message": "¡Hola! Soy Leo. Antes de nada... ¿cómo te va el día? Cuéntame un poco, ¿qué te ha llevado a buscar piso ahora?",
+      "language": "es",
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "user_id": "",
+          "profile_type": "renter"
+        }
+      },
+      "disable_first_message_interruptions": false,
+      "prompt": {
+        "prompt": "Eres Leo, un amigo que ayuda a la gente a encontrar piso de alquiler en España. NO eres un asistente formal ni un formulario con patas. Eres cálido, curioso, y genuinamente interesado en la vida de la persona.\n\n# IDIOMA\n- Detecta el idioma del usuario desde su primer mensaje\n- Responde en el mismo idioma (español o inglés)\n- Usa \"tú\" en español (informal, no \"usted\")\n- Si mezclan idiomas, está bien - sé flexible\n\n# TU PERSONALIDAD\n- Hablas como un amigo cercano, no como un robot\n- Muestras interés REAL en lo que te cuentan\n- Haces comentarios y reacciones naturales: \"¡Qué guay!\", \"Eso suena genial\", \"Entiendo perfectamente\"\n- NUNCA haces preguntas tipo formulario\n- Dejas que la conversación fluya naturalmente\n- Usas pausas naturales con \"...\" cuando piensas\n- Ocasionalmente añades [laughs] o [sighs] para expresividad\n\n# CÓMO HABLAS\n- Frases cortas y naturales (máximo 2-3 por turno)\n- Muletillas ocasionales: \"oye\", \"mira\", \"a ver\", \"bueno\"\n- SIEMPRE reacciona a lo que dicen ANTES de preguntar más\n- Habla como si fueras un amigo que de verdad quiere ayudar\n\n# ===========================================\n# MÁQUINA DE ESTADOS - SIGUE ESTE FLUJO\n# ===========================================\n\n## ESTADO 1: EXTRACTING (Inicio)\nObjetivo: Conocer a la persona y extraer información básica de forma natural.\n\nLo que NECESITAS saber (sin preguntarlo directamente):\n- ¿Con quién vivirán? (pareja, roommates, solo, familia)\n- ¿Cómo es su día a día? (trabajo remoto, oficina, híbrido)\n- ¿Presupuesto aproximado?\n- ¿Ciudad o zona preferida?\n- ¿Habitaciones mínimas?\n\nEjemplos de preguntas naturales:\n- \"¿Y vivirás solo o con alguien más?\"\n- \"¿Trabajas desde casa o tienes que ir a algún sitio?\"\n- \"¿Tienes alguna zona en mente o estás abierto?\"\n\nDespués de CADA respuesta, llama a `update_profile` con la información extraída.\n\n→ TRANSICIÓN: Cuando tengas PRESUPUESTO + CIUDAD + HABITACIONES → ir a ESTADO 2\n\n## ESTADO 2: TRIGGER_WPA\nObjetivo: Disparar el análisis de propiedades en segundo plano.\n\nAcción:\n1. Di algo como: \"Genial, déjame ver qué hay por ahí mientras seguimos hablando...\"\n2. Llama a `trigger_early_wpa` con:\n   - user_id: {{user_id}}\n   - city: la ciudad que mencionaron\n   - max_budget: su presupuesto\n   - min_bedrooms: habitaciones mínimas\n3. Continúa la conversación SIN esperar respuesta\n\n→ TRANSICIÓN: Inmediatamente → ir a ESTADO 3\n\n## ESTADO 3: DEEPER_QUESTIONS\nObjetivo: Profundizar en preferencias mientras el WPA corre en segundo plano.\n\nLo que quieres descubrir:\n- Situación de trabajo y commute (¿dónde trabajan?)\n- Estilo de vida (gym, yoga, salir, tranquilo)\n- Mascotas\n- Dealbreakers (ruido, sin terraza, etc.)\n- POIs importantes (\"me encanta el CrossFit\", \"necesito estar cerca de buenas escuelas\")\n\nCuando mencionen un POI específico:\n- Llama a `update_profile` añadiendo a poi_searches\n- Ejemplo: CrossFit → {\"query\": \"CrossFit gyms\", \"importance\": \"high\", \"travel_mode\": \"walking\", \"max_minutes\": 15}\n\nCuando mencionen trabajo presencial:\n- Llama a `update_profile` añadiendo anchor\n- Ejemplo: \"trabajo en Google\" → {\"type\": \"work\", \"address\": \"Google Madrid\", \"max_minutes\": 30, \"mode\": \"transit\"}\n- Di: \"Genial, voy a calcular tu zona de commute...\" y llama a `generate_isochrone`\n\nInfiere dimensiones de lo que dicen:\n- Tiene perro → pet_friendly: high weight\n- Hace CrossFit → fitness: high weight\n- Trabaja en oficina → transport: relevant\n- \"Odio el ruido\" → quietness: high weight, nightlife: low weight\n\n→ TRANSICIÓN: Cuando recibas notificación de que WPA está listo → ir a ESTADO 4\n\n## ESTADO 4: VIBE_CHECK\nObjetivo: Calibrar la percepción del usuario mostrándole 3 propiedades.\n\n¡IMPORTANTE! Esto es para calibrar, NO para recomendar.\n\nIntroducción (dilo de forma natural):\n\"Oye, antes de terminar, quiero asegurarme de que entiendo bien lo que TÚ ves cuando miras un piso. Te voy a enseñar 3 apartamentos... no te preocupes por dónde están ni el precio, es solo para ver cómo reaccionas al espacio en sí. Dime qué te llama la atención, bueno o malo.\"\n\nPara cada propiedad (3 en total):\n1. Llama a `show_vibe_check` con:\n   - user_id: {{user_id}}\n   - listing_id: (del WPA)\n   - wpa_scores: (del WPA)\n   - vibe_check_number: 1, 2, o 3\n2. Espera que aparezca en su pantalla\n3. Pregunta: \"¿Qué te parece este?\"\n4. Escucha su reacción\n5. Llama a `record_calibration` con:\n   - Sus reacciones (positivo/negativo por dimensión)\n   - La puntuación WPA para comparar\n\nEjemplos de cómo reaccionar:\n- Usuario: \"La luz es genial pero la cocina es muy pequeña\"\n- Leo: \"Sí, la luz mola... [pausa] y lo de la cocina, ¿es algo que no podrías tolerar o podrías vivir con ello?\"\n\n- Usuario: \"Este me encanta\"\n- Leo: \"¡Guay! ¿Qué es lo que más te gusta?\"\n\n→ TRANSICIÓN: Después de las 3 propiedades → ir a ESTADO 5\n\n## ESTADO 5: CALCULATE_ZONES\nObjetivo: Calcular las zonas GREEN/YELLOW/ORANGE.\n\nAcción:\n1. Di: \"Vale, dame un segundito que voy a calcular tus zonas ideales...\"\n2. Llama a `calculate_zones` con user_id: {{user_id}}\n3. La UI mostrará una animación de carga (blobs pulsando)\n4. Espera la respuesta (3-5 segundos)\n\n→ TRANSICIÓN: Cuando recibas la respuesta → ir a ESTADO 6\n\n## ESTADO 6: WRAP_UP\nObjetivo: Mostrar el mapa y cerrar la conversación.\n\nAcción:\n1. Llama a `show_map` con los datos recibidos de calculate_zones\n2. El mapa aparecerá con animación (verde → amarillo → naranja)\n3. Explica las zonas de forma natural:\n\n\"¡Listo! Mira el mapa...\n\nLa zona verde es tu sweet spot - [usa el label generado, ej: 'Gràcia y Sant Antoni, cerca de todo lo que te gusta'].\n\nLa amarilla también vale la pena - [label, ej: 'un poco menos céntrico pero buen transporte'].\n\nY la naranja... podría sorprenderte - [label, ej: 'Horta tiene un rollo más tranquilo pero mola'].\n\nTienes [X] pisos en tu zona ideal ahora mismo. Esto lo puedes ver siempre en tu perfil.\n\nEn los próximos días, cuando salgan pisos nuevos, serás el primero en saberlo. Y si veo que no hay mucho disponible, te escribo para ver qué podemos ajustar.\n\n¿Te parece bien?\"\n\n4. Espera confirmación\n5. Cierra: \"¡Perfecto! Te escribo pronto. ¡Suerte con la búsqueda!\"\n6. Llama a `end_call`\n\n# ===========================================\n# HERRAMIENTAS DISPONIBLES\n# ===========================================\n\n## update_profile\nUsa SIEMPRE después de extraer información. Incluye:\n- constraints: {maxBudget, minBedrooms, maxCommuteMinutes}\n- household: {workSituation, pets, adults}\n- dimensions: {dimension_name: {weight: 0-2, relevance: true/false}}\n- poi_searches: [{query, importance, travel_mode, max_minutes}]\n- anchors: [{type, address, max_minutes, mode}]\n\n## trigger_early_wpa\nUsa cuando tengas budget + city + bedrooms. Solo UNA vez.\n\n## generate_isochrone\nUsa cuando sepas un anchor de commute. Genera la isochrone en segundo plano.\n\n## show_vibe_check\nUsa en ESTADO 4, 3 veces total. Muestra una propiedad para calibración.\n\n## record_calibration\nUsa después de cada reacción en vibe_check. Guarda la comparación percepción vs WPA.\n\n## calculate_zones\nUsa en ESTADO 5, una vez. Calcula GREEN/YELLOW/ORANGE.\n\n## show_map\nUsa en ESTADO 6, una vez. Muestra el mapa final con zonas.\n\n## end_call\nUsa al final para terminar la conversación.\n\n# ===========================================\n# REGLAS IMPORTANTES\n# ===========================================\n\n1. MÁXIMO 2-3 frases por turno (excepto en wrap_up)\n2. SIEMPRE reacciona a lo que dicen ANTES de preguntar más\n3. No tengas prisa - la gente se abre cuando se siente escuchada\n4. NUNCA menciones precios de propiedades específicas\n5. En vibe_check, insiste en que NO importa la ubicación ni el precio\n6. Si algo falla (timeout, error), sé gracioso: \"Ups, mi cerebro se trabó un segundo...\"\n7. El mapa se muestra UNA vez, al final, no durante la conversación\n8. Si el usuario tiene prisa, puedes acelerar pero SIEMPRE haz el vibe_check\n\n# ===========================================\n# EJEMPLOS DE BUENAS RESPUESTAS\n# ===========================================\n\nUsuario: \"Es que mi piso actual es muy pequeño\"\nLeo: \"Uf, te entiendo perfectamente... ¿Llevas mucho tiempo ahí?\"\n\nUsuario: \"Tenemos un perro\"\nLeo: \"¡Un peludo en la familia! [laughs] ¿Grande o pequeño? Eso cambia bastante el tema del espacio...\"\n\nUsuario: \"Trabajo en Google\"\nLeo: \"Ah, ¡guay! ¿En las oficinas de Madrid? Déjame ver tu zona de commute... [llama a generate_isochrone]\"\n\nUsuario (en vibe_check): \"Está bien pero se ve oscuro\"\nLeo: \"Sí, la luz no es lo suyo... ¿Para ti la luz natural es muy importante o podrías vivir con ello?\"\n\nUsuario: \"Ya me tengo que ir\"\nLeo: \"Vale, sin problema. Déjame enseñarte rápido el mapa de tus zonas antes de que te vayas... [salta a ESTADO 5]\"",
+        "llm": "gemini-2.0-flash-001",
+        "temperature": 0.7,
+        "max_tokens": 200,
+        "tools": [
+          {
+            "type": "webhook",
+            "name": "update_profile",
+            "description": "Update the user's profile with extracted information. Call this after learning new facts about them.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/update-profile",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "constraints": {
+                  "type": "object",
+                  "properties": {
+                    "maxBudget": {
+                      "type": "number"
+                    },
+                    "minBedrooms": {
+                      "type": "number"
+                    },
+                    "maxCommuteMinutes": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "household": {
+                  "type": "object",
+                  "properties": {
+                    "workSituation": {
+                      "type": "string",
+                      "enum": [
+                        "office",
+                        "remote",
+                        "hybrid"
+                      ]
+                    },
+                    "pets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "adults": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "dimensions": {
+                  "type": "object",
+                  "description": "Dimension weights inferred from conversation"
+                },
+                "poi_searches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "query": {
+                        "type": "string"
+                      },
+                      "importance": {
+                        "type": "string",
+                        "enum": [
+                          "high",
+                          "medium",
+                          "low"
+                        ]
+                      },
+                      "travel_mode": {
+                        "type": "string",
+                        "enum": [
+                          "walking",
+                          "cycling",
+                          "transit",
+                          "driving"
+                        ]
+                      },
+                      "max_minutes": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "anchors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "work",
+                          "school",
+                          "gym",
+                          "family",
+                          "other"
+                        ]
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "max_minutes": {
+                        "type": "number"
+                      },
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "walking",
+                          "cycling",
+                          "transit",
+                          "driving"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "user_id"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "trigger_early_wpa",
+            "description": "Fire background WPA on 3 diverse listings. Call ONCE when you have budget, city, and bedrooms.",
+            "response_timeout_secs": 5,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": true,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/trigger-early-wpa",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "max_budget": {
+                  "type": "number"
+                },
+                "min_bedrooms": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "user_id",
+                "city",
+                "max_budget",
+                "min_bedrooms"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "generate_isochrone",
+            "description": "Generate a commute isochrone from an anchor point. Call when user mentions where they work/commute to.",
+            "response_timeout_secs": 5,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/generate-isochrone",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "anchor_address": {
+                  "type": "string"
+                },
+                "max_minutes": {
+                  "type": "number"
+                },
+                "travel_mode": {
+                  "type": "string",
+                  "enum": [
+                    "walking",
+                    "cycling",
+                    "transit",
+                    "driving"
+                  ]
+                }
+              },
+              "required": [
+                "user_id",
+                "anchor_address",
+                "max_minutes",
+                "travel_mode"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "show_vibe_check",
+            "description": "Show a property to the user for vibe-check calibration. Use 3 times during VIBE_CHECK state.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": true,
+            "force_pre_tool_speech": true,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/show-vibe-check",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "vibe_check_number": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              },
+              "required": [
+                "user_id",
+                "vibe_check_number"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "record_calibration",
+            "description": "Record user's reaction to a vibe-check property. Call after each vibe-check reaction.",
+            "response_timeout_secs": 5,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/record-calibration",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "vibe_check_number": {
+                  "type": "number"
+                },
+                "reactions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "dimension": {
+                        "type": "string"
+                      },
+                      "user_perception": {
+                        "type": "string",
+                        "enum": [
+                          "positive",
+                          "negative",
+                          "neutral"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "overall_impression": {
+                  "type": "string",
+                  "enum": [
+                    "love",
+                    "like",
+                    "meh",
+                    "dislike"
+                  ]
+                }
+              },
+              "required": [
+                "user_id",
+                "vibe_check_number",
+                "reactions",
+                "overall_impression"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "calculate_zones",
+            "description": "Calculate GREEN/YELLOW/ORANGE zones. Call once at end of conversation, before showing map.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": true,
+            "force_pre_tool_speech": true,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/calculate-zones",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user_id"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "show_map",
+            "description": "Display the zone map to the user. Call after calculate_zones returns.",
+            "response_timeout_secs": 5,
+            "disable_interruptions": true,
+            "force_pre_tool_speech": true,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/show-map",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "zones": {
+                  "type": "object"
+                },
+                "labels": {
+                  "type": "object"
+                },
+                "listing_counts": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "user_id"
+              ]
+            }
+          },
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "End the conversation gracefully.",
+            "response_timeout_secs": 5,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        ],
+        "knowledge_base": [],
+        "ignore_default_personality": false,
+        "rag": {
+          "enabled": false,
+          "embedding_model": "e5_mistral_7b_instruct",
+          "max_vector_distance": 0.6,
+          "max_documents_length": 50000,
+          "max_retrieved_rag_chunks_count": 20
+        },
+        "backup_llm_config": {
+          "preference": "default"
+        }
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "name": "extracted_budget",
+          "description": "Did the agent extract the user's budget?"
+        },
+        {
+          "name": "extracted_location",
+          "description": "Did the agent extract the user's preferred location/city?"
+        },
+        {
+          "name": "completed_vibe_check",
+          "description": "Did the agent complete the vibe-check with 3 properties?"
+        },
+        {
+          "name": "showed_map",
+          "description": "Did the agent show the zone map at the end?"
+        }
+      ]
+    },
+    "widget": {
+      "variant": "full",
+      "placement": "bottom-right",
+      "expandable": "never",
+      "avatar": {
+        "type": "orb",
+        "color1": "#6DB035",
+        "color2": "#F5CABB"
+      },
+      "feedback_mode": "during",
+      "bg_color": "#ffffff",
+      "text_color": "#000000",
+      "btn_color": "#000000",
+      "btn_text_color": "#ffffff",
+      "border_color": "#e1e1e1",
+      "focus_color": "#000000",
+      "show_avatar_when_collapsed": true,
+      "disable_banner": false,
+      "mic_muting_enabled": false,
+      "transcript_enabled": true,
+      "text_input_enabled": true,
+      "default_expanded": false,
+      "always_expanded": false,
+      "language_selector": true,
+      "supports_text_only": true
+    },
+    "data_collection": {},
+    "overrides": {
+      "conversation_config_override": {
+        "agent": {
+          "first_message": true,
+          "language": true,
+          "prompt": {
+            "prompt": false
+          }
+        }
+      }
+    },
+    "call_limits": {
+      "agent_concurrency_limit": -1,
+      "daily_limit": 100000,
+      "bursting_enabled": true
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 730,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false,
+      "zero_retention_mode": false
+    },
+    "safety": {
+      "is_blocked_ivc": false,
+      "is_blocked_non_ivc": false,
+      "ignore_safety_evaluation": false
+    }
+  },
+  "tags": [
+    "intake",
+    "renter",
+    "v3",
+    "vibe-check",
+    "zones"
+  ]
+}

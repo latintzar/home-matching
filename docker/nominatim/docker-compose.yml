@@ -1,0 +1,58 @@
+# Nominatim Self-Hosted Geocoder for Spain
+# 
+# Usage:
+#   cd docker/nominatim
+#   docker-compose up -d
+#
+# First run will download Spain OSM data (~1GB) and import (~2-3 hours)
+# After import, geocoding is instant (~20-50ms per query)
+#
+# API Endpoints (after startup):
+#   Search:  http://localhost:8080/search?q=Chamberí,Madrid&format=json
+#   Reverse: http://localhost:8080/reverse?lat=40.4168&lon=-3.7038&format=json
+
+version: '3.8'
+
+services:
+  nominatim:
+    image: mediagis/nominatim:4.4
+    container_name: nominatim-spain
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # Spain OSM extract (updated daily by Geofabrik)
+      PBF_URL: https://download.geofabrik.de/europe/spain-latest.osm.pbf
+      # Replication for daily updates (optional)
+      REPLICATION_URL: https://download.geofabrik.de/europe/spain-updates/
+      # Performance tuning
+      NOMINATIM_PASSWORD: ${NOMINATIM_PASSWORD:-nominatim}
+      THREADS: 4
+      # Import settings
+      IMPORT_WIKIPEDIA: false
+      IMPORT_TIGER_ADDRESSES: false
+    volumes:
+      # Persist the database (important! otherwise re-imports on restart)
+      - nominatim-data:/var/lib/postgresql/14/main
+      # Persist flatnode file for faster imports
+      - nominatim-flatnode:/nominatim/flatnode
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 300s  # 5 min startup grace period
+
+volumes:
+  nominatim-data:
+    driver: local
+  nominatim-flatnode:
+    driver: local
+

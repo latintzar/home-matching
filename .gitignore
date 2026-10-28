@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+downloads/
+
+# RAG Sources (large PDFs and data files - too heavy for git)
+RAG Sources/
+config/keys/
+
+# Data folder (large database files)
+/data
+
+# Large INE data files
+Random Files I Want To Give Cursor/INE Data/
+Random Files I Want To Give Cursor/
+mcp-send-email
+public/heatmap-demo/
+
+# Generated files in every workspace, including dependency symlinks.
+node_modules
+.next/
+__pycache__/
+*.py[cod]
+# Retain the reviewed starter type references.
+!starter/next-env.d.ts

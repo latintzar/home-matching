@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Leo Vibe Maps",
+  "version": "1.3.0",
+  "description": "See personalized vibe areas on Airbnb, Booking.com, Google Maps and other property sites",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.airbnb.com/*",
+    "*://*.airbnb.co.uk/*",
+    "*://*.airbnb.es/*",
+    "*://*.booking.com/*",
+    "*://*.google.com/*",
+    "*://maps.google.com/*",
+    "https://aiplatform.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.airbnb.com/s/*",
+        "*://*.airbnb.co.uk/s/*",
+        "*://*.airbnb.es/s/*",
+        "*://*.booking.com/searchresults*",
+        "*://*.google.com/maps",
+        "*://*.google.com/maps/*",
+        "*://maps.google.com/*"
+      ],
+      "js": ["content-script.js"],
+      "css": ["content-styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["heatmaps/*", "icons/*", "injected-script.js"],
+      "matches": ["*://*.airbnb.com/*", "*://*.airbnb.co.uk/*", "*://*.airbnb.es/*", "*://*.booking.com/*", "*://*.google.com/*", "*://maps.google.com/*"]
+    }
+  ]
+}

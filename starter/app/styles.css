@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {font-family:'Source Sans 3';font-style:normal;font-weight:200 900;font-display:swap;src:url('/fonts/SourceSans3-variable.ttf') format('truetype');}
+body {margin:0;font-family:'Source Sans 3',system-ui,sans-serif;}
+button:focus-visible,a:focus-visible {outline:3px solid #047857;outline-offset:3px;}
+button {font:inherit;}

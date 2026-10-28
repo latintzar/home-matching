@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #4285f4, #34a853);
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .header p {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    
+    .content {
+      padding: 16px;
+    }
+    
+    .list-name-section {
+      margin-bottom: 16px;
+    }
+    
+    .list-name-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #555;
+    }
+    
+    .list-name-section input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    .list-name-section input:focus {
+      border-color: #4285f4;
+    }
+    
+    .places-section {
+      margin-bottom: 16px;
+    }
+    
+    .places-section h3 {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .places-section h3 span {
+      background: #e8f0fe;
+      color: #4285f4;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+    
+    .places-list {
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .place-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 10px;
+    }
+    
+    .place-item:last-child {
+      border-bottom: none;
+    }
+    
+    .place-icon {
+      font-size: 18px;
+    }
+    
+    .place-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .place-name {
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .place-coords {
+      font-size: 10px;
+      color: #888;
+    }
+    
+    .place-remove {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      padding: 4px;
+      font-size: 16px;
+      line-height: 1;
+    }
+    
+    .place-remove:hover {
+      color: #ea4335;
+    }
+    
+    .add-place-btn {
+      width: 100%;
+      padding: 10px;
+      background: #f8f9fa;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      color: #666;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+    
+    .add-place-btn:hover {
+      background: #e8f0fe;
+      border-color: #4285f4;
+      color: #4285f4;
+    }
+    
+    .save-btn {
+      width: 100%;
+      padding: 14px;
+      background: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    
+    .save-btn:hover {
+      background: #3367d6;
+    }
+    
+    .save-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      text-align: center;
+      display: none;
+    }
+    
+    .status.show {
+      display: block;
+    }
+    
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    .status.progress {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 24px;
+      color: #888;
+    }
+    
+    .empty-state p {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    /* Add place modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    
+    .modal.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      max-width: 90%;
+    }
+    
+    .modal-content h3 {
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    
+    .modal-content input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .modal-buttons button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    
+    .modal-cancel {
+      background: #f0f0f0;
+      border: none;
+      color: #666;
+    }
+    
+    .modal-add {
+      background: #4285f4;
+      border: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📍 Maps List Saver</h1>
+    <p>Save places to Google Maps with one click</p>
+  </div>
+  
+  <div class="content">
+    <div class="list-name-section">
+      <label>List Name</label>
+      <input type="text" id="listName" placeholder="My Favorite Spots" value="My Saved Places">
+    </div>
+    
+    <div class="places-section">
+      <h3>Places to Save <span id="placeCount">0</span></h3>
+      <div class="places-list" id="placesList">
+        <div class="empty-state" id="emptyState">
+          <p>No places added yet</p>
+        </div>
+      </div>
+      <button class="add-place-btn" id="addPlaceBtn">+ Add a place</button>
+    </div>
+    
+    <button class="save-btn" id="saveBtn" disabled>
+      <span>💾</span> Save to Google Maps
+    </button>
+    
+    <div class="status" id="status"></div>
+  </div>
+  
+  <!-- Add Place Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <h3>Add a Place</h3>
+      <input type="text" id="placeName" placeholder="Place name (e.g., Central Park)">
+      <input type="text" id="placeAddress" placeholder="Address or coordinates (optional)">
+      <div class="modal-buttons">
+        <button class="modal-cancel" id="modalCancel">Cancel</button>
+        <button class="modal-add" id="modalAdd">Add Place</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

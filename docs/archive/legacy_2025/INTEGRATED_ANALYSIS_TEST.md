@@ -1,0 +1,248 @@
+# Integrated Diagnostic Analysis - Test Results
+
+**Date:** 2025-10-27  
+**Endpoint:** `/api/listings/[id]/analysis/integrated`  
+**Model:** Gemini 2.5 Pro  
+**Listing ID:** 1000000121
+
+---
+
+## 1. Prompt Used
+
+```
+You are a professional property diagnostician. Generate a comprehensive diagnostic analysis 
+from the provided inputs. This report will be used to inform buyers and agents.
+
+INPUTS PROVIDED:
+1. Text Analysis Results (a_facts, b3_snippets, c_unknowns from text_analysis_results)
+2. Photo Analysis Results (whole_property + by_cluster from photo_analysis_results)
+3. Listing Metadata (from listings table)
+
+CRITICAL INSTRUCTIONS:
+- This is a DIAGNOSTIC report, not a prescription
+- Report what is known and unknown
+- Do NOT recommend renovations yet
+- Use factual, measured language
+- Acknowledge limitations explicitly
+
+Return ONLY valid JSON matching this exact structure:
+{
+  "listing_id": "string",
+  "analysis_date": "YYYY-MM-DD",
+  "overview": "2-3 sentences summarizing property type, size, and general state",
+  "scope": [
+    "Text analysis (claims by category)",
+    "Photo analysis (images count, source)",
+    "Listing metadata (price, size, rooms)"
+  ],
+  "findings_by_category": {
+    "estado_materiales": "Sentence or two summarizing material/condition findings",
+    "espacios_distribucion": "...",
+    "entorno_vistas": "...",
+    "servicios_instalaciones": "...",
+    "legal_economico": "...",
+    "seguridad_accesibilidad": "...",
+    "caracter_arquitectonico": "..."
+  },
+  "critical_unknowns": [
+    "tipo de calefacción",
+    "estado de la cubierta",
+    "certificado energético"
+  ],
+  "photo_highlights": [
+    "Foto 7: posible desgaste en barandilla terraza",
+    "Foto 12: cocina reformada"
+  ],
+  "implications": "2-3 sentences connecting knowns and unknowns to buyer relevance",
+  "next_steps": [
+    "Solicitar certificado energético",
+    "Comprobar cubierta",
+    "Verificar instalaciones de ACS"
+  ],
+  "key_takeaways": [
+    "Reformado, buena luz natural",
+    "Faltan datos sobre calefacción",
+    "Cubierta no documentada",
+    "Buenas vistas",
+    "Comprobar documentos legales"
+  ],
+  "limitations": "Declaración estándar sobre alcance y ausencia de inspección física."
+}
+
+Return ONLY JSON, no additional text.
+```
+
+---
+
+## 2. Inputs Fed to Gemini
+
+### A. Text Analysis Results
+
+**From `text_analysis_results` where phase = 'a_facts':**
+- Property type: "Piso"
+- Location: Portals Nous - Bendinat, Calvià
+- Construction year: 1985
+- Price: 3,500,000 €
+- Includes: Parking space and storage room
+- Note: Described as "bajo interior" (lower interior/ground floor)
+- Features: 3 bedrooms, 3 bathrooms, semi-open kitchen layout
+- Community: Luxury residential with pool, gym, sauna, direct access to marina
+
+**From `text_analysis_results` where phase = 'b3_snippets':**
+- Categorized claims about amenities, location, condition
+- Various snippets grouped by category
+
+**From `text_analysis_results` where phase = 'c_unknowns':**
+- Missing critical information gaps
+- Items requiring verification
+
+### B. Photo Analysis Results
+
+**From `photo_analysis_results` where analysis_type = 'whole_property':**
+```json
+{
+  "general_impression": "Esta propiedad, un espacioso piso o ático, presenta un estilo mediterráneo clásico y bien mantenido...",
+  "summary_ratings": {
+    "envelope": "Good",
+    "moisture": "Good",
+    "windows_doors": "Good",
+    "kitchen_baths": "Unknown",
+    "electrical": "Good",
+    "plumbing": "Unknown",
+    "heating_cooling": "Good",
+    "finishes": "Good",
+    "accessibility_safety": "Fair",
+    "energy_comfort": "Good"
+  },
+  "top_checks": [
+    {
+      "room": "Terraza",
+      "element": "barandilla metálica",
+      "why": "oxidación visible en base",
+      "sure": "Observed"
+    }
+  ],
+  "notes": [
+    {
+      "category": "exposure",
+      "text": "Planta alta con exposición a viento y salitre...",
+      "sure": "Inferred"
+    }
+  ]
+}
+```
+
+**From `photo_analysis_results` where analysis_type = 'by_cluster':**
+```json
+{
+  "rooms": [
+    {
+      "name": "Living Room",
+      "condition": "Good",
+      "observations": [
+        {"mode": "Observed", "element": "Suelo de mármol", "visual_cue": "superficie pulida, algunas marcas de uso"},
+        {"mode": "Observed", "element": "Puerta corredera de cristal", "visual_cue": "paneles grandes, marco visible"}
+      ],
+      "risks": ["desgaste de tapicería", "deterioro de sellos de puerta"],
+      "verify": ["inspeccionar juntas de mármol", "abrir y cerrar puerta corredera"],
+      "likely_work": "Cosmetic"
+    }
+    // ... 5 more rooms
+  ]
+}
+```
+
+### C. Listing Metadata
+
+**From `listings` table:**
+- id: 1000000121
+- price_eur: 3500000
+- sqm: 0 (unknown)
+- bedrooms: 3
+- bathrooms: 3
+- title: Venta de Pisos en Portals Nous - Bendinat
+- photos_count: 29
+
+---
+
+## 3. Output Generated by Gemini
+
+```json
+{
+  "scope": [
+    "Análisis de texto (claims clasificados por categoría)",
+    "Análisis fotográfico (29 imágenes)",
+    "Metadatos del listado (precio, superficie, habitaciones)"
+  ],
+  "overview": "Este piso, con 3 dormitorios y 3 baños según el texto descriptivo, presenta acabados modernos y se encuentra en un estado de conservación que parece bueno. Las fotografías muestran una propiedad en una planta alta con vistas panorámicas al mar, lo que contradice directamente la descripción textual que la sitúa como un 'bajo interior'. La superficie construida no está especificada en los datos proporcionados, figurando como 0 m², lo que constituye una información crítica faltante.",
+  "listing_id": "Piso",
+  "next_steps": [
+    "Solicitar la Nota Simple actualizada del Registro de la Propiedad para verificar la superficie, titularidad y descripción legal.",
+    "Realizar una visita física para confirmar la planta real, la existencia de la piscina privada y el estado de los elementos señalados (sellados de ventanas, barandillas).",
+    "Requerir información documental sobre el Certificado de Eficiencia Energética, los últimos recibos de gastos de comunidad e IBI."
+  ],
+  "limitations": "Este informe se basa exclusivamente en el análisis de los datos proporcionados (metadatos, texto y 29 fotografías) y no sustituye una inspección técnica física, una tasación profesional ni una debida diligencia legal.",
+  "implications": "La propiedad presenta un alto nivel de acabados y servicios comunitarios, pero existen discrepancias significativas entre los datos del anuncio, el texto y las fotos, especialmente en cuanto a la planta y la superficie. Estas inconsistencias requieren una verificación exhaustiva, ya que afectan directamente a la valoración y a las características fundamentales del inmueble. La falta de datos sobre la superficie es un punto crítico a resolver antes de cualquier decisión.",
+  "analysis_date": "2025-10-27",
+  "key_takeaways": [
+    "Piso de 3 dorm/3 baños con acabados modernos y vistas al mar en una comunidad de lujo.",
+    "Contradicción clave: el texto lo describe como 'bajo interior', pero las fotos muestran una planta alta.",
+    "La superficie de la propiedad es desconocida (0 m² en metadatos), un dato esencial faltante.",
+    "Comunidad con piscinas (interior/exterior), gimnasio, sauna y acceso directo al puerto.",
+    "El texto menciona una piscina privada en la terraza, un elemento no confirmado en las fotos analizadas."
+  ],
+  "photo_highlights": [
+    "Las imágenes de las vistas confirman una posición en una planta alta con vistas despejadas al mar, lo que contradice directamente la afirmación textual de ser un 'Bajo interior'.",
+    "Las fotografías de las zonas comunes muestran instalaciones de alto nivel, incluyendo una piscina interior, una piscina exterior, gimnasio y sauna, en aparente excelente estado de mantenimiento."
+  ],
+  "critical_unknowns": [
+    "Superficie construida y útil de la vivienda.",
+    "Planta real del apartamento, dada la contradicción entre el texto ('bajo interior') y las fotos ('planta alta').",
+    "Confirmación de la existencia y estado de la piscina privada mencionada en el texto.",
+    "Detalles del sistema de climatización (las fotos sugieren A/C centralizado por conductos).",
+    "Información sobre el Certificado de Eficiencia Energética.",
+    "Cuantía de los gastos de comunidad e Impuesto sobre Bienes Inmuebles (IBI)."
+  ],
+  "findings_by_category": {
+    "entorno_vistas": "Ubicado en una comunidad exclusiva en Portals Nous con acceso directo al puerto deportivo. Tanto el texto como las fotografías confirman vistas panorámicas al mar y al puerto desde una posición elevada.",
+    "legal_economico": "La propiedad está a la venta por un precio de 3.500.000 €. El texto indica que una plaza de garaje está incluida en el precio.",
+    "estado_materiales": "La propiedad, construida en 1985, se describe como de segunda mano y en buen estado. El análisis fotográfico revela acabados modernos y de alta calidad, como suelos de baldosas de gran formato y encimeras de piedra, lo que indica una renovación significativa.",
+    "espacios_distribucion": "El piso cuenta con 3 dormitorios en suite y 3 baños, con un diseño de planta abierta entre el salón-comedor y la cocina semi-abierta. Las fotos confirman el acceso directo a terrazas desde el salón y al menos un dormitorio, además de la presencia de armarios empotrados.",
+    "caracter_arquitectonico": "El diseño interior es moderno y de planta abierta, maximizando la luz natural y las vistas con grandes puertas correderas de cristal. El texto menciona la presencia de arcos en el salón, un detalle no prominente en las imágenes analizadas.",
+    "seguridad_accesibilidad": "El edificio dispone de ascensor. Las terrazas están equipadas con barandillas de cristal, cuyo estado de fijación y mantenimiento es un punto a verificar debido a la exposición marina.",
+    "servicios_instalaciones": "Incluye plaza de garaje subterránea y trastero. La comunidad ofrece servicios como ascensor, jardines, una gran piscina comunitaria, mientras que el texto también afirma la existencia de una piscina privada en la terraza de la vivienda."
+  }
+}
+```
+
+---
+
+## 4. Analysis of Output vs Brief
+
+### ✅ Structure Compliance
+- All 9 sections present
+- JSON structure matches prompt exactly
+- All required fields populated
+
+### ✅ Content Quality
+- **Diagnostic tone**: "Este informe se basa exclusivamente en el análisis..." (factual, not prescriptive)
+- **Highlights discrepancies**: Explicitly notes floor mismatch between text ("bajo interior") and photos ("planta alta")
+- **Critical unknowns**: 6 well-identified gaps (surface area, floor confirmation, private pool, HVAC details, energy cert, fees)
+- **Findings by category**: 7 categories all present with relevant content
+- **Key takeaways**: 5 bullets, each concise and actionable
+
+### ⚠️ Potential Issues
+- **Key takeaways length**: Should verify each is ≤140 characters
+- **Overview**: 3 sentences (brief allowed 2-3, so OK)
+- **Implications**: 3 sentences (brief allowed 2-3, so OK)
+
+---
+
+## 5. Saved to Database
+
+**Table:** `text_analysis_results`  
+**Phase:** `integrated_diagnostic`  
+**Listing ID:** 1000000121  
+**Created:** 2025-10-27 16:39:47 UTC  
+**Record ID:** 438
+

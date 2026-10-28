@@ -1,0 +1,16 @@
+{
+  "name": "leo-vibe-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "content-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "canvas": "^3.2.0",
+    "playwright": "^1.57.0"
+  }
+}

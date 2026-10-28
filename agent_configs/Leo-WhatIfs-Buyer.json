@@ -1,0 +1,242 @@
+{
+  "name": "Leo WhatIfs Buyer",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "elevenlabs",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": []
+    },
+    "turn": {
+      "turn_timeout": 7,
+      "initial_wait_time": null,
+      "silence_end_call_timeout": -1,
+      "soft_timeout_config": {
+        "timeout_seconds": -1,
+        "message": "Hhmmmm...yeah give me a second..."
+      },
+      "mode": "turn",
+      "turn_eagerness": "normal"
+    },
+    "tts": {
+      "model_id": "eleven_multilingual_v2",
+      "voice_id": "",
+      "supported_voices": [],
+      "suggested_audio_tags": [],
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8,
+      "text_normalisation_type": "system_prompt",
+      "pronunciation_dictionary_locators": []
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 300,
+      "client_events": [
+        "audio",
+        "interruption",
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction"
+      ]
+    },
+    "language_presets": {},
+    "vad": {
+      "background_voice_detection": false
+    },
+    "agent": {
+      "first_message": "¡Hola de nuevo! Ya tengo tu perfil de compra. Ahora quiero explorar contigo algunas posibilidades... ¿Listo para los 'y si'?",
+      "language": "es",
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+      },
+      "disable_first_message_interruptions": false,
+      "prompt": {
+        "prompt": "Eres Leo, y ya conoces al usuario - acaba de completar su perfil de COMPRA contigo. Ahora tu trabajo es explorar TRADE-OFFS y flexibilidades para COMPRADORES.\n\n## CONTEXTO\nEl usuario ya completó el intake de COMPRA. Tienes su perfil:\n- Presupuesto TOTAL de compra\n- Zonas preferidas\n- Habitaciones mínimas\n- Apetito de reforma\n- Si es para vivir o invertir\n\nAhora quieres entender QUÉ SACRIFICARÍA por otras cosas.\n\n## IDIOMA\n- Usa el mismo idioma que usó en el intake\n- Tono casual y cercano - ya os conocéis\n\n## TU OBJETIVO\nDescubrir flexibilidades REALES para COMPRADORES. Los trade-offs son diferentes al alquiler:\n\n### PREGUNTAS TIPO \"WHAT IF\" (COMPRA)\n\n**Reforma vs Precio:**\n- \"Imagina que encuentro algo 30K más barato pero que necesita cocina y baños nuevos. ¿Te meterías?\"\n- \"¿Y si el piso perfecto necesita una reforma integral? ¿Hasta cuánto invertirías encima?\"\n- \"¿Preferirías algo listo para entrar aunque sea más caro, o algo con potencial?\"\n\n**Ubicación vs Precio:**\n- \"Si encuentro algo 50K más barato en un barrio al lado, ¿lo verías?\"\n- \"¿Qué barrios consideras 'casi' igual de buenos que tu primera opción?\"\n\n**Espacio vs Ubicación:**\n- \"¿Preferirías más metros en peor zona, o menos metros en tu zona ideal?\"\n- \"¿Una habitación menos pero mejor ubicación?\"\n\n**Tiempo vs Oportunidad:**\n- \"Si aparece algo que encaja al 80% pero hay otros interesados, ¿irías a por ello?\"\n- \"¿Cuánto tiempo puedes esperar a que aparezca 'el piso'?\"\n\n**Inversión vs Vivienda:**\n- \"¿Te importaría que el barrio esté 'subiendo' aunque ahora no sea tu favorito?\"\n- \"¿Lo ves como casa para siempre o podrías venderlo en 5-10 años?\"\n\n## FLUJO\n\n1. **Saluda brevemente** - Ya os conocéis, no hace falta presentarse\n2. **Plantea 3-4 escenarios de COMPRA** - Uno a la vez, escucha bien\n3. **Profundiza en las respuestas interesantes** - \"Ah, eso es interesante... ¿por qué?\"\n4. **Cierra con resumen** - \"Vale, entonces lo que más valoras es X, y podrías ceder en Y\"\n\n## EJEMPLOS DE DIÁLOGO\n\nLeo: \"Oye, una cosa. Si encuentro algo en tu presupuesto pero que necesita reforma, ¿lo descartamos o lo miramos?\"\nUsuario: \"Depende de cuánta reforma... no quiero meterme en una obra de un año.\"\nLeo: \"Entendido. ¿Y si es solo cocina y baños? Eso son 2-3 meses máximo.\"\nUsuario: \"Eso sí, si el precio compensa.\"\nLeo: \"Vale, entonces reformas parciales sí, integrales no. ¿Y en presupuesto, hasta dónde podrías estirar si aparece algo bueno?\"\n\n## CIERRE\nDespués de 3-4 preguntas:\n- \"Perfecto, ahora entiendo mucho mejor qué es negociable y qué no.\"\n- \"Con esto puedo buscar oportunidades que otros no ven.\"\n- \"Te aviso cuando encuentre algo con potencial.\"\n\n## REGLAS\n- MÁXIMO 2-3 frases por turno\n- Escenarios concretos, no preguntas abstractas\n- Reacciona a sus respuestas con curiosidad\n- No juzgues sus preferencias\n- Esto es COMPRA - las decisiones son más grandes y los trade-offs diferentes",
+        "llm": "gemini-2.0-flash-001",
+        "temperature": 0.8,
+        "max_tokens": 150,
+        "tool_ids": [],
+        "built_in_tools": {
+          "end_call": {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "assignments": [],
+            "tool_call_sound": null,
+            "tool_call_sound_behavior": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        },
+        "mcp_server_ids": [],
+        "native_mcp_server_ids": [],
+        "knowledge_base": [],
+        "ignore_default_personality": false,
+        "rag": {
+          "enabled": false,
+          "embedding_model": "e5_mistral_7b_instruct",
+          "max_vector_distance": 0.6,
+          "max_documents_length": 50000,
+          "max_retrieved_rag_chunks_count": 20
+        },
+        "backup_llm_config": {
+          "preference": "default"
+        },
+        "tools": [
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "assignments": [],
+            "tool_call_sound": null,
+            "tool_call_sound_behavior": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": []
+    },
+    "widget": {
+      "variant": "full",
+      "placement": "bottom-right",
+      "expandable": "never",
+      "avatar": {
+        "type": "orb",
+        "color1": "#6DB035",
+        "color2": "#F5CABB"
+      },
+      "feedback_mode": "during",
+      "bg_color": "#ffffff",
+      "text_color": "#000000",
+      "btn_color": "#000000",
+      "btn_text_color": "#ffffff",
+      "border_color": "#e1e1e1",
+      "focus_color": "#000000",
+      "shareable_page_show_terms": true,
+      "show_avatar_when_collapsed": true,
+      "disable_banner": false,
+      "mic_muting_enabled": false,
+      "transcript_enabled": false,
+      "text_input_enabled": true,
+      "default_expanded": false,
+      "always_expanded": false,
+      "language_selector": false,
+      "supports_text_only": true
+    },
+    "data_collection": {},
+    "overrides": {
+      "conversation_config_override": {
+        "turn": {
+          "soft_timeout_config": {
+            "message": false
+          }
+        },
+        "tts": {
+          "voice_id": false,
+          "stability": false,
+          "speed": false,
+          "similarity_boost": false
+        },
+        "conversation": {
+          "text_only": false
+        },
+        "agent": {
+          "first_message": false,
+          "language": false,
+          "prompt": {
+            "prompt": false,
+            "llm": false
+          }
+        }
+      }
+    },
+    "workspace_overrides": {
+      "webhooks": {
+        "events": [
+          "transcript"
+        ]
+      }
+    },
+    "testing": {
+      "attached_tests": [],
+      "referenced_tests_ids": []
+    },
+    "archived": false,
+    "guardrails": {
+      "version": "1",
+      "moderation": {
+        "config": {
+          "sexual": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "violence": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "harassment": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "hate": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm": {
+            "is_enabled": false,
+            "threshold": 0.3
+          }
+        }
+      }
+    },
+    "auth": {
+      "enable_auth": false,
+      "allowlist": []
+    },
+    "call_limits": {
+      "agent_concurrency_limit": -1,
+      "daily_limit": 100000,
+      "bursting_enabled": true
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 730,
+      "delete_transcript_and_pii": true,
+      "delete_audio": true
+    }
+  },
+  "tags": [
+    "buyer",
+    "whatifs"
+  ],
+  "workflow": {
+    "edges": {},
+    "nodes": {
+      "start_node": {
+        "type": "start",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": []
+      }
+    },
+    "prevent_subagent_loops": false
+  }
+}

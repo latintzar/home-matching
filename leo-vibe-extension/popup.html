@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leo Vibe Maps</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 300px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #ffffff;
+      color: #1c1917;
+    }
+
+    .header {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .header .icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .header p {
+      font-size: 11px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #f9fafb;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+      flex-shrink: 0;
+    }
+
+    .status-dot.active {
+      background: #22c55e;
+    }
+
+    .status-dot.pending {
+      background: #f59e0b;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-text {
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    /* Premium Section */
+    .premium-section {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .premium-badge {
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+
+    .premium-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 8px;
+    }
+
+    .premium-section textarea {
+      width: 100%;
+      height: 60px;
+      padding: 10px;
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: inherit;
+      resize: none;
+      background: white;
+    }
+
+    .premium-section textarea:focus {
+      outline: none;
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+    }
+
+    .premium-section textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .generate-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 14px 0;
+      color: #9ca3af;
+      font-size: 11px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .divider::before {
+      margin-right: 10px;
+    }
+
+    .divider::after {
+      margin-left: 10px;
+    }
+
+    /* Default button */
+    .activate-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .activate-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .activate-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .activate-btn.active {
+      background: #22c55e;
+    }
+
+    .info {
+      margin-top: 14px;
+      padding: 10px 12px;
+      background: #f0f9ff;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #0369a1;
+      line-height: 1.4;
+    }
+
+    .error-msg {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #fef2f2;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #dc2626;
+      line-height: 1.4;
+      display: none;
+    }
+
+    .footer {
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .not-supported {
+      text-align: center;
+      padding: 20px;
+      color: #6b7280;
+    }
+
+    .not-supported .icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .not-supported p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon">🗺️</div>
+    <h1>Leo Vibe Maps</h1>
+    <p>Discover neighborhood vibes</p>
+  </div>
+
+  <div class="content" id="mainContent">
+    <div class="status-row">
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">Checking...</span>
+    </div>
+
+    <!-- Premium Section -->
+    <div class="premium-section">
+      <div class="premium-badge">✨ Premium</div>
+      <label for="tripInput">What's your trip about?</label>
+      <textarea 
+        id="tripInput" 
+        placeholder="e.g., Romantic weekend with rooftop dinners and beach walks..."
+      ></textarea>
+      <button class="generate-btn" id="generateBtn">
+        <span id="generateBtnText">🎯 Generate Custom Areas</span>
+        <div class="spinner" id="generateSpinner" style="display: none;"></div>
+      </button>
+    </div>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <div class="divider">or use defaults</div>
+
+    <button class="activate-btn" id="activateBtn">
+      🗺️ Show Barcelona Areas
+    </button>
+
+    <div class="info" id="infoBox">
+      Hover over circles for info, click to zoom in!
+    </div>
+  </div>
+
+  <div class="not-supported" id="notSupported" style="display: none;">
+    <div class="icon">🔍</div>
+    <p>Navigate to an Airbnb or Booking.com search page to use Leo Vibe Maps</p>
+  </div>
+
+  <div class="footer">
+    Powered by Leo Casa
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

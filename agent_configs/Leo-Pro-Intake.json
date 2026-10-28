@@ -1,0 +1,297 @@
+{
+  "name": "Leo Pro Intake",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "elevenlabs",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": []
+    },
+    "turn": {
+      "turn_timeout": 7,
+      "initial_wait_time": null,
+      "silence_end_call_timeout": -1,
+      "soft_timeout_config": {
+        "timeout_seconds": -1,
+        "message": "Hhmmmm...yeah give me a second..."
+      },
+      "mode": "turn",
+      "turn_eagerness": "normal"
+    },
+    "tts": {
+      "model_id": "eleven_multilingual_v2",
+      "voice_id": "",
+      "supported_voices": [],
+      "suggested_audio_tags": [],
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8,
+      "text_normalisation_type": "system_prompt",
+      "pronunciation_dictionary_locators": []
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 420,
+      "client_events": [
+        "audio",
+        "interruption",
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction"
+      ]
+    },
+    "language_presets": {},
+    "vad": {
+      "background_voice_detection": false
+    },
+    "agent": {
+      "first_message": "¡Hola! Soy Leo. Vamos a crear el perfil de tu cliente. Cuéntame, ¿qué tipo de búsqueda es? ¿Alquiler o compra? ¿Y quién es el cliente?",
+      "language": "es",
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {}
+      },
+      "disable_first_message_interruptions": false,
+      "prompt": {
+        "prompt": "Eres Leo, un asistente para personal shoppers inmobiliarios y agentes de relocación. Estás hablando con un PROFESIONAL que conoce bien a su cliente y tiene experiencia en el mercado.\n\n## TU ROL\n- Eres un COLABORADOR, no un entrevistador\n- El profesional es el EXPERTO - tiene experiencia con clientes similares\n- Tu trabajo es estructurar la información y aportar datos del mercado\n- Valoras su intuición y experiencia profesional\n\n## IDIOMA\n- Detecta el idioma del profesional desde su primer mensaje\n- Responde en el mismo idioma (español o inglés)\n- Usa \"tú\" en español (entre colegas)\n- Tono profesional pero cercano\n\n## CÓMO HABLAS\n- Directo y eficiente - respetas su tiempo\n- Colaborativo - \"¿qué opinas?\", \"¿cómo lo ves?\"\n- Reconoces su expertise - \"con tu experiencia...\"\n- Sin rodeos innecesarios\n\n## LO QUE NECESITAS SABER (sobre EL CLIENTE)\n1. ¿Quién es el cliente? (familia, pareja, individual)\n2. ¿Qué tipo de búsqueda? (compra/alquiler)\n3. ¿Presupuesto del cliente?\n4. ¿Zonas de interés?\n5. ¿Situación laboral/commute?\n6. ¿Dealbreakers que conozcas?\n7. ¿Qué prioriza más: ubicación, espacio, precio?\n\n## FLUJO DE CONVERSACIÓN\n\n### FASE 1: BRIEFING RÁPIDO (1-2 minutos)\n- Pregunta sobre el cliente de forma directa\n- \"¿Qué presupuesto manejan?\"\n- \"¿Qué zonas han mencionado?\"\n- El pro ya sabe estas cosas - no hay que descubrirlas\n\n### FASE 2: CHECK DE DISPONIBILIDAD\nCuando tengas presupuesto + ubicación:\n- Di: \"Vale, déjame ver qué hay en el mercado para este perfil...\"\n- Llama a check_availability\n- Espera la respuesta\n\n### FASE 3: DISCUSIÓN ESTRATÉGICA (según respuesta)\n\nSI hasEnough = true (10+ opciones):\n- \"Hay [count] opciones en esa zona y presupuesto.\"\n- \"Con tu experiencia, ¿qué tipo de propiedades crees que les encajan mejor?\"\n- \"¿Prefieres que te las mande a ti primero o directamente al cliente?\"\n- Recoge email/WhatsApp del pro o del cliente\n- Cierra: \"Perfecto, te mando el shortlist inicial.\"\n\nSI hasEnough = false (pocas opciones):\n- \"Solo hay [count] opciones exactas ahora mismo.\"\n- \"Basándote en tu experiencia con este tipo de cliente...\"\n- USA las sugerencias de flexibilityAnalysis pero PREGÚNTALE AL PRO:\n  - En vez de \"¿Podrían estirar presupuesto?\" → \"¿Crees que podrían estirar a €X?\"\n  - En vez de \"¿Considerarían Malasaña?\" → \"¿Les encajaría Malasaña? Está al lado.\"\n  - En vez de \"¿Funcionaría con 1 hab?\" → \"¿Qué mínimo de habitaciones ves realista?\"\n- Pregunta 2-3 flexibilidades, una a la vez\n- \"Con eso amplío bastante el radar. ¿A quién le mando las opciones?\"\n\n## PREGUNTAS DE FLEXIBILIDAD (versión PRO)\n\nLas sugerencias de flexibilityAnalysis vienen con question_es y question_en.\nPERO tú las reformulas para preguntar al PRO sobre su cliente:\n\n| Sugerencia Original | Cómo Preguntas al Pro |\n|---------------------|----------------------|\n| \"¿Podrías estirar a €X?\" | \"¿Crees que tu cliente podría estirar a €X?\" |\n| \"¿Considerarías [barrio]?\" | \"¿Les encajaría [barrio]? ¿Qué opinas?\" |\n| \"¿Funcionaría con X habs?\" | \"¿Qué mínimo de habitaciones ves viable?\" |\n| \"¿Y si el commute fuera X min más?\" | \"¿Cuánto commute crees que aguantarían?\" |\n\n## EJEMPLOS DE DIÁLOGO\n\nPro: \"Es una familia, pareja con dos niños. Alquiler.\"\nLeo: \"Vale, familia con niños. ¿Qué presupuesto manejan para el alquiler?\"\n\nPro: \"Sobre 1.500, pero tienen algo de margen.\"\nLeo: \"Entendido. ¿Y zonas? ¿Han mencionado preferencias?\"\n\nPro: \"Les gusta Chamberí, los niños van al cole ahí.\"\nLeo: \"Perfecto, déjame ver qué hay... [check_availability]\"\nLeo: \"Hay 6 opciones en Chamberí a ese precio. No es mucho.\"\nLeo: \"Con tu experiencia, ¿crees que considerarían Trafalgar o Alonso Martínez? Están cerca del cole.\"\n\nPro: \"Trafalgar sí, Alonso Martínez les queda más lejos para el día a día.\"\nLeo: \"Vale, añado Trafalgar. ¿Y en presupuesto, hasta dónde podrían llegar si aparece algo bueno?\"\n\nPro: \"Creo que hasta 1.700 si merece la pena.\"\nLeo: \"Genial, con eso tengo mucho mejor panorama. ¿Te mando las opciones a ti o prefieres que le lleguen al cliente directamente?\"\n\n## CIERRE\n- Siempre pregunta a QUIÉN mandar las propiedades\n- Opciones: al pro, al cliente, o a ambos\n- Recoge email o WhatsApp según prefiera\n- \"Te aviso cuando tenga el shortlist listo.\"\n\n## REGLAS IMPORTANTES\n- MÁXIMO 2-3 frases por turno\n- El pro SABE - no descubres, CONFIRMAS\n- Respeta su tiempo - sé eficiente\n- Trata las sugerencias de flexibilidad como DISCUSIÓN, no interrogatorio\n- Valora su opinión profesional en cada respuesta",
+        "llm": "gemini-2.0-flash-001",
+        "temperature": 0.7,
+        "max_tokens": 150,
+        "tool_ids": [
+          "tool_3201kbhyg13zeb6v58axd499faf3",
+          "tool_5501kbhyg1bte2ete5kc7e3zz1ex"
+        ],
+        "built_in_tools": {
+          "end_call": {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "assignments": [],
+            "tool_call_sound": null,
+            "tool_call_sound_behavior": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        },
+        "mcp_server_ids": [],
+        "native_mcp_server_ids": [],
+        "knowledge_base": [],
+        "ignore_default_personality": false,
+        "rag": {
+          "enabled": false,
+          "embedding_model": "e5_mistral_7b_instruct",
+          "max_vector_distance": 0.6,
+          "max_documents_length": 50000,
+          "max_retrieved_rag_chunks_count": 20
+        },
+        "backup_llm_config": {
+          "preference": "default"
+        },
+        "tools": [
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "force_pre_tool_speech": false,
+            "assignments": [],
+            "tool_call_sound": null,
+            "tool_call_sound_behavior": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": []
+    },
+    "widget": {
+      "variant": "full",
+      "placement": "bottom-right",
+      "expandable": "never",
+      "avatar": {
+        "type": "orb",
+        "color1": "#2563EB",
+        "color2": "#6DB035"
+      },
+      "feedback_mode": "during",
+      "end_feedback": {
+        "type": "rating"
+      },
+      "bg_color": "#ffffff",
+      "text_color": "#000000",
+      "btn_color": "#2563EB",
+      "btn_text_color": "#ffffff",
+      "border_color": "#e1e1e1",
+      "focus_color": "#2563EB",
+      "shareable_page_show_terms": true,
+      "terms_text": "#### Terms and conditions\n\nBy clicking \"Agree,\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.",
+      "terms_html": "<h4>Terms and conditions</h4>\n<p>By clicking &quot;Agree,&quot; and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.</p>\n",
+      "show_avatar_when_collapsed": true,
+      "disable_banner": false,
+      "mic_muting_enabled": false,
+      "transcript_enabled": false,
+      "text_input_enabled": true,
+      "default_expanded": false,
+      "always_expanded": false,
+      "text_contents": {
+        "initiate_feedback": null,
+        "request_follow_up_feedback": null,
+        "thanks_for_feedback": null,
+        "thanks_for_feedback_details": null,
+        "follow_up_feedback_placeholder": null,
+        "submit": null,
+        "go_back": null
+      },
+      "styles": {},
+      "language_selector": false,
+      "supports_text_only": true,
+      "language_presets": {}
+    },
+    "data_collection": {},
+    "overrides": {
+      "conversation_config_override": {
+        "turn": {
+          "soft_timeout_config": {
+            "message": false
+          }
+        },
+        "tts": {
+          "voice_id": false,
+          "stability": false,
+          "speed": false,
+          "similarity_boost": false
+        },
+        "conversation": {
+          "text_only": false
+        },
+        "agent": {
+          "first_message": false,
+          "language": false,
+          "prompt": {
+            "prompt": false,
+            "llm": false,
+            "native_mcp_server_ids": false
+          }
+        }
+      },
+      "custom_llm_extra_body": false,
+      "enable_conversation_initiation_client_data_from_webhook": false
+    },
+    "workspace_overrides": {
+      "webhooks": {
+        "events": [
+          "transcript"
+        ]
+      }
+    },
+    "testing": {
+      "attached_tests": [],
+      "referenced_tests_ids": []
+    },
+    "archived": false,
+    "guardrails": {
+      "version": "1",
+      "moderation": {
+        "config": {
+          "sexual": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "violence": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "violence_graphic": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "harassment": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "harassment_threatening": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "hate": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "hate_threatening": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm_instructions": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "self_harm_intent": {
+            "is_enabled": false,
+            "threshold": 0.3
+          },
+          "sexual_minors": {
+            "is_enabled": false,
+            "threshold": 0.3
+          }
+        }
+      }
+    },
+    "auth": {
+      "enable_auth": false,
+      "allowlist": []
+    },
+    "call_limits": {
+      "agent_concurrency_limit": -1,
+      "daily_limit": 100000,
+      "bursting_enabled": true
+    },
+    "ban": null,
+    "privacy": {
+      "record_voice": true,
+      "retention_days": 730,
+      "delete_transcript_and_pii": true,
+      "delete_audio": true,
+      "apply_to_existing_conversations": false,
+      "zero_retention_mode": false
+    },
+    "safety": {
+      "is_blocked_ivc": false,
+      "is_blocked_non_ivc": false,
+      "ignore_safety_evaluation": false
+    }
+  },
+  "tags": [
+    "pro",
+    "personal-shopper",
+    "relocation"
+  ],
+  "workflow": {
+    "edges": {},
+    "nodes": {
+      "start_node": {
+        "type": "start",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": []
+      }
+    },
+    "prevent_subagent_loops": false
+  }
+}

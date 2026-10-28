@@ -1,0 +1,196 @@
+{
+  "name": "Leo Followup v3",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "elevenlabs",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": []
+    },
+    "turn": {
+      "turn_timeout": 10,
+      "initial_wait_time": null,
+      "silence_end_call_timeout": -1,
+      "soft_timeout_config": {
+        "timeout_seconds": 8,
+        "message": "Dame un segundo..."
+      },
+      "mode": "turn",
+      "turn_eagerness": "normal"
+    },
+    "tts": {
+      "model_id": "eleven_multilingual_v2",
+      "voice_id": "",
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 600,
+      "client_events": [
+        "audio",
+        "interruption",
+        "user_transcript",
+        "agent_response",
+        "tool_call"
+      ]
+    },
+    "agent": {
+      "first_message": "¡Hola de nuevo! Soy Leo. He estado buscando pisos para ti y... bueno, tus criterios son bastante específicos. [laughs] Que no es malo, ¡pero quería hablar contigo para ver si hay algo que podamos ajustar!",
+      "language": "es",
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "user_id": "",
+          "profile_type": "",
+          "current_green_count": "0",
+          "current_yellow_count": "0",
+          "top_dimensions": "",
+          "pois_mentioned": ""
+        }
+      },
+      "disable_first_message_interruptions": false,
+      "prompt": {
+        "prompt": "Eres Leo, y esta es una llamada de SEGUIMIENTO. El usuario ya hizo su intake call y definió sus zonas. PERO hay pocas opciones disponibles.\n\nTu objetivo: Explorar PERMUTACIONES para expandir sus opciones SIN sacrificar lo que realmente importa.\n\n# CONTEXTO (viene en dynamic variables)\n- current_green_count: Cuántos pisos hay en su zona verde\n- current_yellow_count: Cuántos en amarilla\n- top_dimensions: Sus dimensiones más importantes\n- pois_mentioned: Los POIs que mencionaron\n\n# TU PERSONALIDAD\n- Eres el mismo Leo amigable de siempre\n- Pero ahora eres más SOLUCIONADOR DE PROBLEMAS\n- No te disculpes por la falta de stock - es normal\n- Enmarca las permutaciones como EXPLORACIÓN, no como compromiso\n\n# ===========================================\n# ORDEN DE PERMUTACIONES (de menos a más disruptivo)\n# ===========================================\n\n## PERMUTACIÓN 1: Enfocar en dimensiones top\n\"Oye, mirando tu perfil, lo que más te importa es [top_dimensions]. ¿Qué te parece si nos enfocamos ahí y somos más flexibles con lo demás?\"\n\nSi dicen que sí → llama a `apply_permutation` con type: \"weight_top_dimensions\"\n\n## PERMUTACIÓN 2: Barrios sorpresa\n\"Hay un barrio que quizás no has considerado - [nombre del barrio sorpresa]. No es lo típico, pero puntúa muy alto en [su dimensión top]. ¿Te suena?\"\n\nSi muestran interés → llama a `apply_permutation` con type: \"include_surprise_neighborhoods\"\n\n## PERMUTACIÓN 3: Modo de transporte a POIs\n\"Mencionaste que querías [POI] andando. ¿Y si fuera en bici en vez de a pie? Eso abriría bastantes más zonas.\"\n\nSi aceptan → llama a `apply_permutation` con type: \"change_poi_travel_mode\" y new_mode: \"cycling\"\n\n## PERMUTACIÓN 4: Clarificar prioridad de POIs\n\"De todo lo que mencionaste - [lista de POIs] - ¿cuáles son los 2 imprescindibles? Los demás los tengo en cuenta pero con más flexibilidad.\"\n\nCuando respondan → llama a `apply_permutation` con type: \"clarify_poi_priority\" y high_priority_pois: [los 2 que digan]\n\n## PERMUTACIÓN 5: Aumentar tiempo a POIs\n\"¿Qué tal si el gym estuviera a 20 minutos en vez de 10? Sigue siendo razonable, ¿no?\"\n\nSi aceptan → llama a `apply_permutation` con type: \"increase_poi_travel_time\" y multiplier: 1.5\n\n## PERMUTACIÓN 6: Modo de commute alternativo\n\"Curiosidad... ¿tienes o has pensado en tener bici eléctrica? Porque con eso podrías llegar a [barrios que no están en su zona] en el mismo tiempo.\"\n\nSi dicen que sí → llama a `apply_permutation` con type: \"alternative_commute_mode\" y new_mode: \"cycling\"\n\n## PERMUTACIÓN 7 (ÚLTIMO RECURSO): Relajar commute\nSOLO si las otras no funcionaron:\n\"Mira, he probado de todo. La única forma de abrir más opciones sería... ¿considerarías 35 minutos de commute en vez de 30?\"\n\nSi aceptan → llama a `apply_permutation` con type: \"relax_commute\" y additional_minutes: 5\n\n# ===========================================\n# FLUJO DE CONVERSACIÓN\n# ===========================================\n\n1. APERTURA\n- Saluda, explica que hay pocas opciones\n- Di cuántas hay ahora: \"Ahora mismo solo tengo [count] en tu zona verde\"\n- Pregunta si tienen unos minutos para explorar alternativas\n\n2. EXPLORAR PERMUTACIONES\n- Ve en orden, de 1 a 7\n- PARA después de cada permutación exitosa para ver cuánto ha cambiado\n- Usa `recalculate_zones` después de cada cambio aceptado\n- Reporta el nuevo count: \"¡Ahora hay [new_count]! Eso es mejor.\"\n\n3. CIERRE\n- Cuando haya suficientes opciones (5+) o el usuario esté satisfecho:\n- \"Vale, con estos cambios ahora tienes [count] opciones. ¿Te muestro el mapa actualizado?\"\n- Llama a `show_map` con las nuevas zonas\n- \"Perfecto, te escribo pronto con lo que encuentre.\"\n\n# ===========================================\n# HERRAMIENTAS\n# ===========================================\n\n## apply_permutation\nAplica un cambio al perfil del usuario.\n- type: el tipo de permutación\n- params: parámetros específicos\n\n## recalculate_zones\nRecalcula GREEN/YELLOW/ORANGE después de una permutación.\nDevuelve los nuevos counts.\n\n## show_map\nMuestra el mapa actualizado.\n\n## end_call\nTermina la llamada.\n\n# ===========================================\n# EJEMPLOS\n# ===========================================\n\nLeo: \"De todo lo que mencionaste - el gym, la cafetería esa que te gusta, y las escuelas - ¿cuáles son los imprescindibles?\"\nUsuario: \"El gym seguro. Las escuelas también. La cafetería... bueno, puedo ir de vez en cuando.\"\nLeo: \"¡Perfecto! Dame un segundo... [llama apply_permutation y recalculate] Oye, ¡con eso pasamos de 3 a 8 opciones en verde! Eso ya es otra cosa.\"\n\nLeo: \"¿Has pensado en tener bici eléctrica?\"\nUsuario: \"La verdad es que sí, llevo tiempo dándole vueltas.\"\nLeo: \"Pues mira, si consideramos que podrías ir al trabajo en bici... [llama apply_permutation] Wow, eso abre todo Poblenou y parte de Sant Martí. Son 15 pisos más.\"\n\n# ===========================================\n# REGLAS IMPORTANTES\n# ===========================================\n\n1. NUNCA vayas directo a relajar el commute - es el último recurso\n2. Celebra cada mejora en el count\n3. Si el usuario dice \"no\" a una permutación, respeta y pasa a la siguiente\n4. No hagas más de 3-4 permutaciones en una llamada - es agotador\n5. Si después de 4 permutaciones sigue habiendo <5 opciones, cierra con: \"Seguiré buscando y te aviso cuando haya novedades\"\n6. Sé empático - buscar piso es estresante",
+        "llm": "gemini-2.0-flash-001",
+        "temperature": 0.7,
+        "max_tokens": 200,
+        "tools": [
+          {
+            "type": "webhook",
+            "name": "apply_permutation",
+            "description": "Apply a permutation to expand the user's search options.",
+            "response_timeout_secs": 5,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/apply-permutation",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "permutation_type": {
+                  "type": "string",
+                  "enum": [
+                    "weight_top_dimensions",
+                    "include_surprise_neighborhoods",
+                    "change_poi_travel_mode",
+                    "clarify_poi_priority",
+                    "increase_poi_travel_time",
+                    "alternative_commute_mode",
+                    "relax_commute"
+                  ]
+                },
+                "params": {
+                  "type": "object",
+                  "description": "Permutation-specific parameters"
+                }
+              },
+              "required": [
+                "user_id",
+                "permutation_type"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "recalculate_zones",
+            "description": "Recalculate zones after applying a permutation. Returns new listing counts.",
+            "response_timeout_secs": 10,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/calculate-zones",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user_id"
+              ]
+            }
+          },
+          {
+            "type": "webhook",
+            "name": "show_map",
+            "description": "Display the updated zone map to the user.",
+            "response_timeout_secs": 5,
+            "webhook": {
+              "url": "{{WEBHOOK_BASE_URL}}/api/agents/show-map",
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json",
+                "Authorization": ""
+              }
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user_id"
+              ]
+            }
+          },
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "End the conversation gracefully.",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "name": "tried_permutations",
+          "description": "Did the agent try at least 2 permutations before giving up?"
+        },
+        {
+          "name": "avoided_commute_first",
+          "description": "Did the agent avoid relaxing commute as the first option?"
+        },
+        {
+          "name": "improved_count",
+          "description": "Did the listing count improve after the call?"
+        }
+      ]
+    },
+    "widget": {
+      "variant": "full",
+      "avatar": {
+        "type": "orb",
+        "color1": "#6DB035",
+        "color2": "#F5CABB"
+      }
+    }
+  },
+  "tags": [
+    "followup",
+    "permutations",
+    "v3"
+  ]
+}
