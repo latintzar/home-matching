@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getSupabaseServer` | function | [L14](../../../../../src/lib/supabase-server.ts#L14) |  |
-| `getAll` | method | [L26](../../../../../src/lib/supabase-server.ts#L26) |  |
-| `setAll` | method | [L29](../../../../../src/lib/supabase-server.ts#L29) | cookiesToSet |
-| `getServerUser` | function | [L46](../../../../../src/lib/supabase-server.ts#L46) |  |
-| `getServerSession` | function | [L58](../../../../../src/lib/supabase-server.ts#L58) |  |
-| `isAuthenticated` | function | [L70](../../../../../src/lib/supabase-server.ts#L70) |  |
+| `getSupabaseServer` | function | [L16](../../../../../src/lib/supabase-server.ts#L16) |  |
+| `getAll` | method | [L29](../../../../../src/lib/supabase-server.ts#L29) |  |
+| `setAll` | method | [L32](../../../../../src/lib/supabase-server.ts#L32) | cookiesToSet |
+| `getServerUser` | function | [L49](../../../../../src/lib/supabase-server.ts#L49) |  |
+| `getServerSession` | function | [L61](../../../../../src/lib/supabase-server.ts#L61) |  |
+| `isAuthenticated` | function | [L73](../../../../../src/lib/supabase-server.ts#L73) |  |
 
-Imports: `@supabase/ssr`, `next/headers`
+Imports: `@supabase/supabase-js`, `./sample/server`, `@supabase/ssr`, `next/headers`

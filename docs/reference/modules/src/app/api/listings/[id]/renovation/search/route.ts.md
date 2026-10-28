@@ -4,10 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L28](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L28) | request, destructured |
-| `generateResearchQueries` | function | [L159](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L159) | strategy, location |
-| `queryLegalRAG` | function | [L203](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L203) | queries, location |
-| `queryPricingStore` | function | [L236](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L236) | queries, location |
-| `queryScrapingDog` | function | [L272](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L272) | queries |
+| `requireRecipientConfiguration` | function | [L10](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L10) |  |
+| `POST` | function | [L31](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L31) | request, destructured |
+| `generateResearchQueries` | function | [L162](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L162) | strategy, location |
+| `queryLegalRAG` | function | [L206](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L206) | queries, location |
+| `queryPricingStore` | function | [L239](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L239) | queries, location |
+| `queryScrapingDog` | function | [L275](../../../../../../../../../../src/app/api/listings/[id]/renovation/search/route.ts#L275) | queries |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/vertex-rag`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/vertex-rag`, `@/lib/lazy-supabase`

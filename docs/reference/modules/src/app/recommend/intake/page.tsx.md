@@ -4,16 +4,16 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Mode` | type | [L107](../../../../../../../src/app/recommend/intake/page.tsx#L107) |  |
-| `Lang` | type | [L108](../../../../../../../src/app/recommend/intake/page.tsx#L108) |  |
-| `Message` | interface | [L110](../../../../../../../src/app/recommend/intake/page.tsx#L110) |  |
-| `IntakePageContent` | function | [L116](../../../../../../../src/app/recommend/intake/page.tsx#L116) |  |
-| `createProfile` | function | [L157](../../../../../../../src/app/recommend/intake/page.tsx#L157) |  |
-| `LanguageToggle` | function | [L396](../../../../../../../src/app/recommend/intake/page.tsx#L396) |  |
-| `CompletionOverlay` | function | [L729](../../../../../../../src/app/recommend/intake/page.tsx#L729) | destructured |
-| `handleSaveDelivery` | function | [L755](../../../../../../../src/app/recommend/intake/page.tsx#L755) |  |
-| `IntakePageLoading` | function | [L909](../../../../../../../src/app/recommend/intake/page.tsx#L909) |  |
-| `ExtractingOverlay` | function | [L918](../../../../../../../src/app/recommend/intake/page.tsx#L918) | destructured |
-| `IntakePage` | function | [L931](../../../../../../../src/app/recommend/intake/page.tsx#L931) |  |
+| `Mode` | type | [L108](../../../../../../../src/app/recommend/intake/page.tsx#L108) |  |
+| `Lang` | type | [L109](../../../../../../../src/app/recommend/intake/page.tsx#L109) |  |
+| `Message` | interface | [L111](../../../../../../../src/app/recommend/intake/page.tsx#L111) |  |
+| `IntakePageContent` | function | [L117](../../../../../../../src/app/recommend/intake/page.tsx#L117) |  |
+| `createProfile` | function | [L158](../../../../../../../src/app/recommend/intake/page.tsx#L158) |  |
+| `LanguageToggle` | function | [L397](../../../../../../../src/app/recommend/intake/page.tsx#L397) |  |
+| `CompletionOverlay` | function | [L730](../../../../../../../src/app/recommend/intake/page.tsx#L730) | destructured |
+| `handleSaveDelivery` | function | [L756](../../../../../../../src/app/recommend/intake/page.tsx#L756) |  |
+| `IntakePageLoading` | function | [L910](../../../../../../../src/app/recommend/intake/page.tsx#L910) |  |
+| `ExtractingOverlay` | function | [L919](../../../../../../../src/app/recommend/intake/page.tsx#L919) | destructured |
+| `IntakePage` | function | [L932](../../../../../../../src/app/recommend/intake/page.tsx#L932) |  |
 
-Imports: `react`, `next/navigation`, `@elevenlabs/react`, `lucide-react`
+Imports: `@/lib/app-path`, `react`, `next/navigation`, `@elevenlabs/react`, `lucide-react`

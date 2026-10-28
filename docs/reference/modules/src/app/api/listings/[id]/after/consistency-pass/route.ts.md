@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L18](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L18) |  |
-| `ConsistencyEdit` | interface | [L20](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L20) |  |
-| `ConsistencyPlan` | interface | [L29](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L29) |  |
-| `ConsistencyPlanResponse` | interface | [L41](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L41) |  |
-| `POST` | function | [L98](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L98) | request, destructured |
+| `Tier` | type | [L19](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L19) |  |
+| `ConsistencyEdit` | interface | [L21](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L21) |  |
+| `ConsistencyPlan` | interface | [L30](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L30) |  |
+| `ConsistencyPlanResponse` | interface | [L42](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L42) |  |
+| `POST` | function | [L99](../../../../../../../../../../src/app/api/listings/[id]/after/consistency-pass/route.ts#L99) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@google-cloud/vertexai`, `ajv`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@google-cloud/vertexai`, `ajv`, `@/lib/lazy-supabase`

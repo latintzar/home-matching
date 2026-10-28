@@ -1,4 +1,5 @@
 'use client';
+import {appFetch as fetch} from '@/lib/app-path';
 
 /**
  * Recommend Page
@@ -220,8 +221,7 @@ function RecommendPageContent() {
 
   // Start over
   const handleStartOver = useCallback(() => {
-    setProfile(null);
-    setProfileId(null);
+    setError(null);
     setState('intake');
   }, []);
 
@@ -284,8 +284,7 @@ function RecommendPageContent() {
             Buscando tu casa ideal...
           </h2>
           <p className="text-gray-600">
-            Analizando {((profile?.constraints?.maxBudget || 400000) / 1000).toFixed(0)}+ propiedades
-            en tus zonas preferidas
+            Comparando propiedades con tu perfil
           </p>
           <div className="mt-8 space-y-2 text-sm text-gray-500">
             <p>✅ Perfil de vida analizado</p>

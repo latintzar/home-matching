@@ -4,7 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L21](../../../../../../../../../../src/app/api/listings/[id]/analysis/listing-diagnostic/route.ts#L21) | request, destructured |
-| `GET` | function | [L369](../../../../../../../../../../src/app/api/listings/[id]/analysis/listing-diagnostic/route.ts#L369) | request, destructured |
+| `requireRecipientConfiguration` | function | [L16](../../../../../../../../../../src/app/api/listings/[id]/analysis/listing-diagnostic/route.ts#L16) |  |
+| `POST` | function | [L24](../../../../../../../../../../src/app/api/listings/[id]/analysis/listing-diagnostic/route.ts#L24) | request, destructured |
+| `GET` | function | [L372](../../../../../../../../../../src/app/api/listings/[id]/analysis/listing-diagnostic/route.ts#L372) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/prompts/diagnostic-analysis`, `@/types/diagnostic-analysis`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/prompts/diagnostic-analysis`, `@/types/diagnostic-analysis`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

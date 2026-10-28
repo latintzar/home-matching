@@ -15,62 +15,12 @@ import type {
   DEFAULT_LIFE_PROFILE 
 } from '@/types/recommender';
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY!;
-
-if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
-  throw new Error('Missing Supabase environment variables');
-}
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+import {getSupabaseServer} from '@/lib/supabase-server';
 
 /**
  * Transform database row to LifeProfile
  */
-function rowToProfile(row: any): LifeProfile {
-  return {
-    id: row.id,
-    userId: row.user_id,
-    household: {
-      adults: row.adults || 1,
-      children: row.children || [],
-      pets: row.pets || [],
-      workSituation: row.work_situation || 'hybrid',
-    },
-    lifestyle: {
-      morningRoutine: row.morning_routine || '',
-      eveningRoutine: row.evening_routine || '',
-      weekendActivities: row.weekend_activities || [],
-      dealbreakers: row.dealbreakers || [],
-      mustHaves: row.must_haves || [],
-    },
-    constraints: {
-      maxBudget: row.max_budget || 400000,
-      maxCommuteMinutes: row.max_commute_minutes || 30,
-      commuteDestination: row.commute_destination || '',
-      moveInDate: row.move_in_date,
-      renovationAppetite: row.renovation_appetite || 'cosmetic',
-    },
-    tradeoffs: {
-      spaceVsLocation: row.tradeoff_space_vs_location || 0,
-      newVsCharacter: row.tradeoff_new_vs_character || 0,
-      quietVsVibrant: row.tradeoff_quiet_vs_vibrant || 0,
-      viewsVsPrivacy: row.tradeoff_views_vs_privacy || 0,
-    },
-    propertyPreferences: {
-      propertyTypes: row.property_types || ['piso'],
-      minBedrooms: row.min_bedrooms || 2,
-      minBathrooms: row.min_bathrooms || 1,
-      minSqm: row.min_sqm || 60,
-      preferredLocations: row.preferred_locations || [],
-      avoidLocations: row.avoid_locations || [],
-    },
-    intakeCompleted: row.intake_completed || false,
-    intakeStep: row.intake_step || 0,
-    createdAt: row.created_at,
-    updatedAt: row.updated_at,
-  };
-}
+import {rowToProfile} from '@/lib/recommender/profileStorage';
 
 /**
  * Transform LifeProfile to database row
@@ -141,6 +91,7 @@ function profileToRow(profile: Partial<LifeProfile>, userId?: string): any {
  */
 export async function GET(request: NextRequest) {
   try {
+    const supabase=await getSupabaseServer();
     const { searchParams } = new URL(request.url);
     const profileId = searchParams.get('profileId');
     const userId = searchParams.get('userId');
@@ -201,6 +152,7 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
+    const supabase=await getSupabaseServer();
     const body = await request.json();
     const { profileId, userId, ...profileData } = body;
     
@@ -260,6 +212,7 @@ export async function POST(request: NextRequest) {
  */
 export async function DELETE(request: NextRequest) {
   try {
+    const supabase=await getSupabaseServer();
     const { searchParams } = new URL(request.url);
     const profileId = searchParams.get('profileId');
     

@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `generateMetadata` | function | [L7](../../../../../../../../src/app/(app)/property/[id]/page.tsx#L7) | destructured |
-| `PropertyPage` | function | [L27](../../../../../../../../src/app/(app)/property/[id]/page.tsx#L27) | destructured |
+| `generateMetadata` | function | [L10](../../../../../../../../src/app/(app)/property/[id]/page.tsx#L10) | destructured |
+| `PropertyPage` | function | [L30](../../../../../../../../src/app/(app)/property/[id]/page.tsx#L30) | destructured |
 
-Imports: `next`, `@/lib/auth-helpers`, `@/lib/supabase-server`, `./LeanPropertyContent`, `next/navigation`
+Imports: `@/lib/sample/server`, `@/lib/sample/recommend`, `@/lib/recommender/profileStorage`, `next`, `@/lib/auth-helpers`, `@/lib/supabase-server`, `./LeanPropertyContent`, `next/navigation`

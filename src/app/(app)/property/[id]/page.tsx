@@ -1,3 +1,6 @@
+import {sampleMode} from '@/lib/sample/server';
+import {sampleRecommendations} from '@/lib/sample/recommend';
+import {rowToProfile} from '@/lib/recommender/profileStorage';
 import { Metadata } from "next";
 import { getCurrentUser, isDevBypassActive } from "@/lib/auth-helpers";
 import { getSupabaseServer } from "@/lib/supabase-server";
@@ -85,6 +88,10 @@ export default async function PropertyPage({
       });
   }
 
+  const {data:account}=await supabase.from('user_profiles').select('active_profile_type').eq('id',user?.id).single();
+  const {data:lifestyleProfile}=await supabase.from('user_lifestyle_profiles').select('*').eq('user_id',user?.id).eq('profile_type',account?.active_profile_type||'renter').single();
+  const fit=sampleMode()&&lifestyleProfile?sampleRecommendations(rowToProfile(lifestyleProfile)).results.listings.find(item=>item.listing.listing_id===id):undefined;
+
   // Get agent info if available
   let agent = null;
   if (listing.agent_id) {
@@ -99,6 +106,7 @@ export default async function PropertyPage({
   return (
     <LeanPropertyContent
       listing={listing}
+      fit={fit}
       photos={photos || []}
       isSaved={!!savedProperty}
       savedId={savedProperty?.id || null}

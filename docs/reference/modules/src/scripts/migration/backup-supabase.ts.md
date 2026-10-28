@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `backupTable` | function | [L52](../../../../../../src/scripts/migration/backup-supabase.ts#L52) | tableName, backupDir |
-| `main` | function | [L91](../../../../../../src/scripts/migration/backup-supabase.ts#L91) |  |
+| `backupTable` | function | [L53](../../../../../../src/scripts/migration/backup-supabase.ts#L53) | tableName, backupDir |
+| `main` | function | [L92](../../../../../../src/scripts/migration/backup-supabase.ts#L92) |  |
 
-Imports: `@supabase/supabase-js`, `fs`, `path`, `dotenv`
+Imports: `@supabase/supabase-js`, `fs`, `path`, `dotenv`, `@/lib/lazy-supabase`

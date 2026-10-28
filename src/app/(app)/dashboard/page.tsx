@@ -1,3 +1,6 @@
+import {sampleMode} from '@/lib/sample/server';
+import {sampleRecommendations} from '@/lib/sample/recommend';
+import {rowToProfile} from '@/lib/recommender/profileStorage';
 import { Metadata } from "next";
 import { getSupabaseServer, getServerUser } from "@/lib/supabase-server";
 import { DashboardContent } from "./DashboardContent";
@@ -85,9 +88,12 @@ export default async function DashboardPage() {
         .eq("is_primary", true)
     : { data: [] };
 
+  const sampleFits=sampleMode()&&profile ? Object.fromEntries(sampleRecommendations(rowToProfile(profile)).results.listings.map(item=>[item.listing.listing_id,item.fitScore])) : {};
+
   // Merge photos and viewed status into recommended listings
   const recommendedWithPhotos = recommendedListings?.map(listing => ({
     ...listing,
+    fitScore:sampleFits[listing.id],
     photo: photos?.find(p => p.listing_id === listing.id)?.url || null,
     viewed: viewedListingIds.has(listing.id),
   })) || [];
@@ -110,6 +116,7 @@ export default async function DashboardPage() {
       source_url: listing.source_url as string,
       photo: photos?.find(p => p.listing_id === listing.id)?.url || null,
       viewed: viewedListingIds.has(listing.id as string),
+      fitScore:sampleFits[listing.id as string],
     };
   }).filter(Boolean) || [];
 

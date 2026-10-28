@@ -1,10 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
+  experimental: {cpus:2},
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  env: {NEXT_PUBLIC_BASE_PATH:process.env.NEXT_PUBLIC_BASE_PATH||'',NEXT_PUBLIC_SAMPLE_MODE:process.env.SAMPLE_MODE==='1'?'1':'0'},
+
   eslint: {
     // Disable ESLint during production builds
     ignoreDuringBuilds: true,
   },
   images: {
+    unoptimized:process.env.SAMPLE_MODE==='1',
     remotePatterns: [
       {
         protocol: 'https',
@@ -30,7 +36,6 @@ const nextConfig = {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',
       'bufferutil': 'commonjs bufferutil',
-      : 'commonjs duckdb',
       'better-sqlite3': 'commonjs better-sqlite3',
       '@mapbox/node-pre-gyp': 'commonjs @mapbox/node-pre-gyp',
       'aws-sdk': 'commonjs aws-sdk',

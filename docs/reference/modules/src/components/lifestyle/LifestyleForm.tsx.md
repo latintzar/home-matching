@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `LifestyleFormProps` | interface | [L9](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L9) |  |
-| `LifestyleForm` | function | [L13](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L13) | destructured |
-| `handleSubmit` | function | [L17](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L17) | e |
+| `LifestyleFormProps` | interface | [L10](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L10) |  |
+| `LifestyleForm` | function | [L14](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L14) | destructured |
+| `handleSubmit` | function | [L18](../../../../../../src/components/lifestyle/LifestyleForm.tsx#L18) | e |
 
-Imports: `react`, `@/components/ui/button`, `@/components/ui/textarea`, `@/components/ui/card`, `lucide-react`
+Imports: `@/lib/app-path`, `react`, `@/components/ui/button`, `@/components/ui/textarea`, `@/components/ui/card`, `lucide-react`

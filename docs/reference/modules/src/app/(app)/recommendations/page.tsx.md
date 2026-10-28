@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RecommendationsPage` | function | [L10](../../../../../../../src/app/(app)/recommendations/page.tsx#L10) |  |
+| `RecommendationsPage` | function | [L13](../../../../../../../src/app/(app)/recommendations/page.tsx#L13) |  |
 
-Imports: `next`, `@/lib/supabase-server`, `./RecommendationsContent`
+Imports: `@/lib/sample/server`, `@/lib/sample/recommend`, `@/lib/recommender/profileStorage`, `next`, `@/lib/supabase-server`, `./RecommendationsContent`

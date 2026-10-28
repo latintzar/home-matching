@@ -4,18 +4,18 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Listing` | interface | [L22](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L22) |  |
-| `PropertyPage` | function | [L29](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L29) | destructured |
-| `handleOpenTierModal` | function | [L83](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L83) | e |
-| `fetchPropertyData` | function | [L187](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L187) | listingId |
-| `fetchListingPhotos` | function | [L206](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L206) | listingId |
-| `fetchAfterPhotos` | function | [L222](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L222) | listingId, tier |
-| `fetchAllAfterPhotos` | function | [L246](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L246) | listingId |
-| `fetchAgentInfo` | function | [L254](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L254) | listingId |
-| `loadLatestListing` | function | [L324](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L324) |  |
-| `loadOldestListing` | function | [L326](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L326) |  |
-| `computeTotals` | function | [L346](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L346) | workItems |
-| `exportTiers` | function | [L364](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L364) | format |
-| `handleHashChange` | function | [L498](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L498) |  |
+| `Listing` | interface | [L23](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L23) |  |
+| `PropertyPage` | function | [L30](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L30) | destructured |
+| `handleOpenTierModal` | function | [L84](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L84) | e |
+| `fetchPropertyData` | function | [L188](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L188) | listingId |
+| `fetchListingPhotos` | function | [L207](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L207) | listingId |
+| `fetchAfterPhotos` | function | [L223](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L223) | listingId, tier |
+| `fetchAllAfterPhotos` | function | [L247](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L247) | listingId |
+| `fetchAgentInfo` | function | [L255](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L255) | listingId |
+| `loadLatestListing` | function | [L325](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L325) |  |
+| `loadOldestListing` | function | [L327](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L327) |  |
+| `computeTotals` | function | [L347](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L347) | workItems |
+| `exportTiers` | function | [L365](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L365) | format |
+| `handleHashChange` | function | [L499](../../../../../../../src/app/_property-legacy/[id]/page.tsx#L499) |  |
 
-Imports: `react`, `@/components/ui/button`, `@/components/ui/card`, `lucide-react`, `@/components/ui/popover`, `@/components/PropertyDetails`, `@/components/renovation/RenovationTierModal`, `@/components/renovation/PersonaliseRenovationModal`, `@/components/renovation/TierCards`, `@/components/BuyerReportModal`, `@/components/ViewingChecklist`, `@/lib/supabase`, `@/hooks/useRenovationTiers`, `next/dynamic`, `@/components/AISidebar`
+Imports: `@/lib/app-path`, `react`, `@/components/ui/button`, `@/components/ui/card`, `lucide-react`, `@/components/ui/popover`, `@/components/PropertyDetails`, `@/components/renovation/RenovationTierModal`, `@/components/renovation/PersonaliseRenovationModal`, `@/components/renovation/TierCards`, `@/components/BuyerReportModal`, `@/components/ViewingChecklist`, `@/lib/supabase`, `@/hooks/useRenovationTiers`, `next/dynamic`, `@/components/AISidebar`

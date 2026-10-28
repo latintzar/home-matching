@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 // Initialize Supabase (Service Role for Admin access)
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || (process.env.NEXT_PUBLIC_SUPABASE_URL || '');
@@ -12,7 +13,7 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   process.exit(1);
 }
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 // Helper to extract domain from URL
 function getDomain(url: string): string {

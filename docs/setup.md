@@ -2,7 +2,11 @@
 
 ## Local first result
 
-Node 22.18+ in the Node 22 line runs the scorer directly. The interactive app has its own small lockfile in `starter/`; `npm ci`, `npm run dev` and `npm run build` operate there. It uses the original recommendation-result markup, original score math and locally served OFL font.
+Use Node 22.18+ in the Node 22 line and Python 3.10+. From the root, run `npm ci`, `python3 tools/sample-app.py build`, then `python3 tools/sample-app.py start`. Open http://127.0.0.1:3000. `python3 tools/sample-app.py dev` runs the same application in development.
+
+The sample command explicitly selects local guest storage and clears inherited provider/cloud configuration. It rejects private dotenv files in the checkout. Eight authored listings, stored analysis and recovered generated images populate the original dashboard, recommendations, property, saved, viewing and profile screens. [Native workspace](native-workspace.md) describes its API and isolation contract.
+
+Build and start with the same optional `--base-path /apps/home-matching`; a reverse proxy preserves that prefix. Use `--state-dir` for an absolute private directory outside source/static roots, and `--port`/`--hostname` for the listener. The standalone artifact in `.next/standalone` contains its own launcher, public files and required dependencies; deploy that artifact instead of the build dependency tree.
 
 ## Recipient configuration
 
@@ -37,7 +41,7 @@ The helper clears inherited credentials and cloud profiles; AWS metadata is disa
 
 ## Full application
 
-The root package retains the original Next application and server routes. Its lockfile receives scoped security updates; the isolated `starter/` has an independently tested lockfile. Full root installation and build remain a release acceptance item on a host with adequate disk; see [status](../RELEASE-STATUS.md).
+The root package retains the original Next application and server routes. Fresh root installation, full Next build and TypeScript checks pass in local sample mode. Optional cloud clients initialize when their selected feature runs, so building the full application works before provider configuration. The isolated `starter/` retains its smaller independent lockfile. See [status](../RELEASE-STATUS.md).
 
 Provision a fresh recipient Supabase project from the retained SQL only after reviewing migration order, auth/RLS, storage and missing preexisting schema. The repository is a historical sequence of migrations rather than a demonstrated empty-database bootstrap. `src/scripts/aws/create-dynamodb-tables.ts` and the retained infrastructure code describe part of the AWS schema; review the actual table/index/key contract for each activated service before applying it.
 
@@ -45,4 +49,4 @@ The full product includes two distinguishable WPA cache consumers. `lib/wpa/cach
 
 Use the retained `agent_configs/` prompts and tool schemas to commission owned voice agents. Provider identities and original origins are cleared or replaced with reserved examples. Review workflow references, tool endpoints, signed-session authorization and provider account limits before importing them. [Voice notes](../agent_configs/README.md) explain the retained versions.
 
-Keep the full app on a controlled development origin until authorization, rate limits, data rights, model support and provider acceptance are reviewed. The historical integrations and diagnostic archive are useful engineering source; the tested first-result app has the narrower runtime contract described above.
+Activate recipient integrations individually after reviewing authorization, rate limits, data rights, model support and provider acceptance. Sample mode exposes an allowlist of local workspace APIs and returns a setup response for provider-backed routes.

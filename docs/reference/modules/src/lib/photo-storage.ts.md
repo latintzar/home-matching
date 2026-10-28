@@ -4,18 +4,19 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PhotoStorageResult` | interface | [L19](../../../../../src/lib/photo-storage.ts#L19) |  |
-| `storePhotoInSupabase` | function | [L30](../../../../../src/lib/photo-storage.ts#L30) | originalUrl, listingId, filename |
-| `storeFileInSupabase` | function | [L101](../../../../../src/lib/photo-storage.ts#L101) | fileBuffer, contentType, listingId, filename |
-| `storeListingPhotos` | function | [L154](../../../../../src/lib/photo-storage.ts#L154) | photos, listingId |
-| `convertSupabaseUrlToBase64` | function | [L180](../../../../../src/lib/photo-storage.ts#L180) | supabaseUrl |
-| `generatePhotoFilename` | function | [L199](../../../../../src/lib/photo-storage.ts#L199) | originalUrl, contentType |
-| `getSupabasePhotoUrl` | function | [L219](../../../../../src/lib/photo-storage.ts#L219) | listingId, filename |
-| `deleteListingPhotos` | function | [L230](../../../../../src/lib/photo-storage.ts#L230) | listingId |
-| `fetchAfterPhotos` | function | [L267](../../../../../src/lib/photo-storage.ts#L267) | listingId, tier |
-| `hasAfterPhotos` | function | [L295](../../../../../src/lib/photo-storage.ts#L295) | listingId, tier |
-| `isClusterExcluded` | function | [L329](../../../../../src/lib/photo-storage.ts#L329) | clusterName, listingId, supabaseClient |
-| `getExcludedPhotoUrls` | function | [L390](../../../../../src/lib/photo-storage.ts#L390) | listingId, supabaseClient |
-| `fetchValidListingPhotos` | function | [L484](../../../../../src/lib/photo-storage.ts#L484) | listingId, supabaseClient |
+| `requireRecipientConfiguration` | function | [L14](../../../../../src/lib/photo-storage.ts#L14) |  |
+| `PhotoStorageResult` | interface | [L22](../../../../../src/lib/photo-storage.ts#L22) |  |
+| `storePhotoInSupabase` | function | [L33](../../../../../src/lib/photo-storage.ts#L33) | originalUrl, listingId, filename |
+| `storeFileInSupabase` | function | [L104](../../../../../src/lib/photo-storage.ts#L104) | fileBuffer, contentType, listingId, filename |
+| `storeListingPhotos` | function | [L157](../../../../../src/lib/photo-storage.ts#L157) | photos, listingId |
+| `convertSupabaseUrlToBase64` | function | [L183](../../../../../src/lib/photo-storage.ts#L183) | supabaseUrl |
+| `generatePhotoFilename` | function | [L202](../../../../../src/lib/photo-storage.ts#L202) | originalUrl, contentType |
+| `getSupabasePhotoUrl` | function | [L222](../../../../../src/lib/photo-storage.ts#L222) | listingId, filename |
+| `deleteListingPhotos` | function | [L233](../../../../../src/lib/photo-storage.ts#L233) | listingId |
+| `fetchAfterPhotos` | function | [L270](../../../../../src/lib/photo-storage.ts#L270) | listingId, tier |
+| `hasAfterPhotos` | function | [L298](../../../../../src/lib/photo-storage.ts#L298) | listingId, tier |
+| `isClusterExcluded` | function | [L332](../../../../../src/lib/photo-storage.ts#L332) | clusterName, listingId, supabaseClient |
+| `getExcludedPhotoUrls` | function | [L393](../../../../../src/lib/photo-storage.ts#L393) | listingId, supabaseClient |
+| `fetchValidListingPhotos` | function | [L487](../../../../../src/lib/photo-storage.ts#L487) | listingId, supabaseClient |
 
-Imports: `@supabase/supabase-js`
+Imports: `@supabase/supabase-js`, `@/lib/lazy-supabase`

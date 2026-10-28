@@ -1,4 +1,5 @@
 "use client";
+import {appFetch as fetch} from '@/lib/app-path';
 
 import * as React from "react";
 // remove framer-motion imports (not used after simplification)

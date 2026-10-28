@@ -1,3 +1,5 @@
+import type {SupabaseClient} from '@supabase/supabase-js';
+import {sampleMode,sampleServerClient} from './sample/server';
 /**
  * Supabase Server Client
  * 
@@ -11,7 +13,8 @@ import { cookies } from 'next/headers';
  * Get Supabase client for Server Components
  * Reads auth from cookies
  */
-export async function getSupabaseServer() {
+export async function getSupabaseServer(): Promise<SupabaseClient<any>> {
+  if(sampleMode())return sampleServerClient() as SupabaseClient<any>;
   const cookieStore = await cookies();
   
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

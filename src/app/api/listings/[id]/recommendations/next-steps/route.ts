@@ -4,15 +4,18 @@ import { callGeminiRest } from '@/lib/gemini-rest-client';
 import { NextStepsReport } from '@/types/renovation-intelligence';
 import { DiagnosticAnalysisReport } from '@/types/diagnostic-analysis';
 import { FinalRenovationScope } from '@/types/renovation-intelligence';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Missing required environment variables');
 }
+}
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 /**
  * POST /api/listings/[id]/recommendations/next-steps

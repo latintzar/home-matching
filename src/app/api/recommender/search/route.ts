@@ -13,11 +13,12 @@ import { filterListingsForProfile, FilterResult, filterListings, FilterOptions }
 import { getWPAForListings } from '@/lib/recommender/wpaShortlist';
 import { scoreAndRankListings, ScoredListing } from '@/lib/recommender/fitScoring';
 import { LifeProfile } from '@/types/recommender';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY!;
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 /**
  * Fallback: Get listings from Supabase when DynamoDB is empty

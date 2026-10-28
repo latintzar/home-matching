@@ -1,0 +1,191 @@
+{
+  "source_repository": "latintzar/puedo_casa",
+  "source_commit": "d461e9556f09ad526030376ab58643298e3a1fc8",
+  "scope": "Original model-generated landing assets with retained generation prompts; existing bytes recovered, zero generation calls",
+  "files": [
+    {
+      "path": "public/images/landing/agent-calm-workspace.webp",
+      "source_blob": "6c3410125d97333b58025122e959a1e4b572c88e",
+      "sha256": "2be8fd6e299a94c434dec4fa58e60f825a27830d1b0fbc14db3e4d395f774415",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "agent-calm-workspace.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/building-spanish-facade.webp",
+      "source_blob": "da77f4c6c7a1ee2cc83b7c6d092562299a208cfb",
+      "sha256": "5c34bff10a0d4dc98fee19f57d0aea059e9cc023dd4468e31731c7df133498b8",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "building-spanish-facade.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/checklist-look-feel.webp",
+      "source_blob": "e6786a3700066e2aa7d6f94ae967db3bfd34d3e4",
+      "sha256": "2ecd34c366d499c75fbd6f3327776d50e24fb7607cc983da387b4349427aad7b",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "checklist-look-feel.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/city-skyline-relocation.webp",
+      "source_blob": "7df704943182d84e1a0bfdde882cd03e9208caf8",
+      "sha256": "4b8a87c493d96d74ddad4aa46990cc245a0fb8d9726c678b1a6733cacf88fdf2",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "city-skyline-relocation.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/hero-barcelona-aerial.webp",
+      "source_blob": "1b1bed066317cb88f7daf5471a03f980bcf67952",
+      "sha256": "647cb0ca810dd8a1fe22c5186516da8c2fc169130419c03b043420bc4c34a959",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "hero-barcelona-aerial.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/interior-spanish-apartment.webp",
+      "source_blob": "5211e19d991a0b8c2c6dfe2de635f2ce4dfd189f",
+      "sha256": "57644f9cad0be44629e620ce5014a858365e67139f7f48bbc63f5afa5872b7dd",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "interior-spanish-apartment.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/life-family.webp",
+      "source_blob": "f8db8d10f1398bde8a6dbfdd613aabc9ce725de4",
+      "sha256": "32478dd58c6974406fb0eaaf1e8e0c7e27daa8ae873b19dd7d9c6263ad9da4a8",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "life-family.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/life-first-place.webp",
+      "source_blob": "5fd317a24628a37d01059608a81d4f1ed54c9d27",
+      "sha256": "733356a157e3ec07152a900987d2b1b98868fe6b0ff030f9c126e0a4c10e9e94",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "life-first-place.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/life-flatmates.webp",
+      "source_blob": "482e21b58d9f19136a2590d9635780b1d0606f76",
+      "sha256": "aa171002ba1c8efea48162bcb328fedf7d4f7ebbbbf319be641760b95a51e286",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "life-flatmates.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/life-moving-in.webp",
+      "source_blob": "a7b103c9939894540e490a92503741cb57148fd7",
+      "sha256": "c674156ce096e35e21c40e8c9cd1666227946855ec0d9b4ce018486c443b6000",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "life-moving-in.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/listing-staged-beautiful.webp",
+      "source_blob": "6cc9f755feacabc26d73b8e500c966d8e1306db7",
+      "sha256": "b9337b70497b4599d50d81465cebadde55e1945c3ee60188bbd69b4afaa414c6",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "listing-staged-beautiful.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/property-card-apartment.webp",
+      "source_blob": "46e422aa02a8729073bc662a59f24ee32f57a916",
+      "sha256": "2f218a0cfd751ee25d8ceea3e453b297c83fb95808062f1dd04c5702aa245b60",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "property-card-apartment.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/reality-dark-corner.webp",
+      "source_blob": "0681cc61cb0cf692a0154c80d9e08881c0b7f56f",
+      "sha256": "7e2374ac82ccce207e58ea72b8cdb36db17bc6efb9098b56eca5f56d231ae1e2",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "reality-dark-corner.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/reality-nice-light.webp",
+      "source_blob": "7785459ad23c4919adcf846f53baa4407d7e8938",
+      "sha256": "fde0e59e20658e5c97036d37b8125bd861a71d91655e9007803c56ecebe28baf",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "reality-nice-light.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/reality-street-view.webp",
+      "source_blob": "405c388b46963a01f822cac20e19a57888c7b34b",
+      "sha256": "8cdbe8d3fbf4957efb3385bd335313052d73e3d42fcf0d180b88863d3f52d250",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "reality-street-view.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/reality-water-stain.webp",
+      "source_blob": "d58a89324e64a5013b8e012af67b11124e2546dc",
+      "sha256": "7fa44014f4432843096e894c2022334e95a2593fa010194619cc3db3c218eee0",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "reality-water-stain.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-apartment-search.webp",
+      "source_blob": "f65459429e3a657cabd1586fddb5a7ab33e4a0ae",
+      "sha256": "45c7ff52c893d78e3947e9059e062afe8566b4c6652bbfa5e4e2cecf31148456",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-apartment-search.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-balcony-view.webp",
+      "source_blob": "a614549200fe9498508759d60f88ad006ab81f0c",
+      "sha256": "0abc4c98de52ebbca9d8063bffd70a035daab8a15e5e92c6cf5250ab0167717f",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-balcony-view.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-keys-moment.webp",
+      "source_blob": "99ebc05968c4552006635e0f4cf2a26d5bb725e4",
+      "sha256": "ada491b071d798c5ac9134ab39c5de1d8313d7e5d424c774f7be482159db9954",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-keys-moment.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-morning-light.webp",
+      "source_blob": "a501cb073e09918da6551f71e7201b93a578ad1b",
+      "sha256": "3c8ae3aaf67c623addd0cd5b5fa91569ceae6393980ff32ee7b07e6788c825b6",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-morning-light.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-neighborhood-life.webp",
+      "source_blob": "6cd73d4a328aebf99433dd7854a5187bff50c3ca",
+      "sha256": "cdf7a50286b6938ff2a81af4578b0a3722e768844994b2492364727f2218fe94",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-neighborhood-life.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/renters-viewing-day.webp",
+      "source_blob": "4378d5570e851eaf05ddb9cd63b62183e8bbdb51",
+      "sha256": "ea865de3b8b21854d0642b1826a5dda6bce10afcf9659b4d091f86136d9ba42e",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "renters-viewing-day.png",
+      "format": "Existing original WebP derivative"
+    },
+    {
+      "path": "public/images/landing/street-spanish-neighborhood.webp",
+      "source_blob": "df9769e9a73026accf4d90a0c7f9dc91d89c8e27",
+      "sha256": "ed4ecc2e6db09ebc453f2437ff32e78d178e1cd2fc9e2705bb42add067332e31",
+      "generation_source": "src/app/api/landing/generate-images/route.ts",
+      "generation_key": "street-spanish-neighborhood.png",
+      "format": "Existing original WebP derivative"
+    }
+  ]
+}

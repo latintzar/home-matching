@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L21](../../../../../../../../../../src/app/api/listings/[id]/recommendations/verify/route.ts#L21) | req, destructured |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../../src/app/api/listings/[id]/recommendations/verify/route.ts#L9) |  |
+| `POST` | function | [L24](../../../../../../../../../../src/app/api/listings/[id]/recommendations/verify/route.ts#L24) | req, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/lazy-supabase`

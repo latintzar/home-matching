@@ -4,10 +4,11 @@ import { callGeminiRest } from '@/lib/gemini-rest-client';
 import { STATIC_WHITELISTS, extractDomainFromUrl, ResearchCategory } from '@/lib/domain-whitelists';
 import fs from 'fs';
 import path from 'path';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const CATEGORIES: ResearchCategory[] = ['costs','timings','permits','laws_regulations','norms_standards','market_practices','incentives'];
 

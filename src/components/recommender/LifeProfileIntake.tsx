@@ -56,7 +56,7 @@ const StepIndicator: React.FC<{ currentStep: number; totalSteps: number }> = ({
   currentStep, 
   totalSteps 
 }) => (
-  <div className="flex items-center gap-2 mb-8">
+  <div className="flex items-center gap-1 sm:gap-2 mb-8">
     {Array.from({ length: totalSteps }).map((_, i) => (
       <div key={i} className="flex items-center">
         <div
@@ -72,7 +72,7 @@ const StepIndicator: React.FC<{ currentStep: number; totalSteps: number }> = ({
         </div>
         {i < totalSteps - 1 && (
           <div
-            className={`w-8 h-0.5 ${
+            className={`w-2 sm:w-8 h-0.5 ${
               i < currentStep ? 'bg-emerald-500' : 'bg-gray-200'
             }`}
           />

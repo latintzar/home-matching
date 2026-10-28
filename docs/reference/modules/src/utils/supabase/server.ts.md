@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `createClient` | function | [L3](../../../../../../src/utils/supabase/server.ts#L3) |  |
+| `createClient` | function | [L5](../../../../../../src/utils/supabase/server.ts#L5) |  |
 
-Imports: `@supabase/supabase-js`
+Imports: `@supabase/supabase-js`, `@/lib/sample/server`, `@supabase/supabase-js`

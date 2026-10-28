@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `VerdictType` | type | [L7](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L7) |  |
-| `TestResultPanelProps` | interface | [L9](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L9) |  |
-| `TestResultPanel` | function | [L19](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L19) | destructured |
-| `handleCopyJSON` | function | [L46](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L46) |  |
-| `handleCopyFormatted` | function | [L57](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L57) |  |
+| `VerdictType` | type | [L8](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L8) |  |
+| `TestResultPanelProps` | interface | [L10](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L10) |  |
+| `TestResultPanel` | function | [L20](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L20) | destructured |
+| `handleCopyJSON` | function | [L47](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L47) |  |
+| `handleCopyFormatted` | function | [L58](../../../../../../src/components/vibe-maps/TestResultPanel.tsx#L58) |  |
 
-Imports: `react`, `@/lib/vibe-maps/testLogger`, `@/lib/vibe-maps/testLogger`
+Imports: `@/lib/app-path`, `react`, `@/lib/vibe-maps/testLogger`, `@/lib/vibe-maps/testLogger`

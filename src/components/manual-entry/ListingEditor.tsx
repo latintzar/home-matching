@@ -1,4 +1,5 @@
 'use client';
+import {appFetch as fetch} from '@/lib/app-path';
 
 import { useState, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';

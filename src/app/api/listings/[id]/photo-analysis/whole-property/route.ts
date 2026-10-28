@@ -3,15 +3,18 @@ import { createClient } from '@supabase/supabase-js';
 import { callGeminiRest, GeminiImageInput } from '@/lib/gemini-rest-client';
 import { WHOLE_PROPERTY_ANALYSIS_PROMPT } from '@/lib/prompts/architecture-improvement-prompts';
 import { WholePropertyAnalysis } from '@/types/renovation-intelligence';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Missing required environment variables');
 }
+}
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 /**
  * E3: Whole-Property Analysis

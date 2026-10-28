@@ -4,32 +4,32 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PhotoUpload` | interface | [L14](../../../../../../src/components/manual-entry/ListingEditor.tsx#L14) |  |
-| `getBrandConfig` | function | [L62](../../../../../../src/components/manual-entry/ListingEditor.tsx#L62) | url |
-| `ListingEditor` | function | [L73](../../../../../../src/components/manual-entry/ListingEditor.tsx#L73) |  |
-| `handleMessage` | function | [L183](../../../../../../src/components/manual-entry/ListingEditor.tsx#L183) | event |
-| `announceReady` | function | [L227](../../../../../../src/components/manual-entry/ListingEditor.tsx#L227) |  |
-| `loadListing` | function | [L256](../../../../../../src/components/manual-entry/ListingEditor.tsx#L256) | id, autoStart |
-| `streamDataToForm` | function | [L352](../../../../../../src/components/manual-entry/ListingEditor.tsx#L352) | data, skipResolution |
-| `getAutocompleteUrl` | function | [L515](../../../../../../src/components/manual-entry/ListingEditor.tsx#L515) | q |
-| `fetchSuggestions` | function | [L570](../../../../../../src/components/manual-entry/ListingEditor.tsx#L570) |  |
-| `handleInputChange` | function | [L601](../../../../../../src/components/manual-entry/ListingEditor.tsx#L601) | e |
-| `formatPrice` | function | [L616](../../../../../../src/components/manual-entry/ListingEditor.tsx#L616) | val |
-| `handlePriceChange` | function | [L621](../../../../../../src/components/manual-entry/ListingEditor.tsx#L621) | e |
-| `handleAddressChange` | function | [L627](../../../../../../src/components/manual-entry/ListingEditor.tsx#L627) | e |
-| `handleAddressKeyDown` | function | [L640](../../../../../../src/components/manual-entry/ListingEditor.tsx#L640) | e |
-| `selectAddress` | function | [L659](../../../../../../src/components/manual-entry/ListingEditor.tsx#L659) | suggestion |
-| `handleAddAmenity` | function | [L684](../../../../../../src/components/manual-entry/ListingEditor.tsx#L684) |  |
-| `removeAmenity` | function | [L706](../../../../../../src/components/manual-entry/ListingEditor.tsx#L706) | index |
-| `handlePhotoSelect` | function | [L710](../../../../../../src/components/manual-entry/ListingEditor.tsx#L710) | e |
-| `updatePhotoLabel` | function | [L722](../../../../../../src/components/manual-entry/ListingEditor.tsx#L722) | index, label |
-| `startEditingPhotoLabel` | function | [L731](../../../../../../src/components/manual-entry/ListingEditor.tsx#L731) | index |
-| `handlePhotoLabelKeyDown` | function | [L736](../../../../../../src/components/manual-entry/ListingEditor.tsx#L736) | e, index |
-| `removePhoto` | function | [L757](../../../../../../src/components/manual-entry/ListingEditor.tsx#L757) | index |
-| `handleMagicImport` | function | [L775](../../../../../../src/components/manual-entry/ListingEditor.tsx#L775) |  |
-| `scrollToSection` | function | [L803](../../../../../../src/components/manual-entry/ListingEditor.tsx#L803) | id |
-| `handleClickOutside` | function | [L812](../../../../../../src/components/manual-entry/ListingEditor.tsx#L812) |  |
-| `handleSubmit` | function | [L826](../../../../../../src/components/manual-entry/ListingEditor.tsx#L826) | e |
-| `handleAnalyseWithNotes` | function | [L956](../../../../../../src/components/manual-entry/ListingEditor.tsx#L956) | notes |
+| `PhotoUpload` | interface | [L15](../../../../../../src/components/manual-entry/ListingEditor.tsx#L15) |  |
+| `getBrandConfig` | function | [L63](../../../../../../src/components/manual-entry/ListingEditor.tsx#L63) | url |
+| `ListingEditor` | function | [L74](../../../../../../src/components/manual-entry/ListingEditor.tsx#L74) |  |
+| `handleMessage` | function | [L184](../../../../../../src/components/manual-entry/ListingEditor.tsx#L184) | event |
+| `announceReady` | function | [L228](../../../../../../src/components/manual-entry/ListingEditor.tsx#L228) |  |
+| `loadListing` | function | [L257](../../../../../../src/components/manual-entry/ListingEditor.tsx#L257) | id, autoStart |
+| `streamDataToForm` | function | [L353](../../../../../../src/components/manual-entry/ListingEditor.tsx#L353) | data, skipResolution |
+| `getAutocompleteUrl` | function | [L516](../../../../../../src/components/manual-entry/ListingEditor.tsx#L516) | q |
+| `fetchSuggestions` | function | [L571](../../../../../../src/components/manual-entry/ListingEditor.tsx#L571) |  |
+| `handleInputChange` | function | [L602](../../../../../../src/components/manual-entry/ListingEditor.tsx#L602) | e |
+| `formatPrice` | function | [L617](../../../../../../src/components/manual-entry/ListingEditor.tsx#L617) | val |
+| `handlePriceChange` | function | [L622](../../../../../../src/components/manual-entry/ListingEditor.tsx#L622) | e |
+| `handleAddressChange` | function | [L628](../../../../../../src/components/manual-entry/ListingEditor.tsx#L628) | e |
+| `handleAddressKeyDown` | function | [L641](../../../../../../src/components/manual-entry/ListingEditor.tsx#L641) | e |
+| `selectAddress` | function | [L660](../../../../../../src/components/manual-entry/ListingEditor.tsx#L660) | suggestion |
+| `handleAddAmenity` | function | [L685](../../../../../../src/components/manual-entry/ListingEditor.tsx#L685) |  |
+| `removeAmenity` | function | [L707](../../../../../../src/components/manual-entry/ListingEditor.tsx#L707) | index |
+| `handlePhotoSelect` | function | [L711](../../../../../../src/components/manual-entry/ListingEditor.tsx#L711) | e |
+| `updatePhotoLabel` | function | [L723](../../../../../../src/components/manual-entry/ListingEditor.tsx#L723) | index, label |
+| `startEditingPhotoLabel` | function | [L732](../../../../../../src/components/manual-entry/ListingEditor.tsx#L732) | index |
+| `handlePhotoLabelKeyDown` | function | [L737](../../../../../../src/components/manual-entry/ListingEditor.tsx#L737) | e, index |
+| `removePhoto` | function | [L758](../../../../../../src/components/manual-entry/ListingEditor.tsx#L758) | index |
+| `handleMagicImport` | function | [L776](../../../../../../src/components/manual-entry/ListingEditor.tsx#L776) |  |
+| `scrollToSection` | function | [L804](../../../../../../src/components/manual-entry/ListingEditor.tsx#L804) | id |
+| `handleClickOutside` | function | [L813](../../../../../../src/components/manual-entry/ListingEditor.tsx#L813) |  |
+| `handleSubmit` | function | [L827](../../../../../../src/components/manual-entry/ListingEditor.tsx#L827) | e |
+| `handleAnalyseWithNotes` | function | [L957](../../../../../../src/components/manual-entry/ListingEditor.tsx#L957) | notes |
 
-Imports: `react`, `next/navigation`, `@/components/ui/button`, `@/components/ui/input`, `@/components/ui/label`, `@/components/ui/textarea`, `@/components/ui/card`, `lucide-react`, `@/hooks/useDebounce`, `./ListingReviewMode`
+Imports: `@/lib/app-path`, `react`, `next/navigation`, `@/components/ui/button`, `@/components/ui/input`, `@/components/ui/label`, `@/components/ui/textarea`, `@/components/ui/card`, `lucide-react`, `@/hooks/useDebounce`, `./ListingReviewMode`

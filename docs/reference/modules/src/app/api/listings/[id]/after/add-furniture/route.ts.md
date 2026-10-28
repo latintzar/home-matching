@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L15](../../../../../../../../../../src/app/api/listings/[id]/after/add-furniture/route.ts#L15) |  |
-| `POST` | function | [L25](../../../../../../../../../../src/app/api/listings/[id]/after/add-furniture/route.ts#L25) | request, destructured |
+| `Tier` | type | [L16](../../../../../../../../../../src/app/api/listings/[id]/after/add-furniture/route.ts#L16) |  |
+| `POST` | function | [L26](../../../../../../../../../../src/app/api/listings/[id]/after/add-furniture/route.ts#L26) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

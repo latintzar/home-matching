@@ -19,6 +19,7 @@ interface Listing {
   source_url: string;
   photo: string | null;
   viewed: boolean;
+  fitScore?:number;
 }
 
 interface DashboardContentProps {
@@ -51,7 +52,7 @@ export function DashboardContent({
   const PropertyCard = ({ listing, showLikedBadge = false }: { listing: Listing; showLikedBadge?: boolean }) => {
     const price = parseFloat(listing.price_eur);
     const isRental = price < 10000;
-    const fitScore = Math.floor(Math.random() * 20) + 70; // Mock fit score
+    const fitScore = listing.fitScore;
 
     return (
       <Link 
@@ -76,10 +77,10 @@ export function DashboardContent({
             )}
             
             {/* Fit Score Badge */}
-            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-sm font-medium text-stone-900 flex items-center gap-1">
+            {typeof fitScore === "number" && <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-sm font-medium text-stone-900 flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               {fitScore}%
-            </div>
+            </div>}
 
             {/* Viewed Badge */}
             {listing.viewed && (

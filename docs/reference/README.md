@@ -144,7 +144,7 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/app/_property-legacy](areas/src-app-_property-legacy.md) | 2 | 19 |
 | [src/app/add-property](areas/src-app-add-property.md) | 1 | 1 |
 | [src/app/admin](areas/src-app-admin.md) | 1 | 9 |
-| [src/app/api](areas/src-app-api.md) | 181 | 510 |
+| [src/app/api](areas/src-app-api.md) | 183 | 556 |
 | [src/app/auth](areas/src-app-auth.md) | 2 | 12 |
 | [src/app/catalogue](areas/src-app-catalogue.md) | 1 | 1 |
 | [src/app/client-scraper](areas/src-app-client-scraper.md) | 1 | 1 |
@@ -224,6 +224,7 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lambda/serp-orchestrator.ts](areas/src-lambda-serp-orchestrator.ts.md) | 1 | 7 |
 | [src/lambda/tc-harvest-delta.ts](areas/src-lambda-tc-harvest-delta.ts.md) | 1 | 24 |
 | [src/lib/analytics.ts](areas/src-lib-analytics.ts.md) | 1 | 6 |
+| [src/lib/app-path.ts](areas/src-lib-app-path.ts.md) | 1 | 2 |
 | [src/lib/auth-helpers.ts](areas/src-lib-auth-helpers.ts.md) | 1 | 5 |
 | [src/lib/auth.ts](areas/src-lib-auth.ts.md) | 1 | 20 |
 | [src/lib/auto-clustering](areas/src-lib-auto-clustering.md) | 2 | 10 |
@@ -256,6 +257,8 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lib/i18n.ts](areas/src-lib-i18n.ts.md) | 1 | 4 |
 | [src/lib/integrator.ts](areas/src-lib-integrator.ts.md) | 1 | 9 |
 | [src/lib/intelligence](areas/src-lib-intelligence.md) | 5 | 19 |
+| [src/lib/lazy-resource.mjs](areas/src-lib-lazy-resource.mjs.md) | 1 | 4 |
+| [src/lib/lazy-supabase.ts](areas/src-lib-lazy-supabase.ts.md) | 1 | 1 |
 | [src/lib/lifestyle](areas/src-lib-lifestyle.md) | 9 | 46 |
 | [src/lib/model-registry.ts](areas/src-lib-model-registry.ts.md) | 1 | 2 |
 | [src/lib/nominatim-client.ts](areas/src-lib-nominatim-client.ts.md) | 1 | 8 |
@@ -263,14 +266,15 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lib/orchestrator-progress.ts](areas/src-lib-orchestrator-progress.ts.md) | 1 | 12 |
 | [src/lib/phase-cache.ts](areas/src-lib-phase-cache.ts.md) | 1 | 11 |
 | [src/lib/phase-validators.ts](areas/src-lib-phase-validators.ts.md) | 1 | 8 |
-| [src/lib/photo-storage.ts](areas/src-lib-photo-storage.ts.md) | 1 | 13 |
+| [src/lib/photo-storage.ts](areas/src-lib-photo-storage.ts.md) | 1 | 14 |
 | [src/lib/pipeline-exporter.ts](areas/src-lib-pipeline-exporter.ts.md) | 1 | 0 |
 | [src/lib/pipeline-utils.ts](areas/src-lib-pipeline-utils.ts.md) | 1 | 7 |
 | [src/lib/pipeline-versions.ts](areas/src-lib-pipeline-versions.ts.md) | 1 | 3 |
 | [src/lib/pricing-config.ts](areas/src-lib-pricing-config.ts.md) | 1 | 0 |
 | [src/lib/prompts](areas/src-lib-prompts.md) | 7 | 23 |
-| [src/lib/recommender](areas/src-lib-recommender.md) | 10 | 87 |
+| [src/lib/recommender](areas/src-lib-recommender.md) | 12 | 88 |
 | [src/lib/room-analysis-helpers.ts](areas/src-lib-room-analysis-helpers.ts.md) | 1 | 3 |
+| [src/lib/sample](areas/src-lib-sample.md) | 6 | 32 |
 | [src/lib/save-stage-result.ts](areas/src-lib-save-stage-result.ts.md) | 1 | 1 |
 | [src/lib/schemas](areas/src-lib-schemas.md) | 2 | 7 |
 | [src/lib/scraper-normalizer.ts](areas/src-lib-scraper-normalizer.ts.md) | 1 | 4 |
@@ -291,8 +295,8 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/scripts/aws](areas/src-scripts-aws.md) | 2 | 9 |
 | [src/scripts/clear-dynamodb.ts](areas/src-scripts-clear-dynamodb.ts.md) | 1 | 1 |
 | [src/scripts/clear-leo-listings.ts](areas/src-scripts-clear-leo-listings.ts.md) | 1 | 1 |
-| [src/scripts/clear-listing-photo-analysis-downstream.ts](areas/src-scripts-clear-listing-photo-analysis-downstream.ts.md) | 1 | 1 |
-| [src/scripts/count-unique-domains.ts](areas/src-scripts-count-unique-domains.ts.md) | 1 | 1 |
+| [src/scripts/clear-listing-photo-analysis-downstream.ts](areas/src-scripts-clear-listing-photo-analysis-downstream.ts.md) | 1 | 2 |
+| [src/scripts/count-unique-domains.ts](areas/src-scripts-count-unique-domains.ts.md) | 1 | 2 |
 | [src/scripts/crawlGeo2day.ts](areas/src-scripts-crawlGeo2day.ts.md) | 1 | 11 |
 | [src/scripts/crawlGeo2daySpain.ts](areas/src-scripts-crawlGeo2daySpain.ts.md) | 1 | 10 |
 | [src/scripts/exportLightweightLayers.ts](areas/src-scripts-exportLightweightLayers.ts.md) | 1 | 6 |

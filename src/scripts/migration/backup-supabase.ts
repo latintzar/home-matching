@@ -21,9 +21,10 @@ import { createClient } from '@supabase/supabase-js';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 // Recipient configuration is supplied by tools/runtime-env.py.
-const supabase = createClient(
+const supabase = lazySupabaseClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );

@@ -202,7 +202,7 @@ export function RecommendationResults({ profile, searchResult, error = null, onE
                       {scored.listing.url && (
                         <a 
                           href={scored.listing.url}
-                          target="_blank"
+                          target={scored.listing.url.startsWith('/') && !scored.listing.url.startsWith('//') ? undefined : '_blank'}
                           rel="noopener noreferrer"
                           className="inline-block px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm hover:bg-emerald-700 transition-colors"
                         >

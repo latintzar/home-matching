@@ -7,7 +7,10 @@
     "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sample:dev": "python3 tools/sample-app.py dev",
+    "sample:build": "python3 tools/sample-app.py build",
+    "sample:start": "python3 tools/sample-app.py start"
   },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.941.0",
@@ -144,5 +147,8 @@
     "gaxios": {
       "uuid": "^11.1.1"
     }
+  },
+  "engines": {
+    "node": ">=22.18.0 <23"
   }
 }

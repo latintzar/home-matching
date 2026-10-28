@@ -1,3 +1,4 @@
+import {rowToProfile} from '@/lib/recommender/profileStorage';
 /**
  * Recommender Generate API
  * 
@@ -16,7 +17,9 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { runRecommender, RecommenderOptions } from '@/lib/recommender/orchestrator';
+import type {RecommenderOptions} from '@/lib/recommender/orchestrator';
+import {sampleMode,sampleServerClient} from '@/lib/sample/server';
+import {sampleRecommendations} from '@/lib/sample/recommend';
 import { LifeProfile } from '@/types/recommender';
 
 // Hard cap on WPA to prevent cost overruns
@@ -34,6 +37,13 @@ export async function POST(request: NextRequest) {
       );
     }
     
+    if(sampleMode()) {
+      const {data:row}=await sampleServerClient().from('user_lifestyle_profiles').select('*').eq('id',profileId).single();
+      if(!row)return NextResponse.json({error:'Choose your sample profile.'},{status:404});
+      const stored=rowToProfile(row);
+      return NextResponse.json(sampleRecommendations(stored,maxResults));
+    }
+
     // Parse options from body or query params (body takes precedence)
     const searchParams = request.nextUrl.searchParams;
     const requestedMaxWPA = maxWPA ?? parseInt(searchParams.get('maxWPA') || '10');
@@ -48,6 +58,7 @@ export async function POST(request: NextRequest) {
     console.log('[API] Recommender generate:', { profileId, hasProfile: !!profile, options });
     
     // Run recommender
+    const {runRecommender}=await import('@/lib/recommender/orchestrator');
     const result = await runRecommender(
       profile || profileId,
       options
@@ -83,6 +94,7 @@ export async function POST(request: NextRequest) {
         
         hasWPA: !!r.wpa,
       })),
+      results: {listings:result.recommendations.map(item=>({...item,listing:item.listing})),total:result.totalFound,wpaEnabled:!options.skipWPA},
       stats: {
         totalFound: result.totalFound,
         totalAnalyzed: result.totalAnalyzed,

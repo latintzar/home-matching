@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `GET` | function | [L17](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/latest-results/route.ts#L17) | request, destructured |
+| `GET` | function | [L18](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/latest-results/route.ts#L18) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/lazy-supabase`

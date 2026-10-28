@@ -9,11 +9,10 @@
 | `RecommenderV2Options` | interface | [L91](../../../../../../src/lib/recommender/orchestratorV2.ts#L91) |  |
 | `getDocClient` | function | [L106](../../../../../../src/lib/recommender/orchestratorV2.ts#L106) |  |
 | `loadProfile` | function | [L124](../../../../../../src/lib/recommender/orchestratorV2.ts#L124) | profileId |
-| `convertToUserFitProfile` | function | [L146](../../../../../../src/lib/recommender/orchestratorV2.ts#L146) | profile |
-| `runWPAForListing` | function | [L211](../../../../../../src/lib/recommender/orchestratorV2.ts#L211) | listing, useCache |
-| `generateExplanation` | function | [L294](../../../../../../src/lib/recommender/orchestratorV2.ts#L294) | listing, wpa, neighborhood, fitResult, profile |
-| `runRecommenderV2` | function | [L340](../../../../../../src/lib/recommender/orchestratorV2.ts#L340) | profileOrId, options |
-| `quickSearchV2` | function | [L657](../../../../../../src/lib/recommender/orchestratorV2.ts#L657) | profile, limit |
-| `deepAnalysisV2` | function | [L674](../../../../../../src/lib/recommender/orchestratorV2.ts#L674) | profile, listings |
+| `runWPAForListing` | function | [L152](../../../../../../src/lib/recommender/orchestratorV2.ts#L152) | listing, useCache |
+| `generateExplanation` | function | [L235](../../../../../../src/lib/recommender/orchestratorV2.ts#L235) | listing, wpa, neighborhood, fitResult, profile |
+| `runRecommenderV2` | function | [L281](../../../../../../src/lib/recommender/orchestratorV2.ts#L281) | profileOrId, options |
+| `quickSearchV2` | function | [L598](../../../../../../src/lib/recommender/orchestratorV2.ts#L598) | profile, limit |
+| `deepAnalysisV2` | function | [L615](../../../../../../src/lib/recommender/orchestratorV2.ts#L615) | profile, listings |
 
-Imports: `@/types/recommender`, `./harvestFilter`, `./fitScoringV2`, `@/app/api/wpa/score/route`, `@/types/neighborhood`, `./neighborhoodService`, `@/lib/wpa/cache`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`
+Imports: `@/types/recommender`, `./harvestFilter`, `./fitScoringV2`, `@/app/api/wpa/score/route`, `@/types/neighborhood`, `./neighborhoodService`, `@/lib/wpa/cache`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `./profileFit`

@@ -4,19 +4,19 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Photo` | interface | [L33](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L33) |  |
-| `Note` | interface | [L40](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L40) |  |
-| `ViewRecord` | interface | [L48](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L48) |  |
-| `Agent` | interface | [L54](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L54) |  |
-| `LeanPropertyContentProps` | interface | [L60](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L60) |  |
-| `LeanPropertyContent` | function | [L71](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L71) | destructured |
-| `formatPrice` | function | [L105](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L105) | price |
-| `handleKeyDown` | function | [L137](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L137) | e |
-| `handleToggleSave` | function | [L146](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L146) |  |
-| `handleOpenGallery` | function | [L202](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L202) | index |
-| `handleAddNote` | function | [L208](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L208) |  |
-| `handleDeleteNote` | function | [L234](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L234) | noteId |
-| `handleMarkViewed` | function | [L246](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L246) |  |
-| `handleContactAgent` | function | [L265](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L265) |  |
+| `Photo` | interface | [L34](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L34) |  |
+| `Note` | interface | [L41](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L41) |  |
+| `ViewRecord` | interface | [L49](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L49) |  |
+| `Agent` | interface | [L55](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L55) |  |
+| `LeanPropertyContentProps` | interface | [L61](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L61) |  |
+| `LeanPropertyContent` | function | [L73](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L73) | destructured |
+| `formatPrice` | function | [L108](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L108) | price |
+| `handleKeyDown` | function | [L140](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L140) | e |
+| `handleToggleSave` | function | [L149](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L149) |  |
+| `handleOpenGallery` | function | [L205](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L205) | index |
+| `handleAddNote` | function | [L211](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L211) |  |
+| `handleDeleteNote` | function | [L237](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L237) | noteId |
+| `handleMarkViewed` | function | [L249](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L249) |  |
+| `handleContactAgent` | function | [L268](../../../../../../../../src/app/(app)/property/[id]/LeanPropertyContent.tsx#L268) |  |
 
-Imports: `react`, `next/image`, `next/link`, `lucide-react`, `@/components/ui/button`, `@/components/ui/card`, `@/components/ui/textarea`, `sonner`, `@/components/PhotoGalleryModal`
+Imports: `@/lib/app-path`, `react`, `next/image`, `next/link`, `lucide-react`, `@/components/ui/button`, `@/components/ui/card`, `@/components/ui/textarea`, `sonner`, `@/components/PhotoGalleryModal`

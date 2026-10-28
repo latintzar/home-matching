@@ -4,9 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L14](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L14) | request, destructured |
-| `addToWorkItem` | function | [L55](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L55) | workItem, category, entry |
-| `rank` | function | [L70](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L70) | c |
-| `mapCategory` | function | [L79](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L79) | c |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L9) |  |
+| `POST` | function | [L17](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L17) | request, destructured |
+| `addToWorkItem` | function | [L58](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L58) | workItem, category, entry |
+| `rank` | function | [L73](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L73) | c |
+| `mapCategory` | function | [L82](../../../../../../../../../src/app/api/listings/[id]/renovation-research-aggregate/route.ts#L82) | c |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/types/renovation-intelligence`
+Imports: `next/server`, `@supabase/supabase-js`, `@/types/renovation-intelligence`, `@/lib/lazy-supabase`

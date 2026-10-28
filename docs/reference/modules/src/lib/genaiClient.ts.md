@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getGenAI` | function | [L8](../../../../../src/lib/genaiClient.ts#L8) |  |
+| `getGenAI` | function | [L9](../../../../../src/lib/genaiClient.ts#L9) |  |
 
-Imports: `@google-cloud/vertexai`
+Imports: `@google-cloud/vertexai`, `@/lib/lazy-resource.mjs`

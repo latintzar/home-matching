@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `GET` | function | [L16](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/results/route.ts#L16) | request, destructured |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/results/route.ts#L9) |  |
+| `GET` | function | [L19](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/results/route.ts#L19) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/scraper-normalizer`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/scraper-normalizer`, `@/lib/lazy-supabase`

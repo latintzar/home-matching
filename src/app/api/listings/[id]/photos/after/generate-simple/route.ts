@@ -1,18 +1,20 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { VertexAI } from '@google-cloud/vertexai';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
+import {lazyResource} from '@/lib/lazy-resource.mjs';
 
-const supabase = createClient(
+const supabase = lazySupabaseClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_KEY!
 );
 
 const BUCKET = 'property-images';
 
-const vertexAI = new VertexAI({
+const vertexAI = lazyResource(()=>new VertexAI({
   project: process.env.GOOGLE_CLOUD_PROJECT_ID!,
   location: process.env.GOOGLE_CLOUD_LOCATION!,
-});
+}));
 
 export async function POST(
   request: Request,

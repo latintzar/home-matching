@@ -3,10 +3,11 @@ import { createClient } from '@supabase/supabase-js';
 import { callGeminiRest } from '@/lib/gemini-rest-client';
 import Ajv from 'ajv';
 import { interceptConsoleLog } from '@/lib/orchestrator-progress';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const ajv = new Ajv({ allErrors: true });
 

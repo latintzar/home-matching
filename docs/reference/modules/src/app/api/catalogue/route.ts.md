@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `loadFromS3` | function | [L26](../../../../../../../src/app/api/catalogue/route.ts#L26) |  |
-| `GET` | function | [L45](../../../../../../../src/app/api/catalogue/route.ts#L45) | request |
+| `loadFromS3` | function | [L29](../../../../../../../src/app/api/catalogue/route.ts#L29) |  |
+| `GET` | function | [L48](../../../../../../../src/app/api/catalogue/route.ts#L48) | request |
 
-Imports: `next/server`, `@aws-sdk/client-s3`, `zlib`
+Imports: `@/lib/sample/server`, `@/lib/sample/seed.mjs`, `@/lib/app-path`, `next/server`, `@aws-sdk/client-s3`, `zlib`

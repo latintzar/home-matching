@@ -4,15 +4,15 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PersonalizedMatchProps` | interface | [L24](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L24) |  |
-| `MatchData` | interface | [L41](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L41) |  |
-| `ScoreGauge` | function | [L54](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L54) | destructured |
-| `getColor` | function | [L62](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L62) | s |
-| `getLabel` | function | [L69](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L69) | s |
-| `MatchBadge` | function | [L98](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L98) | destructured |
-| `PersonalizedMatch` | function | [L122](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L122) | destructured |
-| `fetchMatchData` | function | [L144](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L144) |  |
-| `PersonalizedMatchBadge` | function | [L295](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L295) | destructured |
-| `getColor` | function | [L302](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L302) | s |
+| `PersonalizedMatchProps` | interface | [L25](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L25) |  |
+| `MatchData` | interface | [L42](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L42) |  |
+| `ScoreGauge` | function | [L55](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L55) | destructured |
+| `getColor` | function | [L63](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L63) | s |
+| `getLabel` | function | [L70](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L70) | s |
+| `MatchBadge` | function | [L99](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L99) | destructured |
+| `PersonalizedMatch` | function | [L123](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L123) | destructured |
+| `fetchMatchData` | function | [L145](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L145) |  |
+| `PersonalizedMatchBadge` | function | [L296](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L296) | destructured |
+| `getColor` | function | [L303](../../../../../../src/components/recommender/PersonalizedMatch.tsx#L303) | s |
 
-Imports: `react`, `lucide-react`, `@/lib/utils`
+Imports: `@/lib/app-path`, `react`, `lucide-react`, `@/lib/utils`

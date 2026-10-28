@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `VoiceIntakeProps` | interface | [L17](../../../../../../src/components/recommender/VoiceIntake.tsx#L17) |  |
-| `VoiceIntake` | function | [L24](../../../../../../src/components/recommender/VoiceIntake.tsx#L24) | destructured |
-| `getStatusText` | function | [L126](../../../../../../src/components/recommender/VoiceIntake.tsx#L126) |  |
+| `VoiceIntakeProps` | interface | [L18](../../../../../../src/components/recommender/VoiceIntake.tsx#L18) |  |
+| `VoiceIntake` | function | [L25](../../../../../../src/components/recommender/VoiceIntake.tsx#L25) | destructured |
+| `getStatusText` | function | [L127](../../../../../../src/components/recommender/VoiceIntake.tsx#L127) |  |
 
-Imports: `react`, `@elevenlabs/react`, `lucide-react`
+Imports: `@/lib/app-path`, `react`, `@elevenlabs/react`, `lucide-react`

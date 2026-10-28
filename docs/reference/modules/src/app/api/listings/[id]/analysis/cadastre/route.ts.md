@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L32](../../../../../../../../../../src/app/api/listings/[id]/analysis/cadastre/route.ts#L32) | request, destructured |
+| `requireRecipientConfiguration` | function | [L11](../../../../../../../../../../src/app/api/listings/[id]/analysis/cadastre/route.ts#L11) |  |
+| `POST` | function | [L35](../../../../../../../../../../src/app/api/listings/[id]/analysis/cadastre/route.ts#L35) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/cadastre/analyzer`, `@/lib/orchestrator-progress`, `@/lib/pipeline-versions`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/cadastre/analyzer`, `@/lib/orchestrator-progress`, `@/lib/pipeline-versions`, `@/lib/lazy-supabase`

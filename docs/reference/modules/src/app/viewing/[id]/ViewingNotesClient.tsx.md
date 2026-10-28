@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `ViewingNote` | interface | [L12](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L12) |  |
-| `ViewingNotesClientProps` | interface | [L19](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L19) |  |
-| `ViewingNotesClient` | function | [L31](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L31) | destructured |
-| `loadNotes` | function | [L41](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L41) |  |
+| `ViewingNote` | interface | [L13](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L13) |  |
+| `ViewingNotesClientProps` | interface | [L20](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L20) |  |
+| `ViewingNotesClient` | function | [L32](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L32) | destructured |
+| `loadNotes` | function | [L42](../../../../../../../src/app/viewing/[id]/ViewingNotesClient.tsx#L42) |  |
 
-Imports: `react`
+Imports: `@/lib/app-path`, `react`

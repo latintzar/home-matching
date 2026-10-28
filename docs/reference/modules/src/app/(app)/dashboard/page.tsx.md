@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `DashboardPage` | function | [L10](../../../../../../../src/app/(app)/dashboard/page.tsx#L10) |  |
+| `DashboardPage` | function | [L13](../../../../../../../src/app/(app)/dashboard/page.tsx#L13) |  |
 
-Imports: `next`, `@/lib/supabase-server`, `./DashboardContent`
+Imports: `@/lib/sample/server`, `@/lib/sample/recommend`, `@/lib/recommender/profileStorage`, `next`, `@/lib/supabase-server`, `./DashboardContent`

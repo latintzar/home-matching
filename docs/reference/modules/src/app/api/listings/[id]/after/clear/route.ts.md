@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L13](../../../../../../../../../../src/app/api/listings/[id]/after/clear/route.ts#L13) | request, destructured |
+| `requireRecipientConfiguration` | function | [L8](../../../../../../../../../../src/app/api/listings/[id]/after/clear/route.ts#L8) |  |
+| `POST` | function | [L16](../../../../../../../../../../src/app/api/listings/[id]/after/clear/route.ts#L16) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/lazy-supabase`

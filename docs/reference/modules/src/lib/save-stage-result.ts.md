@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `saveStageResult` | function | [L8](../../../../../src/lib/save-stage-result.ts#L8) | listingId, stageName, stageResult |
+| `saveStageResult` | function | [L9](../../../../../src/lib/save-stage-result.ts#L9) | listingId, stageName, stageResult |
 
-Imports: `@supabase/supabase-js`, `crypto`
+Imports: `@supabase/supabase-js`, `crypto`, `@/lib/lazy-supabase`

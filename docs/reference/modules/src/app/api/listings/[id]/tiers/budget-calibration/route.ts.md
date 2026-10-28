@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `toGeminiSchema` | function | [L23](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L23) | schema |
-| `validateSchemaHasTypes` | function | [L82](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L82) | schema, path |
-| `POST` | function | [L114](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L114) | request, destructured |
+| `toGeminiSchema` | function | [L24](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L24) | schema |
+| `validateSchemaHasTypes` | function | [L83](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L83) | schema, path |
+| `POST` | function | [L115](../../../../../../../../../../src/app/api/listings/[id]/tiers/budget-calibration/route.ts#L115) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `ajv-formats`, `@/lib/orchestrator-progress`, `@/lib/schemas/renovation-schemas`, `@/lib/schemas/renovation-schemas`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `ajv-formats`, `@/lib/orchestrator-progress`, `@/lib/schemas/renovation-schemas`, `@/lib/schemas/renovation-schemas`, `@/lib/lazy-supabase`

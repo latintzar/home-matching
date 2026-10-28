@@ -4,12 +4,12 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L16](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L16) |  |
-| `runWithConcurrency` | function | [L18](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L18) | max, tasks |
-| `next` | function | [L39](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L39) |  |
-| `POST` | function | [L71](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L71) | request, destructured |
-| `pLimit` | function | [L237](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L237) | max, tasks |
-| `next` | function | [L243](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L243) |  |
-| `processRoom` | function | [L262](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L262) | roomId |
+| `Tier` | type | [L17](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L17) |  |
+| `runWithConcurrency` | function | [L19](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L19) | max, tasks |
+| `next` | function | [L40](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L40) |  |
+| `POST` | function | [L72](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L72) | request, destructured |
+| `pLimit` | function | [L238](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L238) | max, tasks |
+| `next` | function | [L244](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L244) |  |
+| `processRoom` | function | [L263](../../../../../../../../../../src/app/api/listings/[id]/visuals/r3-render/route.ts#L263) | roomId |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/model-registry`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/model-registry`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `ElementVisibility` | interface | [L15](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L15) |  |
-| `RoomBoundary` | interface | [L23](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L23) |  |
-| `EgocentricDescription` | interface | [L31](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L31) |  |
-| `EgocentricDescriptionsResponse` | interface | [L50](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L50) |  |
-| `POST` | function | [L138](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L138) | request, destructured |
+| `ElementVisibility` | interface | [L16](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L16) |  |
+| `RoomBoundary` | interface | [L24](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L24) |  |
+| `EgocentricDescription` | interface | [L32](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L32) |  |
+| `EgocentricDescriptionsResponse` | interface | [L51](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L51) |  |
+| `POST` | function | [L139](../../../../../../../../../../src/app/api/listings/[id]/after/describe-room-images/route.ts#L139) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

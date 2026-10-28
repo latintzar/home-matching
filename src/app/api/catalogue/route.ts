@@ -1,3 +1,6 @@
+import {sampleMode} from '@/lib/sample/server';
+import {sampleHomes} from '@/lib/sample/seed.mjs';
+import {appBasePath} from '@/lib/app-path';
 import { NextResponse } from "next/server";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import { gunzipSync } from "zlib";
@@ -43,6 +46,7 @@ async function loadFromS3() {
 }
 
 export async function GET(request: Request) {
+  if(sampleMode()) {const listings=sampleHomes(appBasePath).map(home=>home.listing);return NextResponse.json({listings,total:listings.length,domains:{sample:listings.length},exportedAt:"2026-01-01T12:00:00.000Z",cached:true});}
   try {
     const { searchParams } = new URL(request.url);
     const forceRefresh = searchParams.get("refresh") === "true";

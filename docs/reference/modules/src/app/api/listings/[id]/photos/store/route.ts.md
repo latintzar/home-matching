@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L10](../../../../../../../../../../src/app/api/listings/[id]/photos/store/route.ts#L10) | request, destructured |
+| `POST` | function | [L11](../../../../../../../../../../src/app/api/listings/[id]/photos/store/route.ts#L11) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/photo-storage`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/photo-storage`, `@/lib/lazy-supabase`

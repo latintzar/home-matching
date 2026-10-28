@@ -26,6 +26,7 @@ interface Listing {
   source_url: string;
   housing_situation: string | null;
   photo: string | null;
+  fitScore?:number;
 }
 
 interface RecommendationsContentProps {
@@ -33,7 +34,7 @@ interface RecommendationsContentProps {
 }
 
 export function RecommendationsContent({ listings }: RecommendationsContentProps) {
-  const [sortBy, setSortBy] = useState<string>("recent");
+  const [sortBy, setSortBy] = useState<string>(listings.some(listing=>typeof listing.fitScore==='number')?"fit":"recent");
   const [filterType, setFilterType] = useState<string>("all");
 
   // Format price in Spanish locale
@@ -54,6 +55,7 @@ export function RecommendationsContent({ listings }: RecommendationsContentProps
       return true;
     })
     .sort((a, b) => {
+      if(sortBy==='fit')return (b.fitScore||0)-(a.fitScore||0);
       if (sortBy === "price-asc") return parseFloat(a.price_eur) - parseFloat(b.price_eur);
       if (sortBy === "price-desc") return parseFloat(b.price_eur) - parseFloat(a.price_eur);
       if (sortBy === "size") return (b.sqm || 0) - (a.sqm || 0);
@@ -93,6 +95,7 @@ export function RecommendationsContent({ listings }: RecommendationsContentProps
               <SelectValue placeholder="Ordenar" />
             </SelectTrigger>
             <SelectContent>
+              {listings.some(listing=>typeof listing.fitScore==='number')&&<SelectItem value="fit">Mejor encaje</SelectItem>}
               <SelectItem value="recent">Más recientes</SelectItem>
               <SelectItem value="price-asc">Precio: menor a mayor</SelectItem>
               <SelectItem value="price-desc">Precio: mayor a menor</SelectItem>
@@ -132,9 +135,9 @@ export function RecommendationsContent({ listings }: RecommendationsContentProps
                       </div>
                     )}
                     {/* Fit Score Badge */}
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-stone-900">
-                      {Math.floor(Math.random() * 20) + 70}% match
-                    </div>
+                    {typeof listing.fitScore==='number' && <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-stone-900">
+                      {listing.fitScore}% match
+                    </div>}
                     {/* Type Badge */}
                     <div className="absolute top-3 left-3 bg-stone-900/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-white">
                       {isRental ? "Alquiler" : "Venta"}

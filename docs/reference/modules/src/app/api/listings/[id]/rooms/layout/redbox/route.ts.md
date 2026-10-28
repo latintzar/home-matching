@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `limitConcurrency` | function | [L10](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L10) | items, limit, handler |
-| `POST` | function | [L24](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L24) | req, destructured |
-| `GET` | function | [L73](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L73) |  |
+| `limitConcurrency` | function | [L11](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L11) | items, limit, handler |
+| `POST` | function | [L25](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L25) | req, destructured |
+| `GET` | function | [L74](../../../../../../../../../../../src/app/api/listings/[id]/rooms/layout/redbox/route.ts#L74) |  |
 
-Imports: `next/server`, `@supabase/supabase-js`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/lazy-supabase`

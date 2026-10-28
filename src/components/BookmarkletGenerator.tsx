@@ -1,4 +1,5 @@
 'use client';
+import {appFetch as fetch} from '@/lib/app-path';
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';

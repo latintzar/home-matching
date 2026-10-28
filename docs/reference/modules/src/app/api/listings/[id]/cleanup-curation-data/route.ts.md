@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `DELETE` | function | [L13](../../../../../../../../../src/app/api/listings/[id]/cleanup-curation-data/route.ts#L13) | request, destructured |
+| `requireRecipientConfiguration` | function | [L8](../../../../../../../../../src/app/api/listings/[id]/cleanup-curation-data/route.ts#L8) |  |
+| `DELETE` | function | [L16](../../../../../../../../../src/app/api/listings/[id]/cleanup-curation-data/route.ts#L16) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/lazy-supabase`

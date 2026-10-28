@@ -88,10 +88,10 @@ export default function ChatPanel({
                   : 'bg-[#1A1A1A] text-gray-200 border border-gray-800'
               }`}
             >
-              <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+              <p className="text-sm whitespace-pre-wrap">{typeof message.content === 'string' ? message.content : ''}</p>
 
               {/* Area list if assistant returned areas */}
-              {message.role === 'assistant' && message.areas && message.areas.length > 0 && (
+              {message.role === 'assistant' && Array.isArray(message.areas) && message.areas.length > 0 && (
                 <div className="mt-3 pt-3 border-t border-gray-700 space-y-2">
                   {message.areas.map((area, i) => (
                     <button
@@ -118,7 +118,7 @@ export default function ChatPanel({
                           {getPriceTierDisplay(area.priceTier)}
                         </span>
                       )}
-                      {area.grounded && !area.priceTier && (
+                      {Boolean(area.grounded) && !area.priceTier && (
                         <span className="text-[10px] text-emerald-400">✓ verified</span>
                       )}
                     </button>
@@ -127,7 +127,7 @@ export default function ChatPanel({
               )}
               
               {/* Copy Raw Response button - for all assistant messages with raw data */}
-              {message.role === 'assistant' && message.rawResponse && (
+              {message.role === 'assistant' && Boolean(message.rawResponse) && (
                 <div className="mt-3 pt-3 border-t border-gray-700">
                   <button
                     onClick={() => handleCopyRaw(message)}

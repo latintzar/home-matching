@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `VisibilityMapping` | interface | [L20](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L20) |  |
-| `VisibilityResult` | interface | [L32](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L32) |  |
-| `VisibilityRunConfig` | interface | [L36](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L36) |  |
-| `runVisibilityGemini3` | function | [L44](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L44) | config |
+| `VisibilityMapping` | interface | [L21](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L21) |  |
+| `VisibilityResult` | interface | [L33](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L33) |  |
+| `VisibilityRunConfig` | interface | [L37](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L37) |  |
+| `runVisibilityGemini3` | function | [L45](../../../../../../src/lib/auto-clustering/visibilityGemini3.ts#L45) | config |
 
-Imports: `@supabase/supabase-js`, `@/lib/photo-storage`
+Imports: `@supabase/supabase-js`, `@/lib/photo-storage`, `@/lib/lazy-supabase`

@@ -4,12 +4,12 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L16](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L16) |  |
-| `RenovationPrompt` | interface | [L18](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L18) |  |
-| `RenovationPromptsResponse` | interface | [L25](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L25) |  |
-| `POST` | function | [L62](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L62) | request, destructured |
-| `pLimit` | function | [L213](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L213) | max, tasks |
-| `next` | function | [L219](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L219) |  |
-| `processRoom` | function | [L236](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L236) | roomId |
+| `Tier` | type | [L17](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L17) |  |
+| `RenovationPrompt` | interface | [L19](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L19) |  |
+| `RenovationPromptsResponse` | interface | [L26](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L26) |  |
+| `POST` | function | [L63](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L63) | request, destructured |
+| `pLimit` | function | [L214](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L214) | max, tasks |
+| `next` | function | [L220](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L220) |  |
+| `processRoom` | function | [L237](../../../../../../../../../../src/app/api/listings/[id]/visuals/r2-prompt/route.ts#L237) | roomId |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/model-registry`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/model-registry`, `@/lib/lazy-supabase`

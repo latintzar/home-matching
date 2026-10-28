@@ -4,6 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L14](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/b2-merge/route.ts#L14) | request, destructured |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/b2-merge/route.ts#L9) |  |
+| `POST` | function | [L17](../../../../../../../../../../src/app/api/listings/[id]/text-analysis/b2-merge/route.ts#L17) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/pipeline-versions`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/pipeline-versions`, `@/lib/lazy-supabase`

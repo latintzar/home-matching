@@ -1,4 +1,5 @@
 'use client';
+import {appFetch as fetch} from '@/lib/app-path';
 
 import { useState, useCallback, useRef } from 'react';
 import { ChatHistorySidebar, ChatPanel, MapPanel, TestPickerPanel, TestResultPanel } from '@/components/vibe-maps';

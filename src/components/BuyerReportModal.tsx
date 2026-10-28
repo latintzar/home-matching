@@ -1,4 +1,5 @@
 "use client";
+import {appFetch as fetch} from '@/lib/app-path';
 
 import * as React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";

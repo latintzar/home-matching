@@ -4,8 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `corsHeaders` | function | [L14](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L14) |  |
-| `OPTIONS` | function | [L22](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L22) |  |
-| `POST` | function | [L26](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L26) | request, destructured |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L9) |  |
+| `corsHeaders` | function | [L17](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L17) |  |
+| `OPTIONS` | function | [L25](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L25) |  |
+| `POST` | function | [L29](../../../../../../../../../../src/app/api/listings/[id]/photos/upload-base64/route.ts#L29) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/photo-storage`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/photo-storage`, `@/lib/lazy-supabase`

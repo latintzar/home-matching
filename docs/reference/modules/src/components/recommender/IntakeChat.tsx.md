@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Message` | interface | [L18](../../../../../../src/components/recommender/IntakeChat.tsx#L18) |  |
-| `IntakeChatProps` | interface | [L24](../../../../../../src/components/recommender/IntakeChat.tsx#L24) |  |
-| `IntakeChat` | function | [L38](../../../../../../src/components/recommender/IntakeChat.tsx#L38) | destructured |
-| `connect` | function | [L118](../../../../../../src/components/recommender/IntakeChat.tsx#L118) |  |
+| `Message` | interface | [L19](../../../../../../src/components/recommender/IntakeChat.tsx#L19) |  |
+| `IntakeChatProps` | interface | [L25](../../../../../../src/components/recommender/IntakeChat.tsx#L25) |  |
+| `IntakeChat` | function | [L39](../../../../../../src/components/recommender/IntakeChat.tsx#L39) | destructured |
+| `connect` | function | [L119](../../../../../../src/components/recommender/IntakeChat.tsx#L119) |  |
 
-Imports: `react`, `@elevenlabs/react`, `lucide-react`, `@/types/recommender`
+Imports: `@/lib/app-path`, `react`, `@elevenlabs/react`, `lucide-react`, `@/types/recommender`

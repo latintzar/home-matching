@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PageState` | type | [L21](../../../../../../src/app/recommend/page.tsx#L21) |  |
-| `ScoredListing` | interface | [L23](../../../../../../src/app/recommend/page.tsx#L23) |  |
-| `SearchResult` | interface | [L43](../../../../../../src/app/recommend/page.tsx#L43) |  |
-| `RecommendPageContent` | function | [L50](../../../../../../src/app/recommend/page.tsx#L50) |  |
-| `checkExistingProfile` | function | [L103](../../../../../../src/app/recommend/page.tsx#L103) |  |
-| `RecommendPage` | function | [L312](../../../../../../src/app/recommend/page.tsx#L312) |  |
+| `PageState` | type | [L22](../../../../../../src/app/recommend/page.tsx#L22) |  |
+| `ScoredListing` | interface | [L24](../../../../../../src/app/recommend/page.tsx#L24) |  |
+| `SearchResult` | interface | [L44](../../../../../../src/app/recommend/page.tsx#L44) |  |
+| `RecommendPageContent` | function | [L51](../../../../../../src/app/recommend/page.tsx#L51) |  |
+| `checkExistingProfile` | function | [L104](../../../../../../src/app/recommend/page.tsx#L104) |  |
+| `RecommendPage` | function | [L311](../../../../../../src/app/recommend/page.tsx#L311) |  |
 
-Imports: `react`, `next/navigation`, `@/components/recommender/RecommendationResults`, `@/components/recommender/LifeProfileIntake`, `@/types/recommender`
+Imports: `@/lib/app-path`, `react`, `next/navigation`, `@/components/recommender/RecommendationResults`, `@/components/recommender/LifeProfileIntake`, `@/types/recommender`

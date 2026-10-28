@@ -18,6 +18,7 @@ import { callGeminiRest } from '@/lib/gemini-rest-client';
 import { createStepLogger, getProgressCallback } from '@/lib/orchestrator-progress';
 import { vertexRAG, RAGResult } from '@/lib/vertex-rag'; // Import RAG client
 import { PIPELINE_VERSIONS, isCacheValid } from '@/lib/pipeline-versions';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 /**
  * Concurrency limiter: maintains exactly N concurrent tasks, starts next as soon as one completes
@@ -80,11 +81,13 @@ if (typeof getProgressCallback === 'function') {
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Missing required environment variables');
 }
+}
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 interface AnalysisGoogleSearchOptions {
   maxSnippetsPerCategory?: number;

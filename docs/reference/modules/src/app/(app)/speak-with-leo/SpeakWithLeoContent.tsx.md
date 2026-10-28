@@ -4,17 +4,17 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `OnboardingState` | type | [L35](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L35) |  |
-| `Mode` | type | [L94](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L94) |  |
-| `Lang` | type | [L95](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L95) |  |
-| `Message` | interface | [L97](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L97) |  |
-| `SpeakWithLeoContentProps` | interface | [L103](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L103) |  |
-| `SpeakWithLeoContent` | function | [L112](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L112) | destructured |
-| `getOnboardingState` | function | [L135](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L135) |  |
-| `getAgentId` | function | [L165](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L165) |  |
-| `createProfile` | function | [L200](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L200) |  |
-| `getStateContent` | function | [L410](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L410) |  |
-| `CompletionOverlay` | function | [L724](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L724) | destructured |
-| `ExtractingOverlay` | function | [L749](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L749) | destructured |
+| `OnboardingState` | type | [L36](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L36) |  |
+| `Mode` | type | [L95](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L95) |  |
+| `Lang` | type | [L96](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L96) |  |
+| `Message` | interface | [L98](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L98) |  |
+| `SpeakWithLeoContentProps` | interface | [L104](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L104) |  |
+| `SpeakWithLeoContent` | function | [L113](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L113) | destructured |
+| `getOnboardingState` | function | [L136](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L136) |  |
+| `getAgentId` | function | [L166](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L166) |  |
+| `createProfile` | function | [L201](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L201) |  |
+| `getStateContent` | function | [L411](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L411) |  |
+| `CompletionOverlay` | function | [L725](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L725) | destructured |
+| `ExtractingOverlay` | function | [L750](../../../../../../../src/app/(app)/speak-with-leo/SpeakWithLeoContent.tsx#L750) | destructured |
 
-Imports: `react`, `next/navigation`, `@elevenlabs/react`, `lucide-react`, `@/components/ui/AmorphousOrb`, `@/lib/supabase-browser`
+Imports: `@/lib/app-path`, `react`, `next/navigation`, `@elevenlabs/react`, `lucide-react`, `@/components/ui/AmorphousOrb`, `@/lib/supabase-browser`

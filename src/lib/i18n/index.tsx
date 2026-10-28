@@ -1,4 +1,5 @@
 "use client";
+import {appFetch as fetch} from '@/lib/app-path';
 
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 

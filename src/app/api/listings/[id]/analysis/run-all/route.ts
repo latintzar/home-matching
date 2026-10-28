@@ -1,24 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { VertexAI } from '@google-cloud/vertexai';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
+import {lazyResource} from '@/lib/lazy-resource.mjs';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Supabase URL and Service Key must be provided!');
 }
+}
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 // Initialize Vertex AI
 const GOOGLE_CLOUD_PROJECT_ID = process.env.GOOGLE_CLOUD_PROJECT_ID || '';
 const GOOGLE_CLOUD_LOCATION = process.env.GOOGLE_CLOUD_LOCATION || "us-central1";
 
-const vertexAI = new VertexAI({
+const vertexAI = lazyResource(()=>new VertexAI({
   project: GOOGLE_CLOUD_PROJECT_ID,
   location: GOOGLE_CLOUD_LOCATION,
-});
+}));
 
 // Helper function to assign photos to room clusters
 async function assignPhotosToClusters(listingId: string) {

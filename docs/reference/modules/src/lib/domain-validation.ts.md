@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `validateDomainsForCategory` | function | [L9](../../../../../src/lib/domain-validation.ts#L9) | urls, category |
+| `validateDomainsForCategory` | function | [L10](../../../../../src/lib/domain-validation.ts#L10) | urls, category |
 
-Imports: `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `./domain-whitelists`
+Imports: `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `./domain-whitelists`, `@/lib/lazy-supabase`

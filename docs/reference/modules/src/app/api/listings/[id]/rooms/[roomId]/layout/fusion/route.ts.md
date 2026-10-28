@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L10](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/fusion/route.ts#L10) | req, destructured |
-| `GET` | function | [L147](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/fusion/route.ts#L147) |  |
+| `POST` | function | [L11](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/fusion/route.ts#L11) | req, destructured |
+| `GET` | function | [L148](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/fusion/route.ts#L148) |  |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/lazy-supabase`

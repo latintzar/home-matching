@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `generateStaticParams` | function | [L4](../../../../../../src/app/[lang]/layout.tsx#L4) |  |
-| `generateMetadata` | function | [L8](../../../../../../src/app/[lang]/layout.tsx#L8) | destructured |
-| `LangLayoutProps` | interface | [L28](../../../../../../src/app/[lang]/layout.tsx#L28) |  |
-| `LangLayout` | function | [L33](../../../../../../src/app/[lang]/layout.tsx#L33) | destructured |
+| `generateStaticParams` | function | [L5](../../../../../../src/app/[lang]/layout.tsx#L5) |  |
+| `generateMetadata` | function | [L9](../../../../../../src/app/[lang]/layout.tsx#L9) | destructured |
+| `LangLayoutProps` | interface | [L31](../../../../../../src/app/[lang]/layout.tsx#L31) |  |
+| `LangLayout` | function | [L36](../../../../../../src/app/[lang]/layout.tsx#L36) | destructured |
 
-Imports: `@/lib/i18n`, `next`
+Imports: `next/navigation`, `@/lib/i18n`, `next`

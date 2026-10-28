@@ -1,3 +1,6 @@
+import {sampleMode} from '@/lib/sample/server';
+import {sampleRecommendations} from '@/lib/sample/recommend';
+import {rowToProfile} from '@/lib/recommender/profileStorage';
 import { Metadata } from "next";
 import { getSupabaseServer, getServerUser } from "@/lib/supabase-server";
 import { RecommendationsContent } from "./RecommendationsContent";
@@ -30,9 +33,14 @@ export default async function RecommendationsPage() {
         .eq("is_primary", true)
     : { data: [] };
 
+  const {data:account}=await supabase.from('user_profiles').select('active_profile_type').eq('id',user?.id).single();
+  const {data:profile}=await supabase.from('user_lifestyle_profiles').select('*').eq('user_id',user?.id).eq('profile_type',account?.active_profile_type||'renter').single();
+  const fits=sampleMode()&&profile?Object.fromEntries(sampleRecommendations(rowToProfile(profile)).results.listings.map(item=>[item.listing.listing_id,item.fitScore])):{};
+
   // Merge photos into listings
   const listingsWithPhotos = listings?.map(listing => ({
     ...listing,
+    fitScore:fits[listing.id],
     photo: photos?.find(p => p.listing_id === listing.id)?.url || null,
   })) || [];
 

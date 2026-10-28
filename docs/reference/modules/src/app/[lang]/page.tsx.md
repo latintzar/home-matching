@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `generateStaticParams` | function | [L4](../../../../../../src/app/[lang]/page.tsx#L4) |  |
-| `LangPageProps` | interface | [L8](../../../../../../src/app/[lang]/page.tsx#L8) |  |
-| `LangPage` | function | [L12](../../../../../../src/app/[lang]/page.tsx#L12) | destructured |
+| `generateStaticParams` | function | [L5](../../../../../../src/app/[lang]/page.tsx#L5) |  |
+| `LangPageProps` | interface | [L9](../../../../../../src/app/[lang]/page.tsx#L9) |  |
+| `LangPage` | function | [L13](../../../../../../src/app/[lang]/page.tsx#L13) | destructured |
 
-Imports: `@/lib/i18n`, `./LandingPageClient`
+Imports: `next/navigation`, `@/lib/i18n`, `./LandingPageClient`

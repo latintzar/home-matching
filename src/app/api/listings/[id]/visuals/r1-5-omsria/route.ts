@@ -21,10 +21,11 @@ import { executeEditingPlan } from '@/lib/omsria/execute-plan';
 import { extractSpaceInfo, detectRedundancy, makeSelectionDecision, ImageInfo } from '@/lib/omsria/optimize-images';
 import { storePhotoInSupabase } from '@/lib/photo-storage';
 import { createStepLogger } from '@/lib/orchestrator-progress';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY!;
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const supabase = lazySupabaseClient(supabaseUrl, supabaseServiceKey);
 
 export const dynamic = 'force-dynamic';
 

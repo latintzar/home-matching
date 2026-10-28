@@ -1,15 +1,18 @@
 import { NextRequest } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { callGeminiJSON } from '../../../../../lib/text-analysis-helpers';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY!;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Missing Supabase environment variables');
 }
+}
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 const WHATSAPP_MESSAGE_PROMPT = (propertyData: any, categoryUnknowns: any) => `You are composing a WhatsApp message for a potential property buyer to send to a real estate agent.
 

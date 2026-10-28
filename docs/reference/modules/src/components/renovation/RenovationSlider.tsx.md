@@ -4,55 +4,55 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Props` | type | [L22](../../../../../../src/components/renovation/RenovationSlider.tsx#L22) |  |
-| `RenovationSlider` | function | [L38](../../../../../../src/components/renovation/RenovationSlider.tsx#L38) | destructured |
-| `load` | function | [L86](../../../../../../src/components/renovation/RenovationSlider.tsx#L86) |  |
-| `loadPermits` | function | [L133](../../../../../../src/components/renovation/RenovationSlider.tsx#L133) |  |
-| `loadTimeline` | function | [L160](../../../../../../src/components/renovation/RenovationSlider.tsx#L160) |  |
-| `get` | function | [L170](../../../../../../src/components/renovation/RenovationSlider.tsx#L170) | k |
-| `mapPh` | function | [L172](../../../../../../src/components/renovation/RenovationSlider.tsx#L172) | arr |
-| `handleShare` | function | [L197](../../../../../../src/components/renovation/RenovationSlider.tsx#L197) |  |
-| `setTierSelection` | function | [L238](../../../../../../src/components/renovation/RenovationSlider.tsx#L238) | tierId, rows |
-| `deriveScopeItems` | function | [L245](../../../../../../src/components/renovation/RenovationSlider.tsx#L245) | tier |
-| `guessTrade` | function | [L247](../../../../../../src/components/renovation/RenovationSlider.tsx#L247) | label |
-| `guessPermit` | function | [L259](../../../../../../src/components/renovation/RenovationSlider.tsx#L259) | label |
-| `applySelection` | function | [L311](../../../../../../src/components/renovation/RenovationSlider.tsx#L311) | tier |
-| `isFavHash` | function | [L327](../../../../../../src/components/renovation/RenovationSlider.tsx#L327) | hash |
-| `isFavQuery` | function | [L331](../../../../../../src/components/renovation/RenovationSlider.tsx#L331) |  |
-| `apply` | function | [L340](../../../../../../src/components/renovation/RenovationSlider.tsx#L340) |  |
-| `onHash` | function | [L342](../../../../../../src/components/renovation/RenovationSlider.tsx#L342) |  |
-| `onNav` | function | [L343](../../../../../../src/components/renovation/RenovationSlider.tsx#L343) |  |
-| `onOpen` | function | [L344](../../../../../../src/components/renovation/RenovationSlider.tsx#L344) |  |
-| `onTab` | function | [L352](../../../../../../src/components/renovation/RenovationSlider.tsx#L352) | e |
-| `formatTierAvgCost` | function | [L407](../../../../../../src/components/renovation/RenovationSlider.tsx#L407) | tier |
-| `formatTierAvgTime` | function | [L417](../../../../../../src/components/renovation/RenovationSlider.tsx#L417) | tier |
-| `avgMonths` | function | [L427](../../../../../../src/components/renovation/RenovationSlider.tsx#L427) | tier |
-| `avgCostK` | function | [L432](../../../../../../src/components/renovation/RenovationSlider.tsx#L432) | tier |
-| `onKey` | function | [L460](../../../../../../src/components/renovation/RenovationSlider.tsx#L460) | e |
-| `onKeydown` | function | [L488](../../../../../../src/components/renovation/RenovationSlider.tsx#L488) | e |
-| `toggleTier` | function | [L521](../../../../../../src/components/renovation/RenovationSlider.tsx#L521) | id |
-| `TierBeforeAfterCarousel` | function | [L776](../../../../../../src/components/renovation/RenovationSlider.tsx#L776) | destructured |
-| `filterPhotos` | function | [L817](../../../../../../src/components/renovation/RenovationSlider.tsx#L817) |  |
-| `fetchAfterPhotos` | function | [L998](../../../../../../src/components/renovation/RenovationSlider.tsx#L998) |  |
-| `addCacheBust` | function | [L1104](../../../../../../src/components/renovation/RenovationSlider.tsx#L1104) | url |
-| `handleKeyDown` | function | [L1172](../../../../../../src/components/renovation/RenovationSlider.tsx#L1172) | e |
-| `ThreadCard` | function | [L1355](../../../../../../src/components/renovation/RenovationSlider.tsx#L1355) | destructured |
-| `PermitChip` | function | [L1367](../../../../../../src/components/renovation/RenovationSlider.tsx#L1367) | destructured |
-| `PermitDetailsCards` | function | [L1373](../../../../../../src/components/renovation/RenovationSlider.tsx#L1373) | destructured |
-| `mergeMeta` | function | [L1532](../../../../../../src/components/renovation/RenovationSlider.tsx#L1532) | type |
-| `ScopeMatrix` | function | [L1599](../../../../../../src/components/renovation/RenovationSlider.tsx#L1599) | destructured |
-| `avgMoneyK` | function | [L1607](../../../../../../src/components/renovation/RenovationSlider.tsx#L1607) | r |
-| `fmtMoney` | function | [L1608](../../../../../../src/components/renovation/RenovationSlider.tsx#L1608) | r |
-| `fmtWeeks` | function | [L1609](../../../../../../src/components/renovation/RenovationSlider.tsx#L1609) | r |
-| `TotalsBar` | function | [L1688](../../../../../../src/components/renovation/RenovationSlider.tsx#L1688) | destructured |
-| `computeProjectPermit` | function | [L1704](../../../../../../src/components/renovation/RenovationSlider.tsx#L1704) | rows |
-| `getPermitMonths` | function | [L1711](../../../../../../src/components/renovation/RenovationSlider.tsx#L1711) | city, workload, type |
-| `TierTimeline` | function | [L1727](../../../../../../src/components/renovation/RenovationSlider.tsx#L1727) | destructured |
-| `sum` | function | [L1738](../../../../../../src/components/renovation/RenovationSlider.tsx#L1738) | k |
-| `avg` | function | [L1767](../../../../../../src/components/renovation/RenovationSlider.tsx#L1767) | r |
-| `fmtFromNow` | function | [L1773](../../../../../../src/components/renovation/RenovationSlider.tsx#L1773) | m |
-| `ContractorPlaybook` | function | [L1832](../../../../../../src/components/renovation/RenovationSlider.tsx#L1832) | destructured |
-| `TierDetail` | function | [L1915](../../../../../../src/components/renovation/RenovationSlider.tsx#L1915) | destructured |
-| `handleChange` | function | [L1916](../../../../../../src/components/renovation/RenovationSlider.tsx#L1916) | id |
+| `Props` | type | [L23](../../../../../../src/components/renovation/RenovationSlider.tsx#L23) |  |
+| `RenovationSlider` | function | [L39](../../../../../../src/components/renovation/RenovationSlider.tsx#L39) | destructured |
+| `load` | function | [L87](../../../../../../src/components/renovation/RenovationSlider.tsx#L87) |  |
+| `loadPermits` | function | [L134](../../../../../../src/components/renovation/RenovationSlider.tsx#L134) |  |
+| `loadTimeline` | function | [L161](../../../../../../src/components/renovation/RenovationSlider.tsx#L161) |  |
+| `get` | function | [L171](../../../../../../src/components/renovation/RenovationSlider.tsx#L171) | k |
+| `mapPh` | function | [L173](../../../../../../src/components/renovation/RenovationSlider.tsx#L173) | arr |
+| `handleShare` | function | [L198](../../../../../../src/components/renovation/RenovationSlider.tsx#L198) |  |
+| `setTierSelection` | function | [L239](../../../../../../src/components/renovation/RenovationSlider.tsx#L239) | tierId, rows |
+| `deriveScopeItems` | function | [L246](../../../../../../src/components/renovation/RenovationSlider.tsx#L246) | tier |
+| `guessTrade` | function | [L248](../../../../../../src/components/renovation/RenovationSlider.tsx#L248) | label |
+| `guessPermit` | function | [L260](../../../../../../src/components/renovation/RenovationSlider.tsx#L260) | label |
+| `applySelection` | function | [L312](../../../../../../src/components/renovation/RenovationSlider.tsx#L312) | tier |
+| `isFavHash` | function | [L328](../../../../../../src/components/renovation/RenovationSlider.tsx#L328) | hash |
+| `isFavQuery` | function | [L332](../../../../../../src/components/renovation/RenovationSlider.tsx#L332) |  |
+| `apply` | function | [L341](../../../../../../src/components/renovation/RenovationSlider.tsx#L341) |  |
+| `onHash` | function | [L343](../../../../../../src/components/renovation/RenovationSlider.tsx#L343) |  |
+| `onNav` | function | [L344](../../../../../../src/components/renovation/RenovationSlider.tsx#L344) |  |
+| `onOpen` | function | [L345](../../../../../../src/components/renovation/RenovationSlider.tsx#L345) |  |
+| `onTab` | function | [L353](../../../../../../src/components/renovation/RenovationSlider.tsx#L353) | e |
+| `formatTierAvgCost` | function | [L408](../../../../../../src/components/renovation/RenovationSlider.tsx#L408) | tier |
+| `formatTierAvgTime` | function | [L418](../../../../../../src/components/renovation/RenovationSlider.tsx#L418) | tier |
+| `avgMonths` | function | [L428](../../../../../../src/components/renovation/RenovationSlider.tsx#L428) | tier |
+| `avgCostK` | function | [L433](../../../../../../src/components/renovation/RenovationSlider.tsx#L433) | tier |
+| `onKey` | function | [L461](../../../../../../src/components/renovation/RenovationSlider.tsx#L461) | e |
+| `onKeydown` | function | [L489](../../../../../../src/components/renovation/RenovationSlider.tsx#L489) | e |
+| `toggleTier` | function | [L522](../../../../../../src/components/renovation/RenovationSlider.tsx#L522) | id |
+| `TierBeforeAfterCarousel` | function | [L777](../../../../../../src/components/renovation/RenovationSlider.tsx#L777) | destructured |
+| `filterPhotos` | function | [L818](../../../../../../src/components/renovation/RenovationSlider.tsx#L818) |  |
+| `fetchAfterPhotos` | function | [L999](../../../../../../src/components/renovation/RenovationSlider.tsx#L999) |  |
+| `addCacheBust` | function | [L1105](../../../../../../src/components/renovation/RenovationSlider.tsx#L1105) | url |
+| `handleKeyDown` | function | [L1173](../../../../../../src/components/renovation/RenovationSlider.tsx#L1173) | e |
+| `ThreadCard` | function | [L1356](../../../../../../src/components/renovation/RenovationSlider.tsx#L1356) | destructured |
+| `PermitChip` | function | [L1368](../../../../../../src/components/renovation/RenovationSlider.tsx#L1368) | destructured |
+| `PermitDetailsCards` | function | [L1374](../../../../../../src/components/renovation/RenovationSlider.tsx#L1374) | destructured |
+| `mergeMeta` | function | [L1533](../../../../../../src/components/renovation/RenovationSlider.tsx#L1533) | type |
+| `ScopeMatrix` | function | [L1600](../../../../../../src/components/renovation/RenovationSlider.tsx#L1600) | destructured |
+| `avgMoneyK` | function | [L1608](../../../../../../src/components/renovation/RenovationSlider.tsx#L1608) | r |
+| `fmtMoney` | function | [L1609](../../../../../../src/components/renovation/RenovationSlider.tsx#L1609) | r |
+| `fmtWeeks` | function | [L1610](../../../../../../src/components/renovation/RenovationSlider.tsx#L1610) | r |
+| `TotalsBar` | function | [L1689](../../../../../../src/components/renovation/RenovationSlider.tsx#L1689) | destructured |
+| `computeProjectPermit` | function | [L1705](../../../../../../src/components/renovation/RenovationSlider.tsx#L1705) | rows |
+| `getPermitMonths` | function | [L1712](../../../../../../src/components/renovation/RenovationSlider.tsx#L1712) | city, workload, type |
+| `TierTimeline` | function | [L1728](../../../../../../src/components/renovation/RenovationSlider.tsx#L1728) | destructured |
+| `sum` | function | [L1739](../../../../../../src/components/renovation/RenovationSlider.tsx#L1739) | k |
+| `avg` | function | [L1768](../../../../../../src/components/renovation/RenovationSlider.tsx#L1768) | r |
+| `fmtFromNow` | function | [L1774](../../../../../../src/components/renovation/RenovationSlider.tsx#L1774) | m |
+| `ContractorPlaybook` | function | [L1833](../../../../../../src/components/renovation/RenovationSlider.tsx#L1833) | destructured |
+| `TierDetail` | function | [L1916](../../../../../../src/components/renovation/RenovationSlider.tsx#L1916) | destructured |
+| `handleChange` | function | [L1917](../../../../../../src/components/renovation/RenovationSlider.tsx#L1917) | id |
 
-Imports: `react`, `lucide-react`, `@/types/renovation`, `@/components/BeforeAfter`, `@/lib/utils`, `@/lib/supabase`, `@/components/ui/card`, `@/components/ui/badge`, `@/components/ui/button`, `@/components/ui/separator`, `@/components/ui/tabs`
+Imports: `@/lib/app-path`, `react`, `lucide-react`, `@/types/renovation`, `@/components/BeforeAfter`, `@/lib/utils`, `@/lib/supabase`, `@/components/ui/card`, `@/components/ui/badge`, `@/components/ui/button`, `@/components/ui/separator`, `@/components/ui/tabs`

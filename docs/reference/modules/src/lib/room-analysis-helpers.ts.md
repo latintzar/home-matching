@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PhotoWithVisibility` | interface | [L12](../../../../../src/lib/room-analysis-helpers.ts#L12) |  |
-| `ClusterPhotoData` | interface | [L18](../../../../../src/lib/room-analysis-helpers.ts#L18) |  |
-| `getNormalizedClusters` | function | [L31](../../../../../src/lib/room-analysis-helpers.ts#L31) | listingId |
+| `PhotoWithVisibility` | interface | [L13](../../../../../src/lib/room-analysis-helpers.ts#L13) |  |
+| `ClusterPhotoData` | interface | [L19](../../../../../src/lib/room-analysis-helpers.ts#L19) |  |
+| `getNormalizedClusters` | function | [L32](../../../../../src/lib/room-analysis-helpers.ts#L32) | listingId |
 
-Imports: `@supabase/supabase-js`
+Imports: `@supabase/supabase-js`, `@/lib/lazy-supabase`

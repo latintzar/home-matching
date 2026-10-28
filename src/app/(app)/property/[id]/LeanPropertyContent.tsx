@@ -1,4 +1,5 @@
 "use client";
+import {appFetch as fetch} from '@/lib/app-path';
 
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
@@ -58,6 +59,7 @@ interface Agent {
 }
 
 interface LeanPropertyContentProps {
+  fit?:{fitScore:number;topReasons:string[];concerns:string[]};
   listing: Record<string, unknown>;
   photos: Photo[];
   isSaved: boolean;
@@ -70,6 +72,7 @@ interface LeanPropertyContentProps {
 
 export function LeanPropertyContent({
   listing,
+  fit,
   photos,
   isSaved: initialIsSaved,
   savedId: initialSavedId,
@@ -263,7 +266,8 @@ export function LeanPropertyContent({
 
   // Contact agent via WhatsApp
   const handleContactAgent = () => {
-    const phone = agent?.whatsapp || "";
+    const phone = agent?.whatsapp?.replace(/\D/g, "") || "";
+    if(!phone)return;
     const message = `Hola, me interesa la propiedad: ${title}`;
     const url = phone
       ? `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`
@@ -271,14 +275,8 @@ export function LeanPropertyContent({
     window.open(url, "_blank");
   };
 
-  // Mock fit score (in production, this would come from the API)
-  const fitScore = Math.floor(Math.random() * 20) + 70;
-  const fitReasons = [
-    { good: true, text: "Dentro de tu presupuesto" },
-    { good: true, text: "A 15 min de tu trabajo" },
-    { good: fitScore > 80, text: "Barrio preferido" },
-    { good: false, text: "Sin terraza" },
-  ];
+  const fitScore=fit?.fitScore;
+  const fitReasons=fit?[...fit.topReasons.map(text=>({good:true,text})),...fit.concerns.map(text=>({good:false,text}))]:[];
 
   return (
     <div className="min-h-full">
@@ -328,7 +326,7 @@ export function LeanPropertyContent({
               </div>
               
               {/* Fit Score Card */}
-              <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200/50 rounded-2xl shadow-sm overflow-hidden">
+              {fit && <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200/50 rounded-2xl shadow-sm overflow-hidden">
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
@@ -361,7 +359,7 @@ export function LeanPropertyContent({
                     </div>
                   </div>
                 </CardContent>
-              </Card>
+              </Card>}
 
               {/* Photo Carousel */}
               <div 
@@ -483,6 +481,7 @@ export function LeanPropertyContent({
                 <div className="flex gap-3 pt-2">
                   <Button
                     onClick={handleContactAgent}
+                    disabled={!agent?.whatsapp}
                     className="flex-1 h-12 rounded-xl bg-[#25d366] hover:bg-[#20bd5a] text-white"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />

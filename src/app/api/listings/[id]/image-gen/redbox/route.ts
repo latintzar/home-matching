@@ -1,19 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { VertexAI } from '@google-cloud/vertexai';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
+import {lazyResource} from '@/lib/lazy-resource.mjs';
 
 export const dynamic = 'force-dynamic';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const BUCKET = 'property-images';
 
-const vertexAI = new VertexAI({
+const vertexAI = lazyResource(()=>new VertexAI({
   project: process.env.GOOGLE_CLOUD_PROJECT_ID!,
   location: process.env.GOOGLE_CLOUD_LOCATION!,
-});
+}));
 
 type RedboxRequest = {
   tier?: 'estandar' | 'optimo' | 'plus' | string;

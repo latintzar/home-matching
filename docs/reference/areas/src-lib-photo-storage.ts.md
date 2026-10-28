@@ -2,4 +2,4 @@
 
 | Module | Symbols |
 |---|---:|
-| [src/lib/photo-storage.ts](../modules/src/lib/photo-storage.ts.md) | 13 |
+| [src/lib/photo-storage.ts](../modules/src/lib/photo-storage.ts.md) | 14 |

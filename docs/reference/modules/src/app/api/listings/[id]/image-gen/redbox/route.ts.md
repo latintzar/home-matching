@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RedboxRequest` | type | [L18](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L18) |  |
-| `fetchAsBase64` | function | [L27](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L27) | url |
-| `POST` | function | [L39](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L39) | request, destructured |
-| `GET` | function | [L113](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L113) |  |
+| `RedboxRequest` | type | [L20](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L20) |  |
+| `fetchAsBase64` | function | [L29](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L29) | url |
+| `POST` | function | [L41](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L41) | request, destructured |
+| `GET` | function | [L115](../../../../../../../../../../src/app/api/listings/[id]/image-gen/redbox/route.ts#L115) |  |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`
+Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`, `@/lib/lazy-supabase`, `@/lib/lazy-resource.mjs`

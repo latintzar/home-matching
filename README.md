@@ -6,29 +6,25 @@ Home Matching is a property search app for people choosing a home in Spain, and 
 
 Property analysis is shared across searches. Changing a household’s priorities reranks the same analysis through deterministic scoring. The source includes the original intake, recommendations, property reports, maps, voice flows, data adapters and ingestion tools.
 
-![Original recommendation screen with fictional homes](docs/assets/matching-home-office-desktop.png)
+![Leo.casa property workspace](docs/assets/native-dashboard-desktop.png)
 
 The example uses fictional purchase homes and actual deterministic scores.
 
-## Run the recommendation scene
+## Run the app
 
-Use Node 22.18 or later in the Node 22 line:
+Use Node 22.18 or later in the Node 22 line, Python 3.10+, and the repository root:
 
 ```sh
 git clone https://github.com/latintzar/home-matching.git
-cd home-matching/starter
+cd home-matching
 npm ci
-npm run dev
+python3 tools/sample-app.py build
+python3 tools/sample-app.py start
 ```
 
-Visit **http://127.0.0.1:3000** to explore the original recommendation interface with authored listings and scores. The full application and its provider setup are described in [Setup](docs/setup.md).
+Open **http://127.0.0.1:3000**. The original Leo.casa workspace opens with eight fictional purchase homes and recovered, originally generated property images. Browse homes, save favorites, add viewing notes and edit the household profile. The original deterministic scorer reranks stored property and neighborhood evidence.
 
-To run the original scorer directly, from the repository root:
-
-```sh
-node --experimental-strip-types tools/first-match.mjs
-node --experimental-strip-types --test tests/first-match.test.mjs
-```
+Each browser has a private local workspace. SQLite state lives outside the checkout. [Native workspace](docs/native-workspace.md) explains the data, storage, routes and deployment; [Setup](docs/setup.md) covers recipient-owned providers. The smaller `starter/` scene and `tools/first-match.mjs` remain useful scoring examples.
 
 ## Build with it
 

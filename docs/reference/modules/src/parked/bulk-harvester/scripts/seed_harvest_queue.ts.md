@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getDomain` | function | [L18](../../../../../../../src/parked/bulk-harvester/scripts/seed_harvest_queue.ts#L18) | url |
-| `seedHarvestQueue` | function | [L27](../../../../../../../src/parked/bulk-harvester/scripts/seed_harvest_queue.ts#L27) |  |
+| `getDomain` | function | [L19](../../../../../../../src/parked/bulk-harvester/scripts/seed_harvest_queue.ts#L19) | url |
+| `seedHarvestQueue` | function | [L28](../../../../../../../src/parked/bulk-harvester/scripts/seed_harvest_queue.ts#L28) |  |
 
-Imports: `@supabase/supabase-js`, `fs`, `path`, `csv-parse/sync`
+Imports: `@supabase/supabase-js`, `fs`, `path`, `csv-parse/sync`, `@/lib/lazy-supabase`

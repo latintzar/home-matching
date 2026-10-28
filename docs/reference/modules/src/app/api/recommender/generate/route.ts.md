@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L25](../../../../../../../../src/app/api/recommender/generate/route.ts#L25) | request |
-| `GET` | function | [L106](../../../../../../../../src/app/api/recommender/generate/route.ts#L106) | request |
+| `POST` | function | [L28](../../../../../../../../src/app/api/recommender/generate/route.ts#L28) | request |
+| `GET` | function | [L118](../../../../../../../../src/app/api/recommender/generate/route.ts#L118) | request |
 
-Imports: `next/server`, `@/lib/recommender/orchestrator`, `@/types/recommender`
+Imports: `@/lib/recommender/profileStorage`, `next/server`, `@/lib/recommender/orchestrator`, `@/lib/sample/server`, `@/lib/sample/recommend`, `@/types/recommender`

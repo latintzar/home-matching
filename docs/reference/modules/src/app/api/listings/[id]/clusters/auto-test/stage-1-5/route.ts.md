@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `MergedPhotoGrouping` | interface | [L25](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L25) |  |
-| `MergedSpaceSet` | interface | [L33](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L33) |  |
-| `POST` | function | [L47](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L47) | request, destructured |
+| `MergedPhotoGrouping` | interface | [L26](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L26) |  |
+| `MergedSpaceSet` | interface | [L34](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L34) |  |
+| `POST` | function | [L48](../../../../../../../../../../../src/app/api/listings/[id]/clusters/auto-test/stage-1-5/route.ts#L48) | request, destructured |
 
-Imports: `next/server`, `@google-cloud/vertexai`, `@supabase/supabase-js`, `@/lib/photo-storage`
+Imports: `next/server`, `@google-cloud/vertexai`, `@supabase/supabase-js`, `@/lib/photo-storage`, `@/lib/lazy-supabase`

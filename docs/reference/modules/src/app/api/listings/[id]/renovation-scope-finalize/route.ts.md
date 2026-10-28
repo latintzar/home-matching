@@ -4,8 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `roundToNearest1000` | function | [L27](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L27) | value |
-| `formatDurationDisplay` | function | [L34](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L34) | durationWeeks |
-| `POST` | function | [L42](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L42) | request, destructured |
+| `requireRecipientConfiguration` | function | [L19](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L19) |  |
+| `roundToNearest1000` | function | [L30](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L30) | value |
+| `formatDurationDisplay` | function | [L37](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L37) | durationWeeks |
+| `POST` | function | [L45](../../../../../../../../../src/app/api/listings/[id]/renovation-scope-finalize/route.ts#L45) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/orchestrator-progress`, `@/types/renovation-intelligence`, `@/lib/gemini-rest-client`, `@/lib/schemas/renovation-schemas`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/orchestrator-progress`, `@/types/renovation-intelligence`, `@/lib/gemini-rest-client`, `@/lib/schemas/renovation-schemas`, `@/lib/lazy-supabase`

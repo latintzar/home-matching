@@ -1,3 +1,4 @@
+import {notFound} from 'next/navigation';
 import { getDictionary, type Locale, locales } from '@/lib/i18n';
 import type { Metadata } from 'next';
 
@@ -5,14 +6,16 @@ export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ lang: Locale }> 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ lang: string }>
 }): Promise<Metadata> {
-  const { lang } = await params;
+  const {lang:rawLang}=await params;
+  if(!locales.includes(rawLang as Locale))notFound();
+  const lang=rawLang as Locale;
   const dict = getDictionary(lang);
-  
+
   return {
     title: lang === 'es' ? 'Leo - Tu próximo piso, encontrado' : 'Leo - Your next flat, found',
     description: dict.renters.hero.subcopy,
@@ -27,12 +30,14 @@ export async function generateMetadata({
 
 interface LangLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }
 
 export default async function LangLayout({ children, params }: LangLayoutProps) {
-  const { lang } = await params;
-  
+  const {lang:rawLang}=await params;
+  if(!locales.includes(rawLang as Locale))notFound();
+  const lang=rawLang as Locale;
+
   return (
     <html lang={lang}>
       <body>

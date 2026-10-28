@@ -6,10 +6,11 @@ import addFormats from 'ajv-formats';
 import { createStepLogger } from '@/lib/orchestrator-progress';
 import { finalRenovationScopeSchema } from '@/lib/schemas/renovation-schemas';
 import type { FinalRenovationScope } from '@/lib/schemas/renovation-schemas';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 const ajv = new Ajv({ allErrors: true });
 addFormats(ajv); // Add support for date-time format

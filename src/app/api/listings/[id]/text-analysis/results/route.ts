@@ -1,17 +1,20 @@
 import { NextRequest } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeScrapedData } from '@/lib/scraper-normalizer';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY!;
 
+function requireRecipientConfiguration() {
 if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   throw new Error('Missing Supabase environment variables');
+}
 }
 
 // NOTE: text_analysis_results stays in Supabase (not migrated to DynamoDB)
 // Listing/cluster data could use data-adapter in future
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, undefined, requireRecipientConfiguration);
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {

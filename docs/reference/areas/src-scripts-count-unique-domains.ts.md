@@ -2,4 +2,4 @@
 
 | Module | Symbols |
 |---|---:|
-| [src/scripts/count-unique-domains.ts](../modules/src/scripts/count-unique-domains.ts.md) | 1 |
+| [src/scripts/count-unique-domains.ts](../modules/src/scripts/count-unique-domains.ts.md) | 2 |

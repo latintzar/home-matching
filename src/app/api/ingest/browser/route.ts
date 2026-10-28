@@ -5,6 +5,7 @@ import { extractUniversalData } from '@/lib/extraction/adapters/ai';
 import { normalizeScrapedData } from '@/lib/scraper-normalizer';
 import { storeFileInSupabase } from '@/lib/photo-storage';
 import { normalizeReference, areListingsCompatible } from '@/lib/utils/listing-identity';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 // Initialize Supabase Admin Client to bypass RLS
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
@@ -14,7 +15,7 @@ if (!supabaseServiceKey) {
   console.error('Missing SUPABASE_SERVICE_ROLE_KEY');
 }
 
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey!);
+const supabaseAdmin = lazySupabaseClient(supabaseUrl, supabaseServiceKey!);
 
 // Helper to set CORS headers
 function corsHeaders() {

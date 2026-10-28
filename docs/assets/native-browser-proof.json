@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "path": "/dashboard",
+      "landed": "/apps/home-matching/dashboard",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Mis Propiedades"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/recommendations",
+      "landed": "/apps/home-matching/recommendations",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Recomendaciones"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/property/1000000001",
+      "landed": "/apps/home-matching/property/1000000001",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Piso luminoso en Gr\u00e0cia"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/saved",
+      "landed": "/apps/home-matching/saved",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Propiedades Guardadas"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/viewings",
+      "landed": "/apps/home-matching/viewings",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Mis Visitas"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/profile",
+      "landed": "/apps/home-matching/profile",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Mi Perfil"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/recommend",
+      "landed": "/apps/home-matching/recommend",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Tus recomendaciones \ud83c\udfaf"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/catalogue",
+      "landed": "/apps/home-matching/catalogue",
+      "width": 1600,
+      "status": 200,
+      "headings": [
+        "Cat\u00e1logo"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/dashboard",
+      "landed": "/apps/home-matching/dashboard",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Mis Propiedades"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/recommendations",
+      "landed": "/apps/home-matching/recommendations",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Recomendaciones"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/property/1000000001",
+      "landed": "/apps/home-matching/property/1000000001",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Piso luminoso en Gr\u00e0cia"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/saved",
+      "landed": "/apps/home-matching/saved",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Propiedades Guardadas"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/viewings",
+      "landed": "/apps/home-matching/viewings",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Mis Visitas"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/profile",
+      "landed": "/apps/home-matching/profile",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Mi Perfil"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/recommend",
+      "landed": "/apps/home-matching/recommend",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Tus recomendaciones \ud83c\udfaf"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    },
+    {
+      "path": "/catalogue",
+      "landed": "/apps/home-matching/catalogue",
+      "width": 390,
+      "status": 200,
+      "headings": [
+        "Cat\u00e1logo"
+      ],
+      "foreign": 0,
+      "missing": [],
+      "page_errors": 0,
+      "console_errors": 0,
+      "overflow": false
+    }
+  ],
+  "screenshots": {
+    "recommendations-1600.png": "4851ba0c19af73739ba76c9f0ebf551fa8b0a4b576a7c844ec45067e73c25d14",
+    "property-1600.png": "d6488adbc9820e6273bac068988c6a20a2b1ac14eec5626273bdfb5379eff53d",
+    "recommendations-390.png": "0d02bf915adabfe9b5588a4d1bb332e5f64da0dab36ebda9499fa7bacbbb64f3",
+    "dashboard-1600.png": "f7559193aee677d3914c50bb907c3fc991758fb4b0cc2eed5cf9b826f39e56a4",
+    "property-390.png": "581e4ed43731856dfdb4a12e2b9c85433cd2d498641b3e96e535925f18d3dc39",
+    "dashboard-390.png": "ab731452ff72a242bc8413e1669dda695705f80d13dae439a5eb98c9839cf4ff"
+  }
+}

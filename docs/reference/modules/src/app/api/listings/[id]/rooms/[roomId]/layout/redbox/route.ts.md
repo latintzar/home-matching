@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RedboxBody` | type | [L10](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L10) |  |
-| `extractPhotoIndexesFromAliases` | function | [L12](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L12) | aliases |
-| `buildRedboxPrompt` | function | [L22](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L22) | element, canonical |
-| `POST` | function | [L46](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L46) | req, destructured |
-| `pickSmall` | function | [L70](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L70) | els |
-| `GET` | function | [L141](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L141) |  |
+| `RedboxBody` | type | [L11](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L11) |  |
+| `extractPhotoIndexesFromAliases` | function | [L13](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L13) | aliases |
+| `buildRedboxPrompt` | function | [L23](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L23) | element, canonical |
+| `POST` | function | [L47](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L47) | req, destructured |
+| `pickSmall` | function | [L71](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L71) | els |
+| `GET` | function | [L142](../../../../../../../../../../../../src/app/api/listings/[id]/rooms/[roomId]/layout/redbox/route.ts#L142) |  |
 
-Imports: `next/server`, `@supabase/supabase-js`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/lazy-supabase`

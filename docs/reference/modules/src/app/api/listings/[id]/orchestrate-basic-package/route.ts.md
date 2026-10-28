@@ -4,20 +4,20 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `fetchWithNoTimeout` | function | [L27](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L27) | url, options |
-| `StepResult` | interface | [L42](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L42) |  |
-| `TokenUsage` | interface | [L50](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L50) |  |
-| `ModelPricing` | interface | [L58](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L58) |  |
-| `calculateCost` | function | [L87](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L87) | model, inputTokens, outputTokens |
-| `POST` | function | [L123](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L123) | request, destructured |
-| `getUrlWithParams` | function | [L133](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L133) | baseUrl |
-| `start` | method | [L142](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L142) | controller |
-| `sendUpdate` | function | [L143](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L143) | message, data, step |
-| `runPipeline` | function | [L158](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L158) |  |
-| `progressCallback` | function | [L165](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L165) | event |
-| `shouldSkip` | function | [L206](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L206) | stepName |
-| `runStep` | function | [L214](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L214) | stepName, stepFunction |
-| `trackTokenUsage` | function | [L224](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L224) | step, responseData, model |
-| `callEndpointWithLogging` | function | [L259](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L259) | step, url, options, useNoTimeout |
+| `fetchWithNoTimeout` | function | [L28](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L28) | url, options |
+| `StepResult` | interface | [L43](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L43) |  |
+| `TokenUsage` | interface | [L51](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L51) |  |
+| `ModelPricing` | interface | [L59](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L59) |  |
+| `calculateCost` | function | [L88](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L88) | model, inputTokens, outputTokens |
+| `POST` | function | [L124](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L124) | request, destructured |
+| `getUrlWithParams` | function | [L134](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L134) | baseUrl |
+| `start` | method | [L143](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L143) | controller |
+| `sendUpdate` | function | [L144](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L144) | message, data, step |
+| `runPipeline` | function | [L159](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L159) |  |
+| `progressCallback` | function | [L166](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L166) | event |
+| `shouldSkip` | function | [L207](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L207) | stepName |
+| `runStep` | function | [L215](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L215) | stepName, stepFunction |
+| `trackTokenUsage` | function | [L225](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L225) | step, responseData, model |
+| `callEndpointWithLogging` | function | [L260](../../../../../../../../../src/app/api/listings/[id]/orchestrate-basic-package/route.ts#L260) | step, url, options, useNoTimeout |
 
-Imports: `next/server`, `@supabase/supabase-js`, `undici`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `undici`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

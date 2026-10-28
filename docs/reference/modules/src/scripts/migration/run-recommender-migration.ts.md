@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `runMigration` | function | [L24](../../../../../../src/scripts/migration/run-recommender-migration.ts#L24) |  |
-| `checkTables` | function | [L72](../../../../../../src/scripts/migration/run-recommender-migration.ts#L72) |  |
-| `main` | function | [L95](../../../../../../src/scripts/migration/run-recommender-migration.ts#L95) |  |
+| `runMigration` | function | [L25](../../../../../../src/scripts/migration/run-recommender-migration.ts#L25) |  |
+| `checkTables` | function | [L73](../../../../../../src/scripts/migration/run-recommender-migration.ts#L73) |  |
+| `main` | function | [L96](../../../../../../src/scripts/migration/run-recommender-migration.ts#L96) |  |
 
-Imports: `@supabase/supabase-js`, `dotenv`, `fs`, `path`
+Imports: `@supabase/supabase-js`, `dotenv`, `fs`, `path`, `@/lib/lazy-supabase`

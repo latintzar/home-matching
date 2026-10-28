@@ -7,9 +7,10 @@ import { extractUniversalData } from '@/lib/extraction/adapters/ai';
 import { fetchWithScrapfly } from '@/lib/extraction/providers/scrapfly';
 import { storeListingPhotos } from '@/lib/photo-storage';
 import { normalizeReference, areListingsCompatible } from '@/lib/utils/listing-identity';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 // Service key client for admin operations
-const supabaseService = createClient(
+const supabaseService = lazySupabaseClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_KEY!
 );

@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L10](../../../../../../../../../../src/app/api/listings/[id]/intelligence/social-radar/route.ts#L10) | req, destructured |
+| `POST` | function | [L11](../../../../../../../../../../src/app/api/listings/[id]/intelligence/social-radar/route.ts#L11) | req, destructured |
 
-Imports: `next/server`, `@/lib/intelligence/orchestrator`, `@supabase/supabase-js`, `@/lib/pipeline-versions`
+Imports: `next/server`, `@/lib/intelligence/orchestrator`, `@supabase/supabase-js`, `@/lib/pipeline-versions`, `@/lib/lazy-supabase`

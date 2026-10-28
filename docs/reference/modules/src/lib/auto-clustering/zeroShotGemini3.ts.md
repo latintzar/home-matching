@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `ZeroShotCluster` | interface | [L20](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L20) |  |
-| `ZeroShotResult` | interface | [L28](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L28) |  |
-| `ZeroShotRunConfig` | interface | [L40](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L40) |  |
-| `buildListingContext` | function | [L49](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L49) | listing, scrapedData |
-| `buildPrompt` | function | [L86](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L86) | listingContext, imageCount |
-| `runZeroShotGemini3` | function | [L149](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L149) | config |
+| `ZeroShotCluster` | interface | [L21](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L21) |  |
+| `ZeroShotResult` | interface | [L29](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L29) |  |
+| `ZeroShotRunConfig` | interface | [L41](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L41) |  |
+| `buildListingContext` | function | [L50](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L50) | listing, scrapedData |
+| `buildPrompt` | function | [L87](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L87) | listingContext, imageCount |
+| `runZeroShotGemini3` | function | [L150](../../../../../../src/lib/auto-clustering/zeroShotGemini3.ts#L150) | config |
 
-Imports: `@supabase/supabase-js`, `@/lib/photo-storage`
+Imports: `@supabase/supabase-js`, `@/lib/photo-storage`, `@/lib/lazy-supabase`

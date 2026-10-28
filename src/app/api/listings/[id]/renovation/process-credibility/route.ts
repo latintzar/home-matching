@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { getGenAI } from '@/lib/genaiClient';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
-const supabase = createClient(
+const supabase = lazySupabaseClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_KEY!
 );

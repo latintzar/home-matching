@@ -6,10 +6,11 @@ import { SocialRadar } from '@/lib/intelligence/social-radar';
 import { TenderWatch } from '@/lib/intelligence/tenders';
 import { GeologyCheck } from '@/lib/intelligence/geology';
 import { PIPELINE_VERSIONS } from '@/lib/pipeline-versions';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+const supabase = lazySupabaseClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 export async function generateAndSaveIntelligence(listingId: number, address: string, lat: number, lng: number, city: string) {
     console.log(`🕵️‍♂️ Running Intelligence Suite for Listing ${listingId}`);

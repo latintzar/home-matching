@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `CacheEntry` | interface | [L15](../../../../../../src/lib/cred/cache.ts#L15) |  |
-| `CachedRecord` | interface | [L25](../../../../../../src/lib/cred/cache.ts#L25) |  |
-| `getCacheByDomain` | function | [L44](../../../../../../src/lib/cred/cache.ts#L44) | domain |
-| `upsertCache` | function | [L71](../../../../../../src/lib/cred/cache.ts#L71) | entry |
-| `batchUpsertCache` | function | [L105](../../../../../../src/lib/cred/cache.ts#L105) | entries |
-| `cleanExpiredCache` | function | [L136](../../../../../../src/lib/cred/cache.ts#L136) |  |
+| `CacheEntry` | interface | [L16](../../../../../../src/lib/cred/cache.ts#L16) |  |
+| `CachedRecord` | interface | [L26](../../../../../../src/lib/cred/cache.ts#L26) |  |
+| `getCacheByDomain` | function | [L45](../../../../../../src/lib/cred/cache.ts#L45) | domain |
+| `upsertCache` | function | [L72](../../../../../../src/lib/cred/cache.ts#L72) | entry |
+| `batchUpsertCache` | function | [L106](../../../../../../src/lib/cred/cache.ts#L106) | entries |
+| `cleanExpiredCache` | function | [L137](../../../../../../src/lib/cred/cache.ts#L137) |  |
 
-Imports: `@supabase/supabase-js`, `./scoreDomain`
+Imports: `@supabase/supabase-js`, `./scoreDomain`, `@/lib/lazy-supabase`

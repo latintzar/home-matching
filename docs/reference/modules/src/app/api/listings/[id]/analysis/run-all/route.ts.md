@@ -4,11 +4,12 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `assignPhotosToClusters` | function | [L24](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L24) | listingId |
-| `generateWholePropertyAnalysis` | function | [L104](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L104) | listingId |
-| `generateRoomAnalysis` | function | [L195](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L195) | listingId |
-| `generateIntegratedReport` | function | [L260](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L260) | listingId, wholePropertyAnalysis, roomAnalyses |
-| `saveAnalysisResults` | function | [L371](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L371) | listingId, integratedReport |
-| `POST` | function | [L399](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L399) | request, destructured |
+| `requireRecipientConfiguration` | function | [L10](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L10) |  |
+| `assignPhotosToClusters` | function | [L28](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L28) | listingId |
+| `generateWholePropertyAnalysis` | function | [L108](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L108) | listingId |
+| `generateRoomAnalysis` | function | [L199](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L199) | listingId |
+| `generateIntegratedReport` | function | [L264](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L264) | listingId, wholePropertyAnalysis, roomAnalyses |
+| `saveAnalysisResults` | function | [L375](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L375) | listingId, integratedReport |
+| `POST` | function | [L403](../../../../../../../../../../src/app/api/listings/[id]/analysis/run-all/route.ts#L403) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`
+Imports: `next/server`, `@supabase/supabase-js`, `@google-cloud/vertexai`, `@/lib/lazy-supabase`, `@/lib/lazy-resource.mjs`

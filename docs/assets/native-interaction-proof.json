@@ -1,0 +1,19 @@
+{
+  "root_to_native_dashboard": true,
+  "scoped_httponly_cookie": true,
+  "bearer_not_public_user_id": true,
+  "native_note_persists": true,
+  "native_save_persists": true,
+  "profile_saved": true,
+  "cached_fit_changes_with_profile": true,
+  "native_recommend_renders_updated_fit": true,
+  "separate_guest_defaults": true,
+  "foreign_profile_excluded": true,
+  "csrf_rejected": true,
+  "provider_route_disabled": true,
+  "catalogue_readonly": true,
+  "malformed_cookie_renewed": true,
+  "declared_body_cap": true,
+  "streamed_body_cap": true,
+  "no_foreign_requests": true
+}

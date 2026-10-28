@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `migrateListings` | function | [L47](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L47) |  |
-| `migrateAnalysis` | function | [L189](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L189) |  |
-| `migrateScrapingRules` | function | [L284](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L284) |  |
-| `migrateCrawlTracking` | function | [L354](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L354) |  |
-| `main` | function | [L420](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L420) |  |
+| `migrateListings` | function | [L48](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L48) |  |
+| `migrateAnalysis` | function | [L190](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L190) |  |
+| `migrateScrapingRules` | function | [L285](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L285) |  |
+| `migrateCrawlTracking` | function | [L355](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L355) |  |
+| `main` | function | [L421](../../../../../../src/scripts/migration/supabase-to-dynamodb.ts#L421) |  |
 
-Imports: `@supabase/supabase-js`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `dotenv`
+Imports: `@supabase/supabase-js`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `dotenv`, `@/lib/lazy-supabase`

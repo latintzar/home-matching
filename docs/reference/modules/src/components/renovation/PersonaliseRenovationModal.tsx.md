@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `PersonaliseRenovationModalProps` | interface | [L15](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L15) |  |
-| `PersonaliseRenovationModal` | function | [L22](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L22) | destructured |
-| `handleImageUpload` | function | [L46](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L46) | e |
-| `checkBudget` | function | [L84](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L84) |  |
-| `handleSubmit` | function | [L115](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L115) |  |
+| `PersonaliseRenovationModalProps` | interface | [L16](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L16) |  |
+| `PersonaliseRenovationModal` | function | [L23](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L23) | destructured |
+| `handleImageUpload` | function | [L47](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L47) | e |
+| `checkBudget` | function | [L85](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L85) |  |
+| `handleSubmit` | function | [L116](../../../../../../src/components/renovation/PersonaliseRenovationModal.tsx#L116) |  |
 
-Imports: `react`, `@/components/ui/dialog`, `@/components/ui/button`, `@/components/ui/input`, `@/components/ui/label`, `@/components/ui/textarea`, `@/components/ui/slider`, `lucide-react`, `@/hooks/useDebounce`, `@/lib/supabase`
+Imports: `@/lib/app-path`, `react`, `@/components/ui/dialog`, `@/components/ui/button`, `@/components/ui/input`, `@/components/ui/label`, `@/components/ui/textarea`, `@/components/ui/slider`, `lucide-react`, `@/hooks/useDebounce`, `@/lib/supabase`

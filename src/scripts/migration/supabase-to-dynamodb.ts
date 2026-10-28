@@ -21,10 +21,11 @@ import { createClient } from '@supabase/supabase-js';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand, BatchWriteCommand } from '@aws-sdk/lib-dynamodb';
 import * as dotenv from 'dotenv';
+import {lazySupabaseClient} from '@/lib/lazy-supabase';
 
 // Recipient configuration is supplied by tools/runtime-env.py.
 // Initialize clients
-const supabase = createClient(
+const supabase = lazySupabaseClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );

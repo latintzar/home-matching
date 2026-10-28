@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L10](../../../../../../../../../../src/app/api/listings/[id]/renovation/search-terms/route.ts#L10) | request, destructured |
+| `POST` | function | [L11](../../../../../../../../../../src/app/api/listings/[id]/renovation/search-terms/route.ts#L11) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/genaiClient`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/genaiClient`, `@/lib/lazy-supabase`

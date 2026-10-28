@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `fetchImageAsBase64` | function | [L34](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L34) | url |
-| `POST` | function | [L60](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L60) | request, destructured |
-| `limitConcurrency` | function | [L197](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L197) | items, maxConcurrency, handler |
-| `processNext` | function | [L225](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L225) |  |
-| `processCluster` | function | [L270](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L270) | cluster, index |
+| `fetchImageAsBase64` | function | [L35](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L35) | url |
+| `POST` | function | [L61](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L61) | request, destructured |
+| `limitConcurrency` | function | [L198](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L198) | items, maxConcurrency, handler |
+| `processNext` | function | [L226](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L226) |  |
+| `processCluster` | function | [L271](../../../../../../../../../../src/app/api/listings/[id]/visuals/r1-5-omsria/route.ts#L271) | cluster, index |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/omsria/generate-prompt`, `@/lib/omsria/generate-plan`, `@/lib/omsria/execute-plan`, `@/lib/omsria/optimize-images`, `@/lib/photo-storage`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/omsria/generate-prompt`, `@/lib/omsria/generate-plan`, `@/lib/omsria/execute-plan`, `@/lib/omsria/optimize-images`, `@/lib/photo-storage`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

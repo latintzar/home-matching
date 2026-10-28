@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L23](../../../../../../../../../../../src/app/api/listings/[id]/clusters/zero-shot/full/route.ts#L23) | request, destructured |
+| `POST` | function | [L24](../../../../../../../../../../../src/app/api/listings/[id]/clusters/zero-shot/full/route.ts#L24) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/auto-clustering/zeroShotGemini3`, `@/lib/auto-clustering/visibilityGemini3`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/auto-clustering/zeroShotGemini3`, `@/lib/auto-clustering/visibilityGemini3`, `@/lib/lazy-supabase`

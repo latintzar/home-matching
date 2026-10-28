@@ -1,4 +1,5 @@
 'use client';
+import {appFetch as fetch} from '@/lib/app-path';
 
 import { useState, useEffect, useCallback } from 'react';
 import type { TestLog } from '@/lib/vibe-maps/testLogger';

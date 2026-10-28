@@ -1,3 +1,5 @@
+import type {SupabaseClient} from '@supabase/supabase-js';
+import {sampleBrowserClient} from './sample/browser';
 /**
  * Supabase Browser Client
  * 
@@ -14,7 +16,8 @@ let _browserClient: ReturnType<typeof createBrowserClient> | null = null;
  * Get the Supabase browser client (for client components)
  * Supports auth session management
  */
-export function getSupabaseBrowser() {
+export function getSupabaseBrowser(): SupabaseClient<any> {
+  if(process.env.NEXT_PUBLIC_SAMPLE_MODE==='1')return sampleBrowserClient() as SupabaseClient<any>;
   if (!_browserClient) {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

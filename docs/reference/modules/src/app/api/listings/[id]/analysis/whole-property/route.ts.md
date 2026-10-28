@@ -4,7 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L23](../../../../../../../../../../src/app/api/listings/[id]/analysis/whole-property/route.ts#L23) | request, destructured |
-| `GET` | function | [L358](../../../../../../../../../../src/app/api/listings/[id]/analysis/whole-property/route.ts#L358) | request, destructured |
+| `requireRecipientConfiguration` | function | [L18](../../../../../../../../../../src/app/api/listings/[id]/analysis/whole-property/route.ts#L18) |  |
+| `POST` | function | [L26](../../../../../../../../../../src/app/api/listings/[id]/analysis/whole-property/route.ts#L26) | request, destructured |
+| `GET` | function | [L361](../../../../../../../../../../src/app/api/listings/[id]/analysis/whole-property/route.ts#L361) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/prompts/photo-analysis`, `@/types/integrated-analysis`, `@/lib/orchestrator-progress`, `@/lib/pipeline-versions`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/prompts/photo-analysis`, `@/types/integrated-analysis`, `@/lib/orchestrator-progress`, `@/lib/pipeline-versions`, `@/lib/lazy-supabase`

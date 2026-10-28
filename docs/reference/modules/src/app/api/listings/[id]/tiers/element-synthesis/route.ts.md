@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L19](../../../../../../../../../../src/app/api/listings/[id]/tiers/element-synthesis/route.ts#L19) |  |
-| `POST` | function | [L95](../../../../../../../../../../src/app/api/listings/[id]/tiers/element-synthesis/route.ts#L95) | request, destructured |
+| `Tier` | type | [L20](../../../../../../../../../../src/app/api/listings/[id]/tiers/element-synthesis/route.ts#L20) |  |
+| `POST` | function | [L96](../../../../../../../../../../src/app/api/listings/[id]/tiers/element-synthesis/route.ts#L96) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/types/renovation-intelligence`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/types/renovation-intelligence`, `@/lib/lazy-supabase`

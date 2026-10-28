@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `BookmarkletGenerator` | function | [L8](../../../../../src/components/BookmarkletGenerator.tsx#L8) |  |
+| `BookmarkletGenerator` | function | [L9](../../../../../src/components/BookmarkletGenerator.tsx#L9) |  |
 
-Imports: `react`, `@/components/ui/card`, `@/components/ui/button`, `lucide-react`
+Imports: `@/lib/app-path`, `react`, `@/components/ui/card`, `@/components/ui/button`, `lucide-react`

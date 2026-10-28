@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `TierPhilosophy` | interface | [L13](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L13) |  |
-| `TierPhilosophies` | interface | [L19](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L19) |  |
-| `IdeationResponse` | interface | [L25](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L25) |  |
-| `POST` | function | [L90](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L90) | request, destructured |
+| `TierPhilosophy` | interface | [L14](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L14) |  |
+| `TierPhilosophies` | interface | [L20](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L20) |  |
+| `IdeationResponse` | interface | [L26](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L26) |  |
+| `POST` | function | [L91](../../../../../../../../../../src/app/api/listings/[id]/tiers/ideation/route.ts#L91) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

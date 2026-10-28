@@ -4,10 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L27](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L27) | request, destructured |
-| `isPrimarySource` | function | [L509](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L509) | urlOrDomain, title, category |
-| `isSecondarySource` | function | [L599](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L599) | urlOrDomain, title |
-| `categorizeSourceType` | function | [L621](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L621) | urlOrDomain |
-| `extractDomain` | function | [L660](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L660) | url |
+| `requireRecipientConfiguration` | function | [L9](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L9) |  |
+| `POST` | function | [L30](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L30) | request, destructured |
+| `isPrimarySource` | function | [L512](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L512) | urlOrDomain, title, category |
+| `isSecondarySource` | function | [L602](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L602) | urlOrDomain, title |
+| `categorizeSourceType` | function | [L624](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L624) | urlOrDomain |
+| `extractDomain` | function | [L663](../../../../../../../../../../src/app/api/listings/[id]/analysis/citations-sweep/route.ts#L663) | url |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `@/lib/lazy-supabase`

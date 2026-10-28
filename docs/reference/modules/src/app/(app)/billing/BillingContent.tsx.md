@@ -4,18 +4,18 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `BillingContentProps` | interface | [L21](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L21) |  |
-| `Subscription` | interface | [L27](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L27) |  |
-| `Invoice` | interface | [L40](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L40) |  |
-| `PlanCardProps` | interface | [L52](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L52) |  |
-| `PlanCard` | function | [L73](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L73) | destructured |
-| `BillingContent` | function | [L202](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L202) | destructured |
-| `fetchBillingData` | function | [L221](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L221) |  |
-| `handleSubscribe` | function | [L246](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L246) | plan |
-| `handlePause` | function | [L264](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L264) |  |
-| `handleResume` | function | [L278](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L278) |  |
-| `formatPrice` | function | [L292](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L292) | amount, currency |
-| `formatDate` | function | [L299](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L299) | dateStr |
-| `getStatusBadge` | function | [L307](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L307) | status |
+| `BillingContentProps` | interface | [L22](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L22) |  |
+| `Subscription` | interface | [L28](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L28) |  |
+| `Invoice` | interface | [L41](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L41) |  |
+| `PlanCardProps` | interface | [L53](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L53) |  |
+| `PlanCard` | function | [L74](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L74) | destructured |
+| `BillingContent` | function | [L203](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L203) | destructured |
+| `fetchBillingData` | function | [L222](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L222) |  |
+| `handleSubscribe` | function | [L247](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L247) | plan |
+| `handlePause` | function | [L265](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L265) |  |
+| `handleResume` | function | [L279](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L279) |  |
+| `formatPrice` | function | [L293](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L293) | amount, currency |
+| `formatDate` | function | [L300](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L300) | dateStr |
+| `getStatusBadge` | function | [L308](../../../../../../../src/app/(app)/billing/BillingContent.tsx#L308) | status |
 
-Imports: `react`, `next/navigation`, `lucide-react`, `@/components/ui/button`, `@/components/ui/card`, `@/components/ui/badge`
+Imports: `@/lib/app-path`, `react`, `next/navigation`, `lucide-react`, `@/components/ui/button`, `@/components/ui/card`, `@/components/ui/badge`

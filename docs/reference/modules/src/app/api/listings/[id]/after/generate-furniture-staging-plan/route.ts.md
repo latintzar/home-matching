@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `Tier` | type | [L13](../../../../../../../../../../src/app/api/listings/[id]/after/generate-furniture-staging-plan/route.ts#L13) |  |
-| `POST` | function | [L78](../../../../../../../../../../src/app/api/listings/[id]/after/generate-furniture-staging-plan/route.ts#L78) | request, destructured |
+| `Tier` | type | [L14](../../../../../../../../../../src/app/api/listings/[id]/after/generate-furniture-staging-plan/route.ts#L14) |  |
+| `POST` | function | [L79](../../../../../../../../../../src/app/api/listings/[id]/after/generate-furniture-staging-plan/route.ts#L79) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`

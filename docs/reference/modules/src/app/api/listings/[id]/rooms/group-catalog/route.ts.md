@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RoomFamily` | interface | [L13](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L13) |  |
-| `ElementCatalog` | interface | [L20](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L20) |  |
-| `GroupCatalogResponse` | interface | [L27](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L27) |  |
-| `POST` | function | [L79](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L79) | request, destructured |
+| `RoomFamily` | interface | [L14](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L14) |  |
+| `ElementCatalog` | interface | [L21](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L21) |  |
+| `GroupCatalogResponse` | interface | [L28](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L28) |  |
+| `POST` | function | [L80](../../../../../../../../../../src/app/api/listings/[id]/rooms/group-catalog/route.ts#L80) | request, destructured |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`
+Imports: `next/server`, `@supabase/supabase-js`, `@/lib/gemini-rest-client`, `ajv`, `@/lib/orchestrator-progress`, `@/lib/lazy-supabase`
