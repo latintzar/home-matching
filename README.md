@@ -10,28 +10,25 @@ Property analysis is shared across searches. Changing a household’s priorities
 
 The example uses fictional purchase homes and actual deterministic scores.
 
-## First result
+## Run the recommendation scene
 
 Use Node 22.18 or later in the Node 22 line:
 
 ```sh
 git clone https://github.com/latintzar/home-matching.git
-cd home-matching
-node --experimental-strip-types tools/first-match.mjs
-node --experimental-strip-types --test tests/first-match.test.mjs
-```
-
-The original scorer ranks the courtyard home **84** for a buyer working from home. Choosing outdoor space and a pet makes the terrace home rank first at **90**. A house-share fails the profile’s dealbreaker. A private receipt records the inputs, source and results.
-
-Open the original recommendation scene:
-
-```sh
-cd starter
+cd home-matching/starter
 npm ci
 npm run dev
 ```
 
-Visit **http://127.0.0.1:3000** and switch between the two profiles. The example runs locally with authored listings and analysis scores. The full application’s provider setup is described separately.
+Visit **http://127.0.0.1:3000** to explore the original recommendation interface with authored listings and scores. The full application and its provider setup are described in [Setup](docs/setup.md).
+
+To run the original scorer directly, from the repository root:
+
+```sh
+node --experimental-strip-types tools/first-match.mjs
+node --experimental-strip-types --test tests/first-match.test.mjs
+```
 
 ## Build with it
 
