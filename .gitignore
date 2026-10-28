@@ -64,3 +64,5 @@ __pycache__/
 *.py[cod]
 # Retain the reviewed starter type references.
 !starter/next-env.d.ts
+
+website/dist/
