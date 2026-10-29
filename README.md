@@ -6,7 +6,7 @@ Home Matching is a property search app for people choosing a home in Spain, and 
 
 Property analysis is shared across searches. Changing a household’s priorities reranks the same analysis through deterministic scoring. The source includes the original intake, recommendations, property reports, maps, voice flows, data adapters and ingestion tools.
 
-![Leo.casa property workspace](docs/assets/native-dashboard-desktop.png)
+![Home Matching recommendations with authored example properties](docs/assets/readme-hero.png)
 
 The example uses fictional purchase homes and actual deterministic scores.
 
