@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -39,7 +40,8 @@ export default function RootLayout({
         }}
         suppressHydrationWarning
       >
-        {children}
+        <div id="atelier-native-app">{children}</div>
+        <Script src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/native-nav/atelier-nav.js`} strategy="afterInteractive" data-project="home-matching" />
       </body>
     </html>
   );

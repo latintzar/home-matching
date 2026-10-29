@@ -47,3 +47,7 @@ These are retrospective choices for the public derivative of `puedo_casa` at `d4
 ## Verification
 
 Fresh root `npm ci`, complete Next build and TypeScript check pass. Seven storage tests cover isolation, persistence, readonly catalogue, bounds and concurrent processes; two lazy-resource tests cover initialization/ownership; two native-fit tests exercise the original scorer; three request tests cover streamed/multibyte body limits, cookie renewal and mounted-root path normalization. Actual Chromium checks eight native routes at 1600 and 390 pixels and exercises saves, notes, profile changes, guest isolation, cookie scope, CSRF and disabled provider paths. Provider requests remain zero during this proof.
+
+## Atelier navigation
+
+The bundled MIT Atelier navigation and ISC-licensed Lucide icons identify the hosted app and link directly to the other previews. The app viewport starts beneath the 56px bar. Remove the `Script` and viewport wrapper in the root layout when adapting the workspace for another deployment.

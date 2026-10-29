@@ -359,3 +359,5 @@ a,
   padding: 0 !important;
   background: transparent !important;
 }
+/* Native Atelier navigation keeps the app viewport below the bar. */
+#atelier-native-app{position:fixed;inset:56px 0 0;overflow:auto;transform:translateZ(0)}
