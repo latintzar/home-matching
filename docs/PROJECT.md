@@ -25,4 +25,4 @@ Describe the household → Analyse property evidence → Apply requirements and 
 
 The native app opens eight authored homes with the original scoring and recovered project images. Favourites, notes and preference changes use a private visitor workspace. Fresh ingestion, mapping and voice providers have their own setup. Connect an owned property feed and validate the match explanation with households and agents.
 
-Source: [docs/workflows.md](../docs/workflows.md), [docs/native-workspace.md](../docs/native-workspace.md), [docs/design.md](../docs/design.md), [docs/setup.md](../docs/setup.md).
+Source: [docs/workflows.md](../docs/workflows.md), [docs/native-workspace.md](../docs/native-workspace.md), [docs/setup.md](../docs/setup.md).
