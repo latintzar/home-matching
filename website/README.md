@@ -1,22 +1,7 @@
-# Project website
+# Leo.casa housing website
 
-This site presents Home Matching and embeds the actual isolated recommendation starter. The local example uses authored homes and calls the original deterministic fit functions. It is separate from full-app provider commissioning.
+The original Leo.casa housing marketing page, preserved as a static Next export with its original renter/buyer and professional sections, illustrations and interactions. It is mounted at `/home-matching/`; `index.html` is the English direct page and `original/es/` is the Spanish page. The Atelier navigation, GitHub action and direct native-demo link are added by `atelier-site.js` and `native-nav/`. The former `build.py`, `site.css` and `site.js` belong to the prior presentation and are retained for history.
 
-From the repository root:
+Serve this directory at `/home-matching/` with its `original/` assets at the same prefix. The Open demo action goes to the public hosted app; to run the app locally, follow the repository root README. Original source is `src/app/[lang]/LandingPageClient.tsx` and the landing components/dictionaries. The preserved export was recovered from Leo monorepo `apps/portfolio/project/apartment-finder` at `dbac69422281b857b9425ee01bb1876ddbdb7c2c`; its English HTML SHA-256 before path/action adaptation was `51604922a1e7791b4133b9cd7001788e4d27e0e934b41e0a9972d89e0c38c622`.
 
-```sh
-npm ci --prefix starter
-npm run build --prefix starter
-python3 website/build.py
-python3 -m http.server 8000 --bind 127.0.0.1 --directory website/dist/public
-```
-
-Open `http://127.0.0.1:8000/home-matching/`. The reusable native entry is `/apps/home-matching/index.html`; changing profiles reranks the same fixture in the browser.
-
-The builder packages only the starter's prerendered HTML, client JavaScript/CSS and local fonts. It rebases runtime assets under `/apps/home-matching/`, and records the source and output hashes in `website/dist/manifest.json`. Server bundles, preview cookies, caches, source maps and private configuration stay outside that output.
-
-The marketing shell uses the original Source Sans 3 and Playfair Display fonts, original recommendation palette and native scene. `site.js` removes the embedded scene's minimum viewport height and fits the iframe to its whole contents. The standalone native entry keeps its original viewport layout. The source app and full application remain independently editable. Landing copy and links live in `index.html`; layout lives in `site.css`.
-
-For shared hosting, serve `website/dist/public/home-matching/` at `/home-matching` and `website/dist/public/apps/home-matching/` at `/apps/home-matching/`. The same native entry can be copied into the shared Atelier preview project. Update the three canonical destinations in the template when hosting a fork: website, preview and documentation.
-
-Original code uses MIT. Font files retain the OFL notices carried with their source. [Third-party notices](../THIRD-PARTY-NOTICES.md).
+First-party source remains under the repository MIT license. Lucide icons and Playfair Display/Source Sans 3 are covered by the included licenses. Images in the historical site preserve their original provenance and any associated third-party rights.
