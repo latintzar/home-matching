@@ -4,3 +4,6 @@ div.fixed.top-20{top:calc(5rem + 56px)!important}
 main section > div:has(+ h1){display:none!important}
 
 @media(max-width:380px){main .bg-stone-800.flex-1,main .bg-stone-800.flex-1 input{min-width:0}footer .flex.items-center.gap-6{flex-wrap:wrap;justify-content:center;gap:12px}}
+
+.atelier-credit{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 24px;background:#f8f6f1;color:#514c46;font:14px/1.4 system-ui,sans-serif}.atelier-credit nav{display:flex;gap:18px;flex-wrap:wrap}.atelier-credit a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+footer .flex.items-center.gap-6:has(>a){display:none!important}
