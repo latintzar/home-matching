@@ -1,2 +1,4 @@
 html{--atelier-nav-height:56px}body{padding-top:56px!important}body>div>header,body header.fixed{top:56px!important}
 div.fixed.top-20{top:calc(5rem + 56px)!important}
+
+main section > div:has(+ h1){display:none!important}

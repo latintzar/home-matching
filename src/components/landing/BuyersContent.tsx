@@ -34,7 +34,7 @@ export const BuyersContent = ({ onProLinkClick }: BuyersContentProps) => {
     <div className="animate-in fade-in duration-500">
       {/* Hero - Madrid isochrone map (different city from renters for variety) */}
       <SectionHero
-        eyebrow={content.hero.eyebrow}
+        eyebrow=""
         headline={content.hero.headline}
         subcopy={content.hero.subcopy}
         primaryCta={content.hero.primaryCta}

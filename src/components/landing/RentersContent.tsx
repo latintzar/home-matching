@@ -25,7 +25,7 @@ export const RentersContent = ({ onProLinkClick }: RentersContentProps) => {
     <div className="animate-in fade-in duration-500">
       {/* Hero with Isochrone Map */}
       <SectionHero
-        eyebrow={content.hero.eyebrow}
+        eyebrow=""
         headline={content.hero.headline}
         subcopy={content.hero.subcopy}
         primaryCta={content.hero.primaryCta}

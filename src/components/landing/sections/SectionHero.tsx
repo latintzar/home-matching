@@ -49,10 +49,10 @@ export const SectionHero = ({
   return (
     <section className="max-w-4xl mx-auto px-6 text-center mb-24 md:mb-32">
       {/* Eyebrow */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-100 text-xs font-medium text-stone-600 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      {eyebrow && <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-100 text-xs font-medium text-stone-600 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
         <span className="w-2 h-2 rounded-full bg-green-500"></span>
         {eyebrow}
-      </div>
+      </div>}
       
       {/* Headline */}
       <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.15] md:leading-[1.15] tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
