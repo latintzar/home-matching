@@ -2,13 +2,27 @@
 
 Home Matching is a property search app for people choosing a home in Spain, and the agents helping them. It brings a household’s routines, budget and priorities into the search: daylight, working from home, outdoor space, accessibility and neighborhood fit.
 
-[Website](https://atelierneyra.com/home-matching) · [Open app](https://preview.atelierneyra.com/?project=home-matching) · [Documentation](https://docs.atelierneyra.com/home-matching/overview/)
+[Website](https://atelierneyra.com/home-matching) · [Open app](https://preview.atelierneyra.com/apps/home-matching/dashboard) · [Documentation](https://docs.atelierneyra.com/home-matching/overview/)
 
 Property analysis is shared across searches. Changing a household’s priorities reranks the same analysis through deterministic scoring. The source includes the original intake, recommendations, property reports, maps, voice flows, data adapters and ingestion tools.
 
 ![Home Matching recommendations with authored example properties](docs/assets/readme-hero.png)
 
 The example uses fictional purchase homes and actual deterministic scores.
+
+## How it works
+
+Two households can look at the same property and need different things. A useful search needs to explain how each home fits the people moving into it.
+
+| Feature | What it does |
+| --- | --- |
+| Household profile | Capture required conditions, preferences and their relative importance. |
+| Explainable ranking | Apply dealbreakers before weighted matching and show the fit and concerns. |
+| Property reports | Inspect rooms, location and the evidence behind a recommendation. |
+| Shortlist and viewings | Save favourites and keep viewing notes. |
+| Voice and intake | The source retains the original conversational, map and ingestion workflows. |
+
+The native app opens eight authored homes with the original scoring and recovered project images. Favourites, notes and preference changes use a private visitor workspace. Fresh ingestion, mapping and voice providers have their own setup. Connect an owned property feed and validate the match explanation with households and agents. [Product guide](docs/PROJECT.md).
 
 ## Run the app
 
