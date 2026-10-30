@@ -1,12 +1,14 @@
 # Home Matching
 
+AI-native property scanner across platforms based on the person's lifestyle
+
 Home Matching is a property search app for people choosing a home in Spain, and the agents helping them. It brings a household’s routines, budget and priorities into the search: daylight, working from home, outdoor space, accessibility and neighborhood fit.
 
 [Website](https://atelierneyra.com/home-matching) · [Open app](https://preview.atelierneyra.com/apps/home-matching/dashboard) · [Documentation](https://docs.atelierneyra.com/home-matching/overview/)
 
 Property analysis is shared across searches. Changing a household’s priorities reranks the same analysis through deterministic scoring. The source includes the original intake, recommendations, property reports, maps, voice flows, data adapters and ingestion tools.
 
-![Home Matching recommendations with authored example properties](docs/assets/readme-hero.png)
+![Home Matching](https://atelierneyra.com/assets/product-shots-20261030/home-matching.jpg)
 
 The example uses fictional purchase homes and actual deterministic scores.
 
