@@ -50,3 +50,7 @@ The full product includes two distinguishable WPA cache consumers. `lib/wpa/cach
 Use the retained `agent_configs/` prompts and tool schemas to commission owned voice agents. Provider identities and original origins are cleared or replaced with reserved examples. Review workflow references, tool endpoints, signed-session authorization and provider account limits before importing them. [Voice notes](../agent_configs/README.md) explain the retained versions.
 
 Activate recipient integrations individually after reviewing authorization, rate limits, data rights, model support and provider acceptance. Sample mode exposes an allowlist of local workspace APIs and returns a setup response for provider-backed routes.
+
+## Database access
+
+Apply the [database access migration](database-security.md) when connecting your Supabase project.
