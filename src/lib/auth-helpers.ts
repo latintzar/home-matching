@@ -1,32 +1,8 @@
 // src/lib/auth-helpers.ts
-// Authentication helpers with dev bypass for page review
+// Server identity and subscription helpers.
 
 import { getSupabaseServer } from './supabase-server';
 import { User } from '@supabase/supabase-js';
-
-// Dev bypass configuration
-// Set NEXT_PUBLIC_DEV_BYPASS=true in .env.local to enable auth bypass
-const DEV_BYPASS_ENABLED = process.env.NEXT_PUBLIC_DEV_BYPASS === 'true';
-
-// Mock user for dev bypass
-const MOCK_DEV_USER: User = {
-  id: 'dev-user-mock-00000000-0000-0000-0000-000000000001',
-  aud: 'authenticated',
-  role: 'authenticated',
-  email: 'operator@example.invalid',
-  email_confirmed_at: new Date().toISOString(),
-  phone: '+12025550123',
-  confirmed_at: new Date().toISOString(),
-  created_at: new Date().toISOString(),
-  updated_at: new Date().toISOString(),
-  app_metadata: { provider: 'email', providers: ['email'] },
-  user_metadata: { 
-    full_name: 'Dev User',
-    is_pro: true, // Allow Pro features in dev mode
-    avatar_url: null 
-  },
-  identities: [],
-};
 
 // Extended user with Leo-specific fields
 export interface LeoUser extends User {
@@ -34,21 +10,15 @@ export interface LeoUser extends User {
   subscription_plan?: 'free' | 'personal' | 'pro_solo' | 'pro_team' | 'enterprise';
 }
 
-// Get current user (with dev bypass support)
-export async function getCurrentUser(): Promise<LeoUser | null> {
-  // In dev mode with bypass enabled, return mock user
-  if (DEV_BYPASS_ENABLED && process.env.NODE_ENV === 'development') {
-    console.log('🔓 Auth bypass enabled - using mock dev user');
-    return {
-      ...MOCK_DEV_USER,
-      is_pro: true,
-      subscription_plan: 'pro_solo',
-    };
-  }
+// Authenticate the user with the recipient’s Supabase project.
+export async function getCurrentUser(request?: Request): Promise<LeoUser | null> {
 
   try {
-    const supabase = await getSupabaseServer();
-    const { data: { user }, error } = await supabase.auth.getUser();
+    const supabase = await getSupabaseServer(request);
+    const authorization = request?.headers.get('authorization');
+    const match = authorization ? /^Bearer (\S+)$/i.exec(authorization) : null;
+    if (authorization && !match) return null;
+    const { data: { user }, error } = await supabase.auth.getUser(match?.[1]);
     
     if (error || !user) {
       return null;
@@ -84,8 +54,8 @@ export function getAuthRedirect(currentPath: string): string {
   return `/auth/signin?redirectTo=${encodeURIComponent(currentPath)}`;
 }
 
-// Check dev mode status (for UI badges)
+// Retained UI compatibility: server actions always use provider-verified identity.
 export function isDevBypassActive(): boolean {
-  return DEV_BYPASS_ENABLED && process.env.NODE_ENV === 'development';
+  return false;
 }
 

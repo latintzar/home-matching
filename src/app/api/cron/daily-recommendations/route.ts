@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 /**
  * Daily Recommendations Cron Job
  * 
@@ -199,13 +200,15 @@ async function queueNotification(
 // ============================================================================
 
 export async function GET(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   const startTime = Date.now();
   const runId = `daily_${Date.now()}`;
   
   try {
     // Verify cron secret
     const authHeader = request.headers.get('authorization');
-    if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    if (!process.env.CRON_SECRET || process.env.CRON_SECRET.length < 32 || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       if (process.env.NODE_ENV === 'production') {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
       }

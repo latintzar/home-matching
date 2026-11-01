@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `LeoUser` | interface | [L32](../../../../../src/lib/auth-helpers.ts#L32) |  |
-| `getCurrentUser` | function | [L38](../../../../../src/lib/auth-helpers.ts#L38) |  |
-| `hasProAccess` | function | [L77](../../../../../src/lib/auth-helpers.ts#L77) |  |
-| `getAuthRedirect` | function | [L83](../../../../../src/lib/auth-helpers.ts#L83) | currentPath |
-| `isDevBypassActive` | function | [L88](../../../../../src/lib/auth-helpers.ts#L88) |  |
+| `LeoUser` | interface | [L8](../../../../../src/lib/auth-helpers.ts#L8) |  |
+| `getCurrentUser` | function | [L14](../../../../../src/lib/auth-helpers.ts#L14) | request |
+| `hasProAccess` | function | [L47](../../../../../src/lib/auth-helpers.ts#L47) |  |
+| `getAuthRedirect` | function | [L53](../../../../../src/lib/auth-helpers.ts#L53) | currentPath |
+| `isDevBypassActive` | function | [L58](../../../../../src/lib/auth-helpers.ts#L58) |  |
 
 Imports: `./supabase-server`, `@supabase/supabase-js`

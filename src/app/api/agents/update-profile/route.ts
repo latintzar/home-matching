@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase-server";
 import { getCurrentUser } from "@/lib/auth-helpers";
@@ -43,12 +44,13 @@ interface ExtractedProfileData {
  * This applies DELTAS to the profile, not full overwrites
  */
 export async function POST(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
-    // For webhook calls, we may not have auth - check for API key or user
-    const user = await getCurrentUser().catch(() => null);
+    // Browser and voice-format updates share the same verified account.
+    const user = await getCurrentUser(request).catch(() => null);
     
     const body = await request.json();
-    console.log('[update-profile] Request body:', JSON.stringify(body, null, 2));
     
     // Detect if this is a direct webhook call (has snake_case fields directly)
     const isWebhookFormat = body.budget_min !== undefined || 
@@ -64,22 +66,9 @@ export async function POST(request: NextRequest) {
     
     if (isWebhookFormat) {
       // Direct webhook format from ElevenLabs
-      // We need to get the user ID from a header or the conversation metadata
-      // For now, we'll use the user if authenticated, or return error
-      if (!user) {
-        // Try to get user ID from X-User-Id header (set by client before calling Leo)
-        const headerUserId = request.headers.get('X-User-Id');
-        if (!headerUserId) {
-          console.log('[update-profile] No user auth or X-User-Id header');
-          return NextResponse.json({ 
-            success: true, 
-            message: "Profile data received (no user context)" 
-          });
-        }
-        userId = headerUserId;
-      } else {
-        userId = user.id;
-      }
+      // Bind the update to the authenticated user, including the direct voice format.
+      if (!user) return NextResponse.json({ error: "Sign in to update your profile." }, { status: 401 });
+      userId = user.id;
       
       // Convert webhook format to our internal format
       extractedData = {
@@ -131,7 +120,7 @@ export async function POST(request: NextRequest) {
       extractedData = (body.extractedData || {}) as ExtractedProfileData;
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     // Get existing profile
     const { data: existingProfile } = await supabase

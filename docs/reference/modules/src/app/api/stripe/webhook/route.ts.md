@@ -4,12 +4,12 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getStripe` | function | [L6](../../../../../../../../src/app/api/stripe/webhook/route.ts#L6) |  |
-| `POST` | function | [L15](../../../../../../../../src/app/api/stripe/webhook/route.ts#L15) | request |
-| `handleSubscriptionCheckout` | function | [L88](../../../../../../../../src/app/api/stripe/webhook/route.ts#L88) | session |
-| `handleSubscriptionUpdate` | function | [L125](../../../../../../../../src/app/api/stripe/webhook/route.ts#L125) | subscription |
-| `handleSubscriptionDeleted` | function | [L167](../../../../../../../../src/app/api/stripe/webhook/route.ts#L167) | subscription |
-| `handlePaymentFailed` | function | [L196](../../../../../../../../src/app/api/stripe/webhook/route.ts#L196) | invoice |
-| `handleSuccessfulPayment` | function | [L225](../../../../../../../../src/app/api/stripe/webhook/route.ts#L225) | session |
+| `getStripe` | function | [L7](../../../../../../../../src/app/api/stripe/webhook/route.ts#L7) |  |
+| `POST` | function | [L16](../../../../../../../../src/app/api/stripe/webhook/route.ts#L16) | request |
+| `handleSubscriptionCheckout` | function | [L91](../../../../../../../../src/app/api/stripe/webhook/route.ts#L91) | session |
+| `handleSubscriptionUpdate` | function | [L128](../../../../../../../../src/app/api/stripe/webhook/route.ts#L128) | subscription |
+| `handleSubscriptionDeleted` | function | [L170](../../../../../../../../src/app/api/stripe/webhook/route.ts#L170) | subscription |
+| `handlePaymentFailed` | function | [L199](../../../../../../../../src/app/api/stripe/webhook/route.ts#L199) | invoice |
+| `handleSuccessfulPayment` | function | [L228](../../../../../../../../src/app/api/stripe/webhook/route.ts#L228) | session |
 
-Imports: `next/server`, `stripe`, `@/utils/supabase/server`
+Imports: `@/lib/security/configured-api`, `next/server`, `stripe`, `@/utils/supabase/server`

@@ -1,3 +1,4 @@
+import {configuredApiAccess} from '@/lib/security/configured-api';
 import {sampleBodyWithinLimit,forwardedGuestCookie,samplePath} from '@/lib/sample/request.mjs';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
@@ -77,6 +78,10 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
+  // Configured APIs verify caller identity before any retained provider route runs.
+  const configuredPath=samplePath(pathname,request.nextUrl.basePath || process.env.NEXT_PUBLIC_BASE_PATH || '');
+  if(configuredPath==='/api'||configuredPath.startsWith('/api/'))return configuredApiAccess(request);
+
   // Skip excluded paths
   if (excludedPaths.some(path => pathname.startsWith(path))) {
     return NextResponse.next();
@@ -106,7 +111,7 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     '/',
-    // Match all paths except static files and api
+    // API admission and page locale handling share this complete matcher.
     '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
 };

@@ -4,7 +4,7 @@ import { getCurrentUser } from '@/lib/auth-helpers';
 
 export async function PUT(request: Request) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -16,7 +16,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'Invalid language' }, { status: 400 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     // Update user profile
     const { error } = await supabase
@@ -36,14 +36,14 @@ export async function PUT(request: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     const { data, error } = await supabase
       .from('user_lifestyle_profiles')

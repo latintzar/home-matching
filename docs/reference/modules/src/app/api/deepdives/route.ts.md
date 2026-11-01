@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `GET` | function | [L4](../../../../../../../src/app/api/deepdives/route.ts#L4) | request |
+| `GET` | function | [L5](../../../../../../../src/app/api/deepdives/route.ts#L5) | request |
 
-Imports: `next/server`, `@/utils/supabase/server`
+Imports: `@/lib/security/configured-api`, `next/server`, `@/utils/supabase/server`

@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/server";
+import { createServiceClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function POST(
@@ -9,7 +9,7 @@ export async function POST(
     const { id } = await context.params;
     const { question, conversationHistory, language = "en" } = await request.json();
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Get listing data
     const { data: listing, error: listingError } = await supabase

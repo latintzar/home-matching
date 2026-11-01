@@ -42,10 +42,15 @@ Open **http://127.0.0.1:3000**. The original Leo.casa workspace opens with eight
 
 Each browser has a private local workspace. SQLite state lives outside the checkout. [Native workspace](docs/native-workspace.md) explains the data, storage, routes and deployment; [Setup](docs/setup.md) covers recipient-owned providers. The smaller `starter/` scene and `tools/first-match.mjs` remain useful scoring examples.
 
+## Connect your own services
+
+The native sample uses its own local guest workspace. Provider-backed APIs authenticate through your Supabase project. Set `HOME_MATCHING_OPERATOR_USER_ID` to your own verified account UUID for property processing, image generation, ingestion and backoffice tools; household APIs keep records scoped to the signed-in user. Stripe callbacks verify their signature and scheduled jobs require a configured cron secret. [Configured API setup](docs/configured-api-security.md) covers the exact credentials, roles and tests.
+
 ## Build with it
 
 - [Guide](docs/guide.md): first result, changes and next steps.
 - [Setup](docs/setup.md): recipient-owned private configuration and full-app dependencies.
+- [Configured API access](docs/configured-api-security.md): verified household identity, operator tools and signed callbacks.
 - [Workflows](docs/workflows.md): property analysis, household fit, voice and location.
 - [Architecture](docs/architecture.md): modules, storage contracts and execution boundaries.
 - [Decisions](docs/decisions.md): original choices and extraction tradeoffs.

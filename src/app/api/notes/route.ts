@@ -18,7 +18,7 @@ async function getActiveProfileType(supabase: Awaited<ReturnType<typeof getSupab
 // Optional: ?profileType=renter|buyer - Override profile type
 export async function GET(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "listingId required" }, { status: 400 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
     
     // Get active profile type (or use param override)
     const profileType = profileTypeParam || await getActiveProfileType(supabase, user.id);
@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
 // Body: { listingId, content, noteType?, mediaUrl?, profileType? }
 export async function POST(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "listingId and content required" }, { status: 400 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
     
     // Get active profile type (or use param override)
     const profileType = profileTypeParam || await getActiveProfileType(supabase, user.id);
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
 // DELETE /api/notes?id=xxx - Delete a note
 export async function DELETE(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -117,7 +117,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "note id required" }, { status: 400 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
     const { error } = await supabase
       .from("property_notes")
       .delete()

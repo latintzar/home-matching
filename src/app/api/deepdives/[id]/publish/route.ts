@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createServiceClient } from '@/utils/supabase/server';
 
 export async function POST(
   request: NextRequest,
@@ -9,7 +9,7 @@ export async function POST(
     const { id } = await params;
     const { agencyName, agencyLogoUrl, agencyWhatsapp } = await request.json();
     
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Generate a public slug
     const publicSlug = `deepdive-${id.slice(0, 8)}`;

@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getSupabase` | function | [L41](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L41) |  |
-| `ActiveUser` | interface | [L51](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L51) |  |
-| `getActiveUsers` | function | [L61](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L61) |  |
-| `storeRecommendations` | function | [L110](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L110) | userId, recommendations, runId |
-| `queueNotification` | function | [L142](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L142) | userId, recommendations, prefs |
-| `GET` | function | [L201](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L201) | request |
+| `getSupabase` | function | [L42](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L42) |  |
+| `ActiveUser` | interface | [L52](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L52) |  |
+| `getActiveUsers` | function | [L62](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L62) |  |
+| `storeRecommendations` | function | [L111](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L111) | userId, recommendations, runId |
+| `queueNotification` | function | [L143](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L143) | userId, recommendations, prefs |
+| `GET` | function | [L202](../../../../../../../../src/app/api/cron/daily-recommendations/route.ts#L202) | request |
 
-Imports: `next/server`, `@supabase/supabase-js`, `@/lib/recommender/orchestratorV2`, `@/types/recommender`
+Imports: `@/lib/security/configured-api`, `next/server`, `@supabase/supabase-js`, `@/lib/recommender/orchestratorV2`, `@/types/recommender`

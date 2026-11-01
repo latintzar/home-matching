@@ -35,6 +35,11 @@ class RuntimeConfigTests(unittest.TestCase):
   self.assertEqual(child['GEMINI_API_KEY'],'selected fixture');self.assertEqual(child['PATH'],'/bin')
   for name in ['AWS_PROFILE','AWS_ACCESS_KEY_ID','GOOGLE_API_KEY','ELEVENLABS_API_KEY','STRIPE_SECRET_KEY','NEXT_PUBLIC_SUPABASE_URL']:self.assertNotIn(name,child)
   self.assertEqual(child['AWS_EC2_METADATA_DISABLED'],'true');self.assertEqual(child['AWS_SHARED_CREDENTIALS_FILE'],os.devnull)
+ def test_operator_authority_comes_from_the_selected_recipient_file(self):
+  name='HOME_MATCHING_OPERATOR_USER_ID';owned='11111111-1111-4111-8111-111111111111'
+  self.assertNotIn(name,runtime.child_env({}, {name:'inherited-authority'}))
+  self.write({name:owned});selected=runtime.read_config(self.file)
+  self.assertEqual(runtime.child_env(selected,{name:'inherited-authority'})[name],owned)
  def test_google_adc_guard_and_explicit_selection(self):
   self.assertEqual(runtime.child_env({},{} )['GOOGLE_APPLICATION_CREDENTIALS'],'/recipient-google-credentials-not-configured')
   child=runtime.child_env({'GOOGLE_APPLICATION_CREDENTIALS':'/recipient/owned.json','GOOGLE_CLOUD_PROJECT_ID':'recipient-project'},{});self.assertEqual(child['GOOGLE_APPLICATION_CREDENTIALS'],'/recipient/owned.json');self.assertEqual(child['GOOGLE_CLOUD_PROJECT'],'recipient-project')

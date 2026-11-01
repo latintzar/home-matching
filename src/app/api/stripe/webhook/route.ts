@@ -1,6 +1,7 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createClient } from '@/utils/supabase/server';
+import { createServiceClient } from '@/utils/supabase/server';
 
 // Only initialize Stripe if the key is available
 const getStripe = () => {
@@ -13,6 +14,8 @@ const getStripe = () => {
 };
 
 export async function POST(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
     const body = await request.text();
     const signature = request.headers.get('stripe-signature')!;
@@ -24,7 +27,7 @@ export async function POST(request: NextRequest) {
       const stripe = getStripe();
       event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
     } catch (err) {
-      console.error('Webhook signature verification failed:', err);
+      console.error('Stripe webhook signature verification failed');
       return NextResponse.json(
         { error: 'Invalid signature' },
         { status: 400 }
@@ -96,7 +99,7 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
       return;
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Update user profile with subscription info
     const { error } = await supabase
@@ -125,7 +128,7 @@ async function handleSubscriptionCheckout(session: Stripe.Checkout.Session) {
 async function handleSubscriptionUpdate(subscription: Stripe.Subscription) {
   try {
     const customerId = subscription.customer as string;
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Find user by customer ID
     const { data: profile } = await supabase
@@ -167,7 +170,7 @@ async function handleSubscriptionUpdate(subscription: Stripe.Subscription) {
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   try {
     const customerId = subscription.customer as string;
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     const { data: profile } = await supabase
       .from('user_lifestyle_profiles')
@@ -196,7 +199,7 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
   try {
     const customerId = invoice.customer as string;
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     const { data: profile } = await supabase
       .from('user_lifestyle_profiles')
@@ -232,7 +235,7 @@ async function handleSuccessfulPayment(session: Stripe.Checkout.Session) {
       return;
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Update DeepDive to mark as unlocked
     const { error } = await supabase

@@ -1,9 +1,12 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createServiceClient } from '@/utils/supabase/server';
 
 export async function GET(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Get all deepdives with their listing info
     const { data: deepdives, error: deepdivesError } = await supabase

@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "source_pin": "d461e9556f09ad526030376ab58643298e3a1fc8",
+  "source_pin_kind": "retained-original-history",
+  "indexed_source": "working-tree",
   "modules": [
     {
       "path": "archive/diagnostics/app/api/debug-rag/route.ts",
@@ -1844,6 +1846,7 @@
       "reference": "modules/src/app/api/agents/update-profile/route.ts.md",
       "symbols": 3,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/supabase-server",
         "@/lib/auth-helpers"
@@ -1913,6 +1916,7 @@
       "reference": "modules/src/app/api/analytics/route.ts.md",
       "symbols": 2,
       "imports": [
+        "@/lib/auth-helpers",
         "next/server",
         "@/lib/supabase"
       ]
@@ -2020,6 +2024,7 @@
       "reference": "modules/src/app/api/cron/daily-recommendations/route.ts.md",
       "symbols": 6,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@supabase/supabase-js",
         "@/lib/recommender/orchestratorV2",
@@ -2031,6 +2036,7 @@
       "reference": "modules/src/app/api/cron/harvest/route.ts.md",
       "symbols": 3,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/harvest/HarvestEngine",
         "@supabase/supabase-js"
@@ -2041,6 +2047,7 @@
       "reference": "modules/src/app/api/cron/process-notes/route.ts.md",
       "symbols": 4,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/supabase-server"
       ]
@@ -2086,6 +2093,7 @@
       "reference": "modules/src/app/api/deepdives/route.ts.md",
       "symbols": 1,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/utils/supabase/server"
       ]
@@ -2153,6 +2161,7 @@
       "reference": "modules/src/app/api/landing/generate-images/route.ts.md",
       "symbols": 3,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/gemini-rest-client",
         "@/lib/model-registry",
@@ -2165,6 +2174,7 @@
       "reference": "modules/src/app/api/landing/generate-reno-after/route.ts.md",
       "symbols": 2,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/gemini-rest-client",
         "fs",
@@ -3549,6 +3559,7 @@
       "reference": "modules/src/app/api/notes/process/route.ts.md",
       "symbols": 4,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "@/lib/supabase-server",
         "@/lib/auth-helpers"
@@ -3739,6 +3750,7 @@
       "reference": "modules/src/app/api/stripe/webhook/route.ts.md",
       "symbols": 7,
       "imports": [
+        "@/lib/security/configured-api",
         "next/server",
         "stripe",
         "@/utils/supabase/server"
@@ -3866,6 +3878,7 @@
       "reference": "modules/src/app/layout.tsx.md",
       "symbols": 1,
       "imports": [
+        "next/script",
         "next",
         "./globals.css"
       ]
@@ -7206,6 +7219,17 @@
       "imports": []
     },
     {
+      "path": "src/lib/security/configured-api.ts",
+      "reference": "modules/src/lib/security/configured-api.ts.md",
+      "symbols": 6,
+      "imports": [
+        "@supabase/supabase-js",
+        "@supabase/ssr",
+        "next/server",
+        "@/lib/sample/request.mjs"
+      ]
+    },
+    {
       "path": "src/lib/supabase-browser.ts",
       "reference": "modules/src/lib/supabase-browser.ts.md",
       "symbols": 10,
@@ -7223,7 +7247,9 @@
         "@supabase/supabase-js",
         "./sample/server",
         "@supabase/ssr",
-        "next/headers"
+        "next/headers",
+        "next/server",
+        "@supabase/supabase-js"
       ]
     },
     {
@@ -7302,6 +7328,7 @@
       "reference": "modules/src/middleware.ts.md",
       "symbols": 2,
       "imports": [
+        "@/lib/security/configured-api",
         "@/lib/sample/request.mjs",
         "next/server",
         "next/server"
@@ -15660,7 +15687,7 @@
     {
       "module": "src/app/api/agents/update-profile/route.ts",
       "source_path": "src/app/api/agents/update-profile/route.ts",
-      "line": 6,
+      "line": 7,
       "name": "ExtractedProfileData",
       "kind": "interface",
       "parameters": []
@@ -15668,7 +15695,7 @@
     {
       "module": "src/app/api/agents/update-profile/route.ts",
       "source_path": "src/app/api/agents/update-profile/route.ts",
-      "line": 45,
+      "line": 46,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -15678,7 +15705,7 @@
     {
       "module": "src/app/api/agents/update-profile/route.ts",
       "source_path": "src/app/api/agents/update-profile/route.ts",
-      "line": 349,
+      "line": 338,
       "name": "categorizePreference",
       "kind": "function",
       "parameters": [
@@ -15935,7 +15962,7 @@
     {
       "module": "src/app/api/analytics/route.ts",
       "source_path": "src/app/api/analytics/route.ts",
-      "line": 10,
+      "line": 11,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -15945,7 +15972,7 @@
     {
       "module": "src/app/api/analytics/route.ts",
       "source_path": "src/app/api/analytics/route.ts",
-      "line": 64,
+      "line": 57,
       "name": "GET",
       "kind": "function",
       "parameters": []
@@ -16180,7 +16207,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 41,
+      "line": 42,
       "name": "getSupabase",
       "kind": "function",
       "parameters": []
@@ -16188,7 +16215,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 51,
+      "line": 52,
       "name": "ActiveUser",
       "kind": "interface",
       "parameters": []
@@ -16196,7 +16223,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 61,
+      "line": 62,
       "name": "getActiveUsers",
       "kind": "function",
       "parameters": []
@@ -16204,7 +16231,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 110,
+      "line": 111,
       "name": "storeRecommendations",
       "kind": "function",
       "parameters": [
@@ -16216,7 +16243,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 142,
+      "line": 143,
       "name": "queueNotification",
       "kind": "function",
       "parameters": [
@@ -16228,7 +16255,7 @@
     {
       "module": "src/app/api/cron/daily-recommendations/route.ts",
       "source_path": "src/app/api/cron/daily-recommendations/route.ts",
-      "line": 201,
+      "line": 202,
       "name": "GET",
       "kind": "function",
       "parameters": [
@@ -16238,7 +16265,7 @@
     {
       "module": "src/app/api/cron/harvest/route.ts",
       "source_path": "src/app/api/cron/harvest/route.ts",
-      "line": 6,
+      "line": 7,
       "name": "getSupabaseClient",
       "kind": "function",
       "parameters": []
@@ -16246,7 +16273,7 @@
     {
       "module": "src/app/api/cron/harvest/route.ts",
       "source_path": "src/app/api/cron/harvest/route.ts",
-      "line": 17,
+      "line": 18,
       "name": "isAuthenticated",
       "kind": "function",
       "parameters": [
@@ -16256,7 +16283,7 @@
     {
       "module": "src/app/api/cron/harvest/route.ts",
       "source_path": "src/app/api/cron/harvest/route.ts",
-      "line": 25,
+      "line": 26,
       "name": "GET",
       "kind": "function",
       "parameters": [
@@ -16266,7 +16293,7 @@
     {
       "module": "src/app/api/cron/process-notes/route.ts",
       "source_path": "src/app/api/cron/process-notes/route.ts",
-      "line": 9,
+      "line": 10,
       "name": "GET",
       "kind": "function",
       "parameters": [
@@ -16276,7 +16303,7 @@
     {
       "module": "src/app/api/cron/process-notes/route.ts",
       "source_path": "src/app/api/cron/process-notes/route.ts",
-      "line": 80,
+      "line": 83,
       "name": "NoteToProcess",
       "kind": "interface",
       "parameters": []
@@ -16284,7 +16311,7 @@
     {
       "module": "src/app/api/cron/process-notes/route.ts",
       "source_path": "src/app/api/cron/process-notes/route.ts",
-      "line": 88,
+      "line": 91,
       "name": "processUserNotes",
       "kind": "function",
       "parameters": [
@@ -16296,7 +16323,7 @@
     {
       "module": "src/app/api/cron/process-notes/route.ts",
       "source_path": "src/app/api/cron/process-notes/route.ts",
-      "line": 142,
+      "line": 145,
       "name": "extractSignalsFromNote",
       "kind": "function",
       "parameters": [
@@ -16350,7 +16377,7 @@
     {
       "module": "src/app/api/deepdives/route.ts",
       "source_path": "src/app/api/deepdives/route.ts",
-      "line": 4,
+      "line": 5,
       "name": "GET",
       "kind": "function",
       "parameters": [
@@ -16509,7 +16536,7 @@
     {
       "module": "src/app/api/landing/generate-images/route.ts",
       "source_path": "src/app/api/landing/generate-images/route.ts",
-      "line": 19,
+      "line": 20,
       "name": "ImagePrompt",
       "kind": "interface",
       "parameters": []
@@ -16517,7 +16544,7 @@
     {
       "module": "src/app/api/landing/generate-images/route.ts",
       "source_path": "src/app/api/landing/generate-images/route.ts",
-      "line": 988,
+      "line": 989,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -16527,7 +16554,7 @@
     {
       "module": "src/app/api/landing/generate-images/route.ts",
       "source_path": "src/app/api/landing/generate-images/route.ts",
-      "line": 1113,
+      "line": 1116,
       "name": "GET",
       "kind": "function",
       "parameters": []
@@ -16535,7 +16562,7 @@
     {
       "module": "src/app/api/landing/generate-reno-after/route.ts",
       "source_path": "src/app/api/landing/generate-reno-after/route.ts",
-      "line": 22,
+      "line": 23,
       "name": "TierPrompt",
       "kind": "interface",
       "parameters": []
@@ -16543,7 +16570,7 @@
     {
       "module": "src/app/api/landing/generate-reno-after/route.ts",
       "source_path": "src/app/api/landing/generate-reno-after/route.ts",
-      "line": 135,
+      "line": 136,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -19977,7 +20004,7 @@
     {
       "module": "src/app/api/notes/process/route.ts",
       "source_path": "src/app/api/notes/process/route.ts",
-      "line": 13,
+      "line": 14,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -19987,7 +20014,7 @@
     {
       "module": "src/app/api/notes/process/route.ts",
       "source_path": "src/app/api/notes/process/route.ts",
-      "line": 118,
+      "line": 121,
       "name": "extractSignalsFromNote",
       "kind": "function",
       "parameters": [
@@ -19997,7 +20024,7 @@
     {
       "module": "src/app/api/notes/process/route.ts",
       "source_path": "src/app/api/notes/process/route.ts",
-      "line": 172,
+      "line": 175,
       "name": "findCategory",
       "kind": "function",
       "parameters": [
@@ -20007,7 +20034,7 @@
     {
       "module": "src/app/api/notes/process/route.ts",
       "source_path": "src/app/api/notes/process/route.ts",
-      "line": 220,
+      "line": 223,
       "name": "recalculateFitScores",
       "kind": "function",
       "parameters": [
@@ -20552,7 +20579,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 6,
+      "line": 7,
       "name": "getStripe",
       "kind": "function",
       "parameters": []
@@ -20560,7 +20587,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 15,
+      "line": 16,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -20570,7 +20597,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 88,
+      "line": 91,
       "name": "handleSubscriptionCheckout",
       "kind": "function",
       "parameters": [
@@ -20580,7 +20607,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 125,
+      "line": 128,
       "name": "handleSubscriptionUpdate",
       "kind": "function",
       "parameters": [
@@ -20590,7 +20617,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 167,
+      "line": 170,
       "name": "handleSubscriptionDeleted",
       "kind": "function",
       "parameters": [
@@ -20600,7 +20627,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 196,
+      "line": 199,
       "name": "handlePaymentFailed",
       "kind": "function",
       "parameters": [
@@ -20610,7 +20637,7 @@
     {
       "module": "src/app/api/stripe/webhook/route.ts",
       "source_path": "src/app/api/stripe/webhook/route.ts",
-      "line": 225,
+      "line": 228,
       "name": "handleSuccessfulPayment",
       "kind": "function",
       "parameters": [
@@ -20643,7 +20670,9 @@
       "line": 39,
       "name": "GET",
       "kind": "function",
-      "parameters": []
+      "parameters": [
+        "request"
+      ]
     },
     {
       "module": "src/app/api/viewings/route.ts",
@@ -21115,7 +21144,7 @@
     {
       "module": "src/app/layout.tsx",
       "source_path": "src/app/layout.tsx",
-      "line": 27,
+      "line": 28,
       "name": "RootLayout",
       "kind": "function",
       "parameters": [
@@ -32222,7 +32251,7 @@
     {
       "module": "src/lib/auth-helpers.ts",
       "source_path": "src/lib/auth-helpers.ts",
-      "line": 32,
+      "line": 8,
       "name": "LeoUser",
       "kind": "interface",
       "parameters": []
@@ -32230,15 +32259,17 @@
     {
       "module": "src/lib/auth-helpers.ts",
       "source_path": "src/lib/auth-helpers.ts",
-      "line": 38,
+      "line": 14,
       "name": "getCurrentUser",
       "kind": "function",
-      "parameters": []
+      "parameters": [
+        "request"
+      ]
     },
     {
       "module": "src/lib/auth-helpers.ts",
       "source_path": "src/lib/auth-helpers.ts",
-      "line": 77,
+      "line": 47,
       "name": "hasProAccess",
       "kind": "function",
       "parameters": []
@@ -32246,7 +32277,7 @@
     {
       "module": "src/lib/auth-helpers.ts",
       "source_path": "src/lib/auth-helpers.ts",
-      "line": 83,
+      "line": 53,
       "name": "getAuthRedirect",
       "kind": "function",
       "parameters": [
@@ -32256,7 +32287,7 @@
     {
       "module": "src/lib/auth-helpers.ts",
       "source_path": "src/lib/auth-helpers.ts",
-      "line": 88,
+      "line": 58,
       "name": "isDevBypassActive",
       "kind": "function",
       "parameters": []
@@ -38954,6 +38985,69 @@
       ]
     },
     {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 18,
+      "name": "denied",
+      "kind": "function",
+      "parameters": [
+        "status",
+        "code",
+        "error"
+      ]
+    },
+    {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 21,
+      "name": "equalSecret",
+      "kind": "function",
+      "parameters": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 27,
+      "name": "apiPath",
+      "kind": "function",
+      "parameters": [
+        "request"
+      ]
+    },
+    {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 31,
+      "name": "sameOrigin",
+      "kind": "function",
+      "parameters": [
+        "request"
+      ]
+    },
+    {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 41,
+      "name": "configuredApiAccess",
+      "kind": "function",
+      "parameters": [
+        "request"
+      ]
+    },
+    {
+      "module": "src/lib/security/configured-api.ts",
+      "source_path": "src/lib/security/configured-api.ts",
+      "line": 124,
+      "name": "requireConfiguredApiAccess",
+      "kind": "function",
+      "parameters": [
+        "request"
+      ]
+    },
+    {
       "module": "src/lib/supabase-browser.ts",
       "source_path": "src/lib/supabase-browser.ts",
       "line": 19,
@@ -39050,15 +39144,17 @@
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 16,
+      "line": 18,
       "name": "getSupabaseServer",
       "kind": "function",
-      "parameters": []
+      "parameters": [
+        "request"
+      ]
     },
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 29,
+      "line": 41,
       "name": "getAll",
       "kind": "method",
       "parameters": []
@@ -39066,7 +39162,7 @@
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 32,
+      "line": 44,
       "name": "setAll",
       "kind": "method",
       "parameters": [
@@ -39076,7 +39172,7 @@
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 49,
+      "line": 61,
       "name": "getServerUser",
       "kind": "function",
       "parameters": []
@@ -39084,7 +39180,7 @@
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 61,
+      "line": 73,
       "name": "getServerSession",
       "kind": "function",
       "parameters": []
@@ -39092,7 +39188,7 @@
     {
       "module": "src/lib/supabase-server.ts",
       "source_path": "src/lib/supabase-server.ts",
-      "line": 73,
+      "line": 85,
       "name": "isAuthenticated",
       "kind": "function",
       "parameters": []
@@ -39703,7 +39799,7 @@
     {
       "module": "src/middleware.ts",
       "source_path": "src/middleware.ts",
-      "line": 21,
+      "line": 22,
       "name": "getLocale",
       "kind": "function",
       "parameters": [
@@ -39713,7 +39809,7 @@
     {
       "module": "src/middleware.ts",
       "source_path": "src/middleware.ts",
-      "line": 45,
+      "line": 46,
       "name": "middleware",
       "kind": "function",
       "parameters": [
@@ -46323,8 +46419,8 @@
     {
       "module": "src/utils/supabase/server.ts",
       "source_path": "src/utils/supabase/server.ts",
-      "line": 5,
-      "name": "createClient",
+      "line": 6,
+      "name": "createServiceClient",
       "kind": "function",
       "parameters": []
     }

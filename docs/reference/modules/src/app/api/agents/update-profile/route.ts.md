@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `ExtractedProfileData` | interface | [L6](../../../../../../../../src/app/api/agents/update-profile/route.ts#L6) |  |
-| `POST` | function | [L45](../../../../../../../../src/app/api/agents/update-profile/route.ts#L45) | request |
-| `categorizePreference` | function | [L349](../../../../../../../../src/app/api/agents/update-profile/route.ts#L349) | pref |
+| `ExtractedProfileData` | interface | [L7](../../../../../../../../src/app/api/agents/update-profile/route.ts#L7) |  |
+| `POST` | function | [L46](../../../../../../../../src/app/api/agents/update-profile/route.ts#L46) | request |
+| `categorizePreference` | function | [L338](../../../../../../../../src/app/api/agents/update-profile/route.ts#L338) | pref |
 
-Imports: `next/server`, `@/lib/supabase-server`, `@/lib/auth-helpers`
+Imports: `@/lib/security/configured-api`, `next/server`, `@/lib/supabase-server`, `@/lib/auth-helpers`

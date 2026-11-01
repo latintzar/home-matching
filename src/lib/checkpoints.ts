@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server';
+import { createServiceClient } from '@/utils/supabase/server';
 
 export interface CheckpointData {
   data: any;
@@ -32,7 +32,7 @@ export async function startCheckpoint(
   step: keyof PipelineCheckpoints
 ): Promise<void> {
   console.log(`🚀 STARTING CHECKPOINT: ${step} for listing ${listingId}`);
-  const supabase = createClient();
+  const supabase = createServiceClient();
   
   const checkpointData: CheckpointData = {
     data: null,
@@ -77,7 +77,7 @@ export async function saveCheckpoint(
   error?: string
 ): Promise<void> {
   console.log(`💾 SAVING CHECKPOINT: ${step} for listing ${listingId}`, { success, error });
-  const supabase = createClient();
+  const supabase = createServiceClient();
   
   const checkpointData: CheckpointData = {
     data,
@@ -119,7 +119,7 @@ export async function loadCheckpoint(
   listingId: string, 
   step: keyof PipelineCheckpoints
 ): Promise<CheckpointData | null> {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   
   const { data } = await supabase
     .from('listings')
@@ -135,7 +135,7 @@ export async function loadCheckpoint(
  * Load all checkpoints for a listing
  */
 export async function loadAllCheckpoints(listingId: string): Promise<PipelineCheckpoints> {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   
   const { data } = await supabase
     .from('listings')
@@ -153,7 +153,7 @@ export async function clearCheckpoint(
   listingId: string, 
   step: keyof PipelineCheckpoints
 ): Promise<void> {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   
   // Get existing checkpoints
   const { data: existing } = await supabase

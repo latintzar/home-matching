@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextResponse } from 'next/server';
 import { HarvestEngine } from '@/lib/harvest/HarvestEngine';
 import { createClient } from '@supabase/supabase-js';
@@ -16,13 +17,15 @@ function getSupabaseClient() {
 // Vercel sends `Authorization: Bearer <CRON_SECRET>`
 function isAuthenticated(request: Request) {
   const authHeader = request.headers.get('authorization');
-  if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (!process.env.CRON_SECRET || process.env.CRON_SECRET.length < 32 || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return false;
   }
   return true;
 }
 
 export async function GET(request: Request) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   // 1. Security Check
   if (!isAuthenticated(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

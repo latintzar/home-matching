@@ -4,8 +4,8 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `ImagePrompt` | interface | [L19](../../../../../../../../src/app/api/landing/generate-images/route.ts#L19) |  |
-| `POST` | function | [L988](../../../../../../../../src/app/api/landing/generate-images/route.ts#L988) | request |
-| `GET` | function | [L1113](../../../../../../../../src/app/api/landing/generate-images/route.ts#L1113) |  |
+| `ImagePrompt` | interface | [L20](../../../../../../../../src/app/api/landing/generate-images/route.ts#L20) |  |
+| `POST` | function | [L989](../../../../../../../../src/app/api/landing/generate-images/route.ts#L989) | request |
+| `GET` | function | [L1116](../../../../../../../../src/app/api/landing/generate-images/route.ts#L1116) |  |
 
-Imports: `next/server`, `@/lib/gemini-rest-client`, `@/lib/model-registry`, `fs`, `path`
+Imports: `@/lib/security/configured-api`, `next/server`, `@/lib/gemini-rest-client`, `@/lib/model-registry`, `fs`, `path`

@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L10](../../../../../../../src/app/api/analytics/route.ts#L10) | request |
-| `GET` | function | [L64](../../../../../../../src/app/api/analytics/route.ts#L64) |  |
+| `POST` | function | [L11](../../../../../../../src/app/api/analytics/route.ts#L11) | request |
+| `GET` | function | [L57](../../../../../../../src/app/api/analytics/route.ts#L57) |  |
 
-Imports: `next/server`, `@/lib/supabase`
+Imports: `@/lib/auth-helpers`, `next/server`, `@/lib/supabase`

@@ -18,7 +18,7 @@ const getStripe = () => {
  */
 export async function POST(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { plan = 'renter' } = body; // 'renter' or 'buyer'
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
     const stripe = getStripe();
 
     // Get or create Stripe customer

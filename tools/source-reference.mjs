@@ -42,7 +42,7 @@ for(const [area,items] of [...groups].sort()){
  index.push('| ['+area+']('+name+') | '+items.length+' | '+items.reduce((sum,m)=>sum+m.symbols,0)+' |');
 }
 fs.writeFileSync(path.join(out,'README.md'),index.join('\n')+'\n');
-fs.writeFileSync(path.join(out,'symbols.json'),JSON.stringify({schema_version:1,source_pin:'d461e9556f09ad526030376ab58643298e3a1fc8',modules,symbols},null,2)+'\n');
+fs.writeFileSync(path.join(out,'symbols.json'),JSON.stringify({schema_version:1,source_pin:'d461e9556f09ad526030376ab58643298e3a1fc8',source_pin_kind:'retained-original-history',indexed_source:'working-tree',modules,symbols},null,2)+'\n');
 fs.writeFileSync(path.join(out,'closure.json'),JSON.stringify({missing_local_imports:missing,syntax_diagnostics:syntax},null,2)+'\n');
 console.log(JSON.stringify({modules:modules.length,symbols:symbols.length,missing_local_imports:missing.length,syntax_diagnostics:syntax.length}));
 if(missing.length||syntax.length)process.exitCode=1;

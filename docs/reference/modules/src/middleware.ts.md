@@ -4,7 +4,7 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getLocale` | function | [L21](../../../../src/middleware.ts#L21) | request |
-| `middleware` | function | [L45](../../../../src/middleware.ts#L45) | request |
+| `getLocale` | function | [L22](../../../../src/middleware.ts#L22) | request |
+| `middleware` | function | [L46](../../../../src/middleware.ts#L46) | request |
 
-Imports: `@/lib/sample/request.mjs`, `next/server`, `next/server`
+Imports: `@/lib/security/configured-api`, `@/lib/sample/request.mjs`, `next/server`, `next/server`

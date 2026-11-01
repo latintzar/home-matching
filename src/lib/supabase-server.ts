@@ -8,20 +8,32 @@ import {sampleMode,sampleServerClient} from './sample/server';
 
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { NextRequest } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 
 /**
  * Get Supabase client for Server Components
  * Reads auth from cookies
  */
-export async function getSupabaseServer(): Promise<SupabaseClient<any>> {
+export async function getSupabaseServer(request?: Request): Promise<SupabaseClient<any>> {
   if(sampleMode())return sampleServerClient() as SupabaseClient<any>;
-  const cookieStore = await cookies();
+  const cookieStore = request
+    ? (request instanceof NextRequest ? request : new NextRequest(request.url, { headers: request.headers })).cookies
+    : await cookies();
   
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
     throw new Error('Missing Supabase environment variables');
+  }
+
+  const bearer = request?.headers.get('authorization');
+  if (bearer && /^Bearer \S+$/i.test(bearer)) {
+    return createClient(supabaseUrl, supabaseKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+      global: { headers: { Authorization: bearer } },
+    });
   }
 
   return createServerClient(supabaseUrl, supabaseKey, {

@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `POST` | function | [L13](../../../../../../../../src/app/api/notes/process/route.ts#L13) | request |
-| `extractSignalsFromNote` | function | [L118](../../../../../../../../src/app/api/notes/process/route.ts#L118) | content |
-| `findCategory` | function | [L172](../../../../../../../../src/app/api/notes/process/route.ts#L172) | text |
-| `recalculateFitScores` | function | [L220](../../../../../../../../src/app/api/notes/process/route.ts#L220) | userId, supabase |
+| `POST` | function | [L14](../../../../../../../../src/app/api/notes/process/route.ts#L14) | request |
+| `extractSignalsFromNote` | function | [L121](../../../../../../../../src/app/api/notes/process/route.ts#L121) | content |
+| `findCategory` | function | [L175](../../../../../../../../src/app/api/notes/process/route.ts#L175) | text |
+| `recalculateFitScores` | function | [L223](../../../../../../../../src/app/api/notes/process/route.ts#L223) | userId, supabase |
 
-Imports: `next/server`, `@/lib/supabase-server`, `@/lib/auth-helpers`
+Imports: `@/lib/security/configured-api`, `next/server`, `@/lib/supabase-server`, `@/lib/auth-helpers`

@@ -1,3 +1,4 @@
+import { getCurrentUser } from '@/lib/auth-helpers';
 /**
  * Analytics API Route
  * 
@@ -9,6 +10,8 @@ import { getSupabaseServiceClient } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   try {
+    const user = await getCurrentUser(request);
+    if (!user) return NextResponse.json({ error: "Sign in to record this event." }, { status: 401 });
     const body = await request.json();
     const { event, properties, timestamp, session_id } = body;
 
@@ -21,19 +24,9 @@ export async function POST(request: NextRequest) {
 
     const supabase = getSupabaseServiceClient();
 
-    // Get user from auth header if available
-    const authHeader = request.headers.get("authorization");
-    let userId = null;
-
-    if (authHeader?.startsWith("Bearer ")) {
-      const token = authHeader.substring(7);
-      const { data: { user } } = await supabase.auth.getUser(token);
-      userId = user?.id;
-    }
-
     // Insert event
     const { error } = await supabase.from("analytics_events").insert({
-      user_id: userId,
+      user_id: user.id,
       event_name: event,
       properties: properties || {},
       session_id: session_id,

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createServiceClient } from '@/utils/supabase/server';
 
 export async function POST(
   request: NextRequest,
@@ -13,7 +13,7 @@ export async function POST(
       return NextResponse.json({ error: 'Photos array is required' }, { status: 400 });
     }
 
-    const supabase = createClient();
+    const supabase = createServiceClient();
 
     // Note: deepdive_photos table was deprecated
     // Deep dive photos are now stored in clusters

@@ -4,6 +4,6 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RootLayout` | function | [L27](../../../../../src/app/layout.tsx#L27) | destructured |
+| `RootLayout` | function | [L28](../../../../../src/app/layout.tsx#L28) | destructured |
 
-Imports: `next`, `./globals.css`
+Imports: `next/script`, `next`, `./globals.css`

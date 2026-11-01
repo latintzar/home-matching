@@ -279,6 +279,7 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lib/schemas](areas/src-lib-schemas.md) | 2 | 7 |
 | [src/lib/scraper-normalizer.ts](areas/src-lib-scraper-normalizer.ts.md) | 1 | 4 |
 | [src/lib/scrapingdog.ts](areas/src-lib-scrapingdog.ts.md) | 1 | 4 |
+| [src/lib/security](areas/src-lib-security.md) | 1 | 6 |
 | [src/lib/supabase-browser.ts](areas/src-lib-supabase-browser.ts.md) | 1 | 10 |
 | [src/lib/supabase-server.ts](areas/src-lib-supabase-server.ts.md) | 1 | 6 |
 | [src/lib/supabase.ts](areas/src-lib-supabase.ts.md) | 1 | 3 |

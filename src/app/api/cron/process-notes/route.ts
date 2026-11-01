@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase-server";
 
@@ -7,10 +8,12 @@ import { getSupabaseServer } from "@/lib/supabase-server";
  * Schedule: Every 5 minutes - see vercel.json for cron config
  */
 export async function GET(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
     // Verify cron secret (optional, for security)
     const authHeader = request.headers.get("authorization");
-    if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    if (!process.env.CRON_SECRET || process.env.CRON_SECRET.length < 32 || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       // In development, allow without auth
       if (process.env.NODE_ENV === "production") {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

@@ -31,6 +31,8 @@ python3 tools/runtime-env.py doctor --file "$HOME/.config/home-matching/runtime.
 | Scraping | Scrapfly or Scrapingdog key | Recipient provider and site permissions |
 | Billing/communications | Stripe, Resend, WhatsApp, cron fields | Recipient service accounts |
 
+Provider/admin APIs use `HOME_MATCHING_OPERATOR_USER_ID`, assigned to a verified account in your Supabase project. Save it with `--capability operator`, together with the exact `NEXT_PUBLIC_BASE_URL` application origin. Household APIs use the authenticated user’s own records. [Configured API access](configured-api-security.md) gives the roles, credentials and offline checks.
+
 Run a selected full-app command through that file:
 
 ```sh

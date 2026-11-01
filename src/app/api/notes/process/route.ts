@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServer } from "@/lib/supabase-server";
 import { getCurrentUser } from "@/lib/auth-helpers";
@@ -11,8 +12,10 @@ import { getCurrentUser } from "@/lib/auth-helpers";
  * 2. Without noteIds to process all unprocessed notes for the current user
  */
 export async function POST(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -20,7 +23,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => ({}));
     const { noteIds } = body;
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     // Get notes to process
     let query = supabase

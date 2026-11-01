@@ -26,7 +26,7 @@ const AGENT_IDS = {
 
 export async function POST(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { conversationType = 'onboarding', profileType: requestedProfileType } = body;
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     // Get user's active profile type if not specified
     let profileType: 'renter' | 'buyer' = 'renter';

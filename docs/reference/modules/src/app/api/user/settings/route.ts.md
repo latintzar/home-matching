@@ -5,6 +5,6 @@
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
 | `PUT` | function | [L5](../../../../../../../../src/app/api/user/settings/route.ts#L5) | request |
-| `GET` | function | [L39](../../../../../../../../src/app/api/user/settings/route.ts#L39) |  |
+| `GET` | function | [L39](../../../../../../../../src/app/api/user/settings/route.ts#L39) | request |
 
 Imports: `next/server`, `@/lib/supabase-server`, `@/lib/auth-helpers`

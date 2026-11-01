@@ -4,9 +4,9 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `GET` | function | [L9](../../../../../../../../src/app/api/cron/process-notes/route.ts#L9) | request |
-| `NoteToProcess` | interface | [L80](../../../../../../../../src/app/api/cron/process-notes/route.ts#L80) |  |
-| `processUserNotes` | function | [L88](../../../../../../../../src/app/api/cron/process-notes/route.ts#L88) | userId, notes, supabase |
-| `extractSignalsFromNote` | function | [L142](../../../../../../../../src/app/api/cron/process-notes/route.ts#L142) | content |
+| `GET` | function | [L10](../../../../../../../../src/app/api/cron/process-notes/route.ts#L10) | request |
+| `NoteToProcess` | interface | [L83](../../../../../../../../src/app/api/cron/process-notes/route.ts#L83) |  |
+| `processUserNotes` | function | [L91](../../../../../../../../src/app/api/cron/process-notes/route.ts#L91) | userId, notes, supabase |
+| `extractSignalsFromNote` | function | [L145](../../../../../../../../src/app/api/cron/process-notes/route.ts#L145) | content |
 
-Imports: `next/server`, `@/lib/supabase-server`
+Imports: `@/lib/security/configured-api`, `next/server`, `@/lib/supabase-server`

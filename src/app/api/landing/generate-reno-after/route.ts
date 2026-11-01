@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from 'next/server';
 import { callGeminiRest, GeminiImageInput } from '@/lib/gemini-rest-client';
 import * as fs from 'fs';
@@ -133,6 +134,8 @@ Output a photorealistic edited image that looks like a real photograph taken fro
 ];
 
 export async function POST(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
     const body = await request.json();
     const { beforeImageId, tier } = body;

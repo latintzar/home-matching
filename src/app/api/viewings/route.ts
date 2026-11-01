@@ -5,7 +5,7 @@ import { getCurrentUser } from "@/lib/auth-helpers";
 // GET /api/viewings?listingId=xxx - Check if listing has been viewed
 export async function GET(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const listingId = searchParams.get("listingId");
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
 
     if (listingId) {
       const { data, error } = await supabase
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
 // POST /api/viewings - Mark a property as viewed
 export async function POST(request: NextRequest) {
   try {
-    const user = await getCurrentUser();
+    const user = await getCurrentUser(request);
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "listingId required" }, { status: 400 });
     }
 
-    const supabase = await getSupabaseServer();
+    const supabase = await getSupabaseServer(request);
     
     // Check if already viewed
     const { data: existing } = await supabase

@@ -1,3 +1,4 @@
+import { requireConfiguredApiAccess } from '@/lib/security/configured-api';
 import { NextRequest, NextResponse } from 'next/server';
 import { callGeminiRest } from '@/lib/gemini-rest-client';
 import { getModelForTask } from '@/lib/model-registry';
@@ -986,6 +987,8 @@ NO: Photorealism, dark colors, night scene, dystopian vibes, clutter, text, logo
 ];
 
 export async function POST(request: NextRequest) {
+  const admission = await requireConfiguredApiAccess(request);
+  if (admission) return admission;
   try {
     const body = await request.json().catch(() => ({}));
     const { imageId } = body;
