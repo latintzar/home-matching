@@ -37,5 +37,23 @@ try:
  own,_=sql("SET ROLE authenticated;SET request.jwt.claim.sub='11111111-1111-1111-1111-111111111111';SELECT count(*) FROM public.user_lifestyle_profiles;");assert own=='1'
  other,_=sql("SET ROLE authenticated;SET request.jwt.claim.sub='11111111-1111-1111-1111-111111111111';UPDATE public.user_lifestyle_profiles SET phone_number='synthetic-change' WHERE id=2 RETURNING id;");assert not other
  sql('SET ROLE anon;INSERT INTO public.listing_map VALUES(1);',ok=False);sql('SET ROLE authenticated;INSERT INTO public.listing_map VALUES(1);',ok=False);sql('SET ROLE service_role;INSERT INTO public.listing_map VALUES(1);')
- result={'project':'home-matching','engine':'PostgreSQL16-alpine','network':'none','synthetic_roles_only':True,'historical_policy_leak_reproduced':True,'own_user_isolation':True,'anonymous_access_denied':True,'service_writes':True,'idempotent_forward_migrations':True,'existing_hosted_db_touched':False};print(json.dumps(result))
+ # Exercise the actual retained analytics DDL, including its SECURITY DEFINER RPC.
+ sql((ROOT/'supabase/migrations/067_analytics_events.sql').read_text())
+ sql("GRANT ALL ON public.analytics_events TO anon,authenticated,service_role; GRANT SELECT ON public.funnel_signup_to_viewing TO anon,authenticated,service_role;")
+ # The original public RPC can claim another person's identity regardless of RLS.
+ before_rpc,_=sql("SET ROLE anon;SELECT public.track_event('22222222-2222-2222-2222-222222222222','synthetic-spoof');")
+ assert before_rpc
+ sql("INSERT INTO public.analytics_events(user_id,event_name)VALUES('11111111-1111-1111-1111-111111111111','synthetic-owned');")
+ migration=(ROOT/'supabase/migrations/202611010002_analytics_actor_policies.sql').read_text();sql(migration);sql(migration)
+ sql("SET ROLE anon;INSERT INTO public.analytics_events(user_id,event_name)VALUES(NULL,'synthetic-anonymous');")
+ sql("SET ROLE anon;INSERT INTO public.analytics_events(user_id,event_name)VALUES('11111111-1111-1111-1111-111111111111','synthetic-impersonation');",ok=False)
+ sql("SET ROLE authenticated;SET request.jwt.claim.sub='11111111-1111-1111-1111-111111111111';INSERT INTO public.analytics_events(user_id,event_name)VALUES('11111111-1111-1111-1111-111111111111','synthetic-own-event');")
+ sql("SET ROLE authenticated;SET request.jwt.claim.sub='11111111-1111-1111-1111-111111111111';INSERT INTO public.analytics_events(user_id,event_name)VALUES('22222222-2222-2222-2222-222222222222','synthetic-other-event');",ok=False)
+ sql("SET ROLE anon;SELECT public.track_event('22222222-2222-2222-2222-222222222222','synthetic-rpc-spoof');",ok=False)
+ sql("SET ROLE authenticated;SELECT public.track_event('22222222-2222-2222-2222-222222222222','synthetic-rpc-spoof');",ok=False)
+ sql("SET ROLE service_role;SELECT public.track_event('22222222-2222-2222-2222-222222222222','synthetic-trusted-api');")
+ sql('SET ROLE anon;SELECT * FROM public.funnel_signup_to_viewing;',ok=False)
+ funnel,_=sql("SET ROLE authenticated;SET request.jwt.claim.sub='11111111-1111-1111-1111-111111111111';SELECT user_id FROM public.funnel_signup_to_viewing;")
+ assert funnel=='11111111-1111-1111-1111-111111111111'
+ result={'project':'home-matching','engine':'PostgreSQL16-alpine','network':'none','synthetic_roles_only':True,'historical_policy_leak_reproduced':True,'own_user_isolation':True,'anonymous_access_denied':True,'service_writes':True,'idempotent_forward_migrations':True,'existing_hosted_db_touched':False,'anonymous_analytics_preserved':True,'analytics_actor_spoofing_denied':True,'public_definer_rpc_denied':True,'funnel_view_uses_caller_rls':True};print(json.dumps(result))
 finally:subprocess.run(['docker','rm','-f',name],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
