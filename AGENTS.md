@@ -1,6 +1,6 @@
 # Agent setup
 
-Start with README.md, docs/setup.md and RELEASE-STATUS.md. Keep the original fit calculations, cached-analysis boundary and native UI intact when extending the app.
+Start with the [product tour](docs/product-tour.md), [README](README.md), [setup](docs/setup.md) and [release status](RELEASE-STATUS.md). The tour maps the home-search journey to source. Historical plans retain their dated design scope. Keep the original fit calculations, cached-analysis boundary and native UI intact when extending the app.
 
 1. Run the Node-only first result and tests. Its homes, prices, property scores and neighborhood scores are authored examples.
 2. Run npm ci at root, then python3 tools/sample-app.py build and start. This is the full native app; its SQLite guest state stays outside source. The smaller starter remains a scoring reference.

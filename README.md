@@ -2,9 +2,9 @@
 
 AI-native property scanner across platforms based on the person's lifestyle
 
-Home Matching is a property search app for people choosing a home in Spain, and the agents helping them. It brings a household’s routines, budget and priorities into the search: daylight, working from home, outdoor space, accessibility and neighborhood fit.
+Home Matching is an AI-native property scanner across platforms for people choosing a home in Spain, and the agents helping them. It brings a household’s routines, budget and priorities into the search: daylight, working from home, outdoor space, accessibility and neighborhood fit.
 
-[Website](https://atelierneyra.com/home-matching) · [Open app](https://preview.atelierneyra.com/apps/home-matching/dashboard) · [Documentation](https://docs.atelierneyra.com/home-matching/overview/)
+[Website](https://atelierneyra.com/home-matching) · [Open demo](https://preview.atelierneyra.com/apps/home-matching/dashboard) · [Product tour](docs/product-tour.md) · [Documentation](https://docs.atelierneyra.com/home-matching/overview/)
 
 Property analysis is shared across searches. Changing a household’s priorities reranks the same analysis through deterministic scoring. The source includes the original intake, recommendations, property reports, maps, voice flows, data adapters and ingestion tools.
 
@@ -12,7 +12,7 @@ Property analysis is shared across searches. Changing a household’s priorities
 
 The example uses fictional purchase homes and actual deterministic scores.
 
-## How it works
+## Product areas
 
 Two households can look at the same property and need different things. A useful search needs to explain how each home fits the people moving into it.
 
@@ -24,7 +24,11 @@ Two households can look at the same property and need different things. A useful
 | Shortlist and viewings | Save favourites and keep viewing notes. |
 | Voice and intake | The source retains the original conversational, map and ingestion workflows. |
 
-The native app opens eight authored homes with the original scoring and recovered project images. Favourites, notes and preference changes use a private visitor workspace. Fresh ingestion, mapping and voice providers have their own setup. Connect an owned property feed and validate the match explanation with households and agents. [Product guide](docs/PROJECT.md).
+## Explore the app
+
+Open a recommended home, inspect its lifestyle fit and photographs, then save it and add a viewing note. Return to Saved or Viewings to continue that search. The [product tour](docs/product-tour.md) follows this journey and maps the profile, scoring and property-workspace modules.
+
+The native app opens eight authored homes with the original scoring and recovered project images. Favourites, notes and preference changes use a private visitor workspace. Fresh ingestion, mapping and voice providers have their own setup. [Reached stage and product context](docs/PROJECT.md).
 
 ## Run the app
 
@@ -40,7 +44,7 @@ python3 tools/sample-app.py start
 
 Open **http://127.0.0.1:3000**. The original Leo.casa workspace opens with eight fictional purchase homes and recovered, originally generated property images. Browse homes, save favorites, add viewing notes and edit the household profile. The original deterministic scorer reranks stored property and neighborhood evidence.
 
-Each browser has a private local workspace. SQLite state lives outside the checkout. [Native workspace](docs/native-workspace.md) explains the data, storage, routes and deployment; [Setup](docs/setup.md) covers recipient-owned providers. The smaller `starter/` scene and `tools/first-match.mjs` remain useful scoring examples.
+Each browser has a private local workspace. SQLite state lives outside the checkout. [Native workspace](docs/native-workspace.md) explains the data, storage, routes and deployment; [Setup](docs/setup.md) covers your own providers. The smaller `starter/` scene and `tools/first-match.mjs` remain useful scoring examples.
 
 ## Connect your own services
 
@@ -48,8 +52,9 @@ The native sample uses its own local guest workspace. Provider-backed APIs authe
 
 ## Build with it
 
-- [Guide](docs/guide.md): first result, changes and next steps.
-- [Setup](docs/setup.md): recipient-owned private configuration and full-app dependencies.
+- [Product tour](docs/product-tour.md): complete home-search journey, product areas and source map.
+- [Calculation guide](docs/guide.md): first deterministic result, changes and next steps.
+- [Setup](docs/setup.md): private configuration with your accounts and full-app dependencies.
 - [Configured API access](docs/configured-api-security.md): verified household identity, operator tools and signed callbacks.
 - [Workflows](docs/workflows.md): property analysis, household fit, voice and location.
 - [Architecture](docs/architecture.md): modules, storage contracts and execution boundaries.
