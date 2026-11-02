@@ -16,12 +16,13 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, DeleteCommand } from '@aws-sdk/lib-dynamodb';
 import * as crypto from 'crypto';
+import { WPA_TABLE_NAMES } from './table-contracts';
 
 // ============================================================================
 // Config
 // ============================================================================
 
-const CACHE_TABLE = 'leo-wpa-cache';
+const CACHE_TABLE = WPA_TABLE_NAMES.modes;
 const CACHE_TTL_DAYS = 30;
 
 // ============================================================================
@@ -150,6 +151,7 @@ function getDocClient(): DynamoDBDocumentClient {
       credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+        sessionToken: process.env.AWS_SESSION_TOKEN,
       },
     });
     docClient = DynamoDBDocumentClient.from(client);

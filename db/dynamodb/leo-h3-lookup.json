@@ -1,0 +1,16 @@
+{
+  "TableName": "leo-h3-lookup",
+  "KeySchema": [
+    {
+      "AttributeName": "h3_index",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "h3_index",
+      "AttributeType": "S"
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

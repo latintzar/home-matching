@@ -20,6 +20,7 @@ import {
   ResourceInUseException
 } from '@aws-sdk/client-dynamodb';
 import * as dotenv from 'dotenv';
+import { WPA_TABLE_NAMES, WPA_TABLE_KEYS } from '../../lib/wpa/table-contracts';
 
 // Recipient configuration is supplied by tools/runtime-env.py.
 const client = new DynamoDBClient({
@@ -27,6 +28,7 @@ const client = new DynamoDBClient({
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    sessionToken: process.env.AWS_SESSION_TOKEN,
   },
 });
 
@@ -103,10 +105,8 @@ const TABLES: TableDefinition[] = [
 
   // WPA cache - Whole Property Analysis results
   {
-    TableName: 'leo-wpa-cache',
-    KeySchema: [
-      { AttributeName: 'listing_url', KeyType: 'HASH' },
-    ],
+    TableName: WPA_TABLE_NAMES.urls,
+    KeySchema: WPA_TABLE_KEYS.urls,
     AttributeDefinitions: [
       { AttributeName: 'listing_url', AttributeType: 'S' },
       { AttributeName: 'domain', AttributeType: 'S' },

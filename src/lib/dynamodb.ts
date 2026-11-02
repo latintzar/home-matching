@@ -12,6 +12,7 @@
  */
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { WPA_TABLE_NAMES } from './wpa/table-contracts';
 import { 
   DynamoDBDocumentClient, 
   GetCommand, 
@@ -38,7 +39,7 @@ export const TABLES = {
   LISTINGS: 'leo-listings',
   SCRAPING_RULES: 'leo-scraping-rules',
   CRAWL_TRACKING: 'leo-crawl-tracking',
-  WPA_CACHE: 'leo-wpa-cache',
+  WPA_CACHE: WPA_TABLE_NAMES.urls,
   ANALYSIS_CACHE: 'leo-analysis-cache',
   GEO_INTELLIGENCE: 'leo-geo-intelligence',
   MARKET_VELOCITY: 'leo-market-velocity',

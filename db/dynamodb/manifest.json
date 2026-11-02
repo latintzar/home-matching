@@ -1,0 +1,144 @@
+{
+  "scope": "Current cache/recommender, harvested listings and separate retained adapter contracts. No account access or data import.",
+  "legacy_adapter_status": "Fresh source-derived point/index contracts, separate from current leo-* tables; cloud data migration is not implied.",
+  "source_inputs": [
+    {
+      "path": "src/lib/wpa/table-contracts.ts",
+      "sha256": "978f913626a80d3c6cae606020c660fadc6646bc676108c5162f0e4e3dac54a8"
+    },
+    {
+      "path": "scripts/setup-dynamodb-tables.ts",
+      "sha256": "0252b941eed11b74f6d04342df06eb9782ae9b364b874518431b8dc4d4e1fb75"
+    },
+    {
+      "path": "src/scripts/aws/create-dynamodb-tables.ts",
+      "sha256": "e4043b0ff8cc318c1d813bdd9441e988d8a180cb3fd247a233a9ed4a1a89972a"
+    },
+    {
+      "path": "src/lib/data-adapter/dynamodb-adapter.ts",
+      "sha256": "0ae8e6be679d2c2d89aa83b43b87ea22de133e2fe2d394ac5c278a70c9ac4bae"
+    }
+  ],
+  "tables": [
+    {
+      "name": "airbnb_reviews_tagged",
+      "groups": [
+        "current"
+      ],
+      "file": "airbnb_reviews_tagged.json"
+    },
+    {
+      "name": "leo-analysis-cache",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-analysis-cache.json"
+    },
+    {
+      "name": "leo-crawl-tracking",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-crawl-tracking.json"
+    },
+    {
+      "name": "leo-geo-intelligence",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-geo-intelligence.json"
+    },
+    {
+      "name": "leo-h3-lookup",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-h3-lookup.json"
+    },
+    {
+      "name": "leo-listings",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-listings.json"
+    },
+    {
+      "name": "leo-market-velocity",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-market-velocity.json"
+    },
+    {
+      "name": "leo-neighborhood-profiles",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-neighborhood-profiles.json"
+    },
+    {
+      "name": "leo-scraping-rules",
+      "groups": [
+        "harvest"
+      ],
+      "file": "leo-scraping-rules.json"
+    },
+    {
+      "name": "leo-serp-extractions",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-serp-extractions.json"
+    },
+    {
+      "name": "leo-wpa-cache",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-wpa-cache.json"
+    },
+    {
+      "name": "leo-wpa-score-cache",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-wpa-score-cache.json"
+    },
+    {
+      "name": "leo-wpa-shortlist-cache",
+      "groups": [
+        "current"
+      ],
+      "file": "leo-wpa-shortlist-cache.json"
+    },
+    {
+      "name": "leo-wpa-url-cache",
+      "groups": [
+        "current",
+        "harvest"
+      ],
+      "file": "leo-wpa-url-cache.json"
+    },
+    {
+      "name": "puedo-casa-analysis",
+      "groups": [
+        "legacy-adapter"
+      ],
+      "file": "puedo-casa-analysis.json"
+    },
+    {
+      "name": "puedo-casa-listings",
+      "groups": [
+        "legacy-adapter"
+      ],
+      "file": "puedo-casa-listings.json"
+    },
+    {
+      "name": "puedo-casa-wpa-cache",
+      "groups": [
+        "legacy-adapter"
+      ],
+      "file": "puedo-casa-wpa-cache.json"
+    }
+  ]
+}

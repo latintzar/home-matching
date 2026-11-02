@@ -20,6 +20,7 @@ import {
   ListTablesCommand,
   ResourceNotFoundException 
 } from '@aws-sdk/client-dynamodb';
+import { WPA_TABLE_NAMES } from '../src/lib/wpa/table-contracts';
 
 // ============================================================================
 // Table Definitions
@@ -27,7 +28,7 @@ import {
 
 const TABLES = [
   {
-    name: 'leo-wpa-cache',
+    name: WPA_TABLE_NAMES.modes,
     description: 'WPA (Whole Property Analysis) results cache',
     partitionKey: 'listing_id',
     sortKey: 'wpa_mode', // 'instant' | 'full' | 'descriptions' | 'scores'
@@ -47,6 +48,32 @@ const TABLES = [
     extraAttributes: [
       { AttributeName: 'city', AttributeType: 'S' },
     ],
+  },
+  {
+    name: WPA_TABLE_NAMES.scores,
+    description: 'Text-derived dimension scores keyed by listing ID',
+    partitionKey: 'listing_id',
+    attributes: [{ AttributeName: 'listing_id', AttributeType: 'S' }],
+  },
+  {
+    name: WPA_TABLE_NAMES.shortlist,
+    description: 'Shortlist-specific vision analysis keyed by listing ID',
+    partitionKey: 'listing_id',
+    attributes: [{ AttributeName: 'listing_id', AttributeType: 'S' }],
+  },
+  {
+    name: WPA_TABLE_NAMES.urls,
+    description: 'Harvested property analysis keyed by its source URL',
+    partitionKey: 'listing_url',
+    attributes: [
+      { AttributeName: 'listing_url', AttributeType: 'S' },
+      { AttributeName: 'domain', AttributeType: 'S' },
+    ],
+    gsi: [{
+      IndexName: 'domain-index',
+      KeySchema: [{ AttributeName: 'domain', KeyType: 'HASH' }],
+      Projection: { ProjectionType: 'ALL' },
+    }],
   },
   {
     name: 'leo-serp-extractions',
@@ -124,6 +151,7 @@ function getClient(): DynamoDBClient {
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      sessionToken: process.env.AWS_SESSION_TOKEN,
     },
   });
 }

@@ -1,0 +1,42 @@
+{
+  "TableName": "leo-wpa-cache",
+  "KeySchema": [
+    {
+      "AttributeName": "listing_id",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "wpa_mode",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "city",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "listing_id",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "wpa_mode",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "city-index",
+      "KeySchema": [
+        {
+          "AttributeName": "city",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

@@ -1,6 +1,6 @@
 # Database access boundaries
 
-The sample app uses its local authored workspace. The retained Supabase migration sequence is a historical schema, with recipient-owned database commissioning recorded separately.
+The sample app uses its local authored workspace. New connected installations use the [fresh household/search database](fresh-database.md), with explicit household ownership and service-only research writes. Dated migrations retain the historical schema and earlier policy definitions.
 
 ## Forward policy hardening
 
@@ -13,6 +13,12 @@ The household profile keeps the original `auth.uid() = user_id` read/write polic
 Run `python3 tools/test-database-policies.py` with Docker available. The security regression script replays the forward migration against synthetic fixtures matching the affected historical policies in an isolated PostgreSQL instance with synthetic roles and records. It verifies anonymous denial, own-user profile isolation, service writes and intended shared reads. This tests the stated policies and idempotent hardening; it is separate from a complete empty-database bootstrap or proof of an existing hosted Supabase configuration. A recipient should test two authenticated households plus `anon` and its backend service role against the reconciled schema.
 
 Keep the service-role credential in the private backend. A browser anon key identifies a public client; authorization comes from the actual database grants, row policies and authenticated ownership checks.
+
+## Professional clients
+
+For an existing installation, review and apply `202611020001_private_pro_clients.sql`. It removes the original `shortlist_token IS NOT NULL` and `intake_token IS NOT NULL` public policies. Professional users keep access to their own client records; anonymous table enumeration is revoked. The current app contains no public token-bearing share/intake API, so the migration preserves its implemented contract. A future public share must validate an exact capability token through a bounded backend or RPC and return the intended fields.
+
+`tools/test-database-bootstrap.py` reintroduces the actual historical policy statements against synthetic records, reproduces enumeration and then verifies the forward migration twice, anonymous denial, two professional owners, and backend valid/invalid token-equality selection. This is source-schema evidence; existing hosted policies remain unverified.
 
 ## Analytics identity
 

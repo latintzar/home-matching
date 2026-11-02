@@ -1187,7 +1187,8 @@
       "reference": "modules/scripts/setup-dynamodb-tables.ts.md",
       "symbols": 5,
       "imports": [
-        "@aws-sdk/client-dynamodb"
+        "@aws-sdk/client-dynamodb",
+        "../src/lib/wpa/table-contracts"
       ]
     },
     {
@@ -3829,6 +3830,7 @@
         "@aws-sdk/lib-dynamodb",
         "@/lib/gemini-rest-client",
         "../describe/route",
+        "@/lib/wpa/table-contracts",
         "@/types/wpa-score",
         "@/types/wpa-score"
       ]
@@ -6448,6 +6450,7 @@
       "symbols": 31,
       "imports": [
         "@aws-sdk/client-dynamodb",
+        "./wpa/table-contracts",
         "@aws-sdk/lib-dynamodb"
       ]
     },
@@ -7097,6 +7100,7 @@
       "symbols": 9,
       "imports": [
         "@aws-sdk/client-dynamodb",
+        "@/lib/wpa/table-contracts",
         "@aws-sdk/lib-dynamodb",
         "@/lib/gemini-rest-client",
         "./harvestFilter"
@@ -7320,7 +7324,16 @@
       "imports": [
         "@aws-sdk/client-dynamodb",
         "@aws-sdk/lib-dynamodb",
-        "crypto"
+        "crypto",
+        "./table-contracts"
+      ]
+    },
+    {
+      "path": "src/lib/wpa/table-contracts.ts",
+      "reference": "modules/src/lib/wpa/table-contracts.ts.md",
+      "symbols": 0,
+      "imports": [
+        "@aws-sdk/client-dynamodb"
       ]
     },
     {
@@ -7816,7 +7829,8 @@
       "symbols": 5,
       "imports": [
         "@aws-sdk/client-dynamodb",
-        "dotenv"
+        "dotenv",
+        "../../lib/wpa/table-contracts"
       ]
     },
     {
@@ -13478,7 +13492,7 @@
     {
       "module": "scripts/setup-dynamodb-tables.ts",
       "source_path": "scripts/setup-dynamodb-tables.ts",
-      "line": 121,
+      "line": 148,
       "name": "getClient",
       "kind": "function",
       "parameters": []
@@ -13486,7 +13500,7 @@
     {
       "module": "scripts/setup-dynamodb-tables.ts",
       "source_path": "scripts/setup-dynamodb-tables.ts",
-      "line": 135,
+      "line": 163,
       "name": "tableExists",
       "kind": "function",
       "parameters": [
@@ -13497,7 +13511,7 @@
     {
       "module": "scripts/setup-dynamodb-tables.ts",
       "source_path": "scripts/setup-dynamodb-tables.ts",
-      "line": 147,
+      "line": 175,
       "name": "createTable",
       "kind": "function",
       "parameters": [
@@ -13508,7 +13522,7 @@
     {
       "module": "scripts/setup-dynamodb-tables.ts",
       "source_path": "scripts/setup-dynamodb-tables.ts",
-      "line": 191,
+      "line": 219,
       "name": "listAllTables",
       "kind": "function",
       "parameters": [
@@ -13518,7 +13532,7 @@
     {
       "module": "scripts/setup-dynamodb-tables.ts",
       "source_path": "scripts/setup-dynamodb-tables.ts",
-      "line": 200,
+      "line": 228,
       "name": "main",
       "kind": "function",
       "parameters": []
@@ -20961,7 +20975,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 34,
+      "line": 35,
       "name": "getDocClient",
       "kind": "function",
       "parameters": []
@@ -20969,7 +20983,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 54,
+      "line": 56,
       "name": "getCachedScores",
       "kind": "function",
       "parameters": [
@@ -20979,7 +20993,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 74,
+      "line": 76,
       "name": "cacheScores",
       "kind": "function",
       "parameters": [
@@ -20989,7 +21003,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 162,
+      "line": 164,
       "name": "generateScores",
       "kind": "function",
       "parameters": [
@@ -21000,7 +21014,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 319,
+      "line": 321,
       "name": "POST",
       "kind": "function",
       "parameters": [
@@ -21010,7 +21024,7 @@
     {
       "module": "src/app/api/wpa/score/route.ts",
       "source_path": "src/app/api/wpa/score/route.ts",
-      "line": 376,
+      "line": 378,
       "name": "GET",
       "kind": "function",
       "parameters": [
@@ -33285,7 +33299,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 44,
+      "line": 45,
       "name": "existsInDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33295,7 +33309,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 62,
+      "line": 63,
       "name": "getListingFromDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33306,7 +33320,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 117,
+      "line": 118,
       "name": "saveListingToDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33316,7 +33330,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 163,
+      "line": 164,
       "name": "getAnalysisFromDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33327,7 +33341,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 196,
+      "line": 197,
       "name": "saveAnalysisToDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33339,7 +33353,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 222,
+      "line": 223,
       "name": "getWPAFromDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33349,7 +33363,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 261,
+      "line": 262,
       "name": "saveWPAToDynamoDB",
       "kind": "function",
       "parameters": [
@@ -33362,7 +33376,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 289,
+      "line": 290,
       "name": "queryListingsByCity",
       "kind": "function",
       "parameters": [
@@ -33373,7 +33387,7 @@
     {
       "module": "src/lib/data-adapter/dynamodb-adapter.ts",
       "source_path": "src/lib/data-adapter/dynamodb-adapter.ts",
-      "line": 330,
+      "line": 331,
       "name": "queryListingsByDomain",
       "kind": "function",
       "parameters": [
@@ -33990,7 +34004,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 52,
+      "line": 53,
       "name": "Listing",
       "kind": "interface",
       "parameters": []
@@ -33998,7 +34012,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 79,
+      "line": 80,
       "name": "getListing",
       "kind": "function",
       "parameters": [
@@ -34009,7 +34023,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 87,
+      "line": 88,
       "name": "getListingByUrl",
       "kind": "function",
       "parameters": [
@@ -34019,7 +34033,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 105,
+      "line": 106,
       "name": "putListing",
       "kind": "function",
       "parameters": [
@@ -34029,7 +34043,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 118,
+      "line": 119,
       "name": "getListingsByCity",
       "kind": "function",
       "parameters": [
@@ -34040,7 +34054,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 133,
+      "line": 134,
       "name": "WPACache",
       "kind": "interface",
       "parameters": []
@@ -34048,7 +34062,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 149,
+      "line": 150,
       "name": "getWPA",
       "kind": "function",
       "parameters": [
@@ -34058,7 +34072,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 157,
+      "line": 158,
       "name": "putWPA",
       "kind": "function",
       "parameters": [
@@ -34068,7 +34082,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 174,
+      "line": 175,
       "name": "AnalysisCache",
       "kind": "interface",
       "parameters": []
@@ -34076,7 +34090,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 182,
+      "line": 183,
       "name": "getAnalysis",
       "kind": "function",
       "parameters": [
@@ -34087,7 +34101,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 190,
+      "line": 191,
       "name": "putAnalysis",
       "kind": "function",
       "parameters": [
@@ -34097,7 +34111,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 203,
+      "line": 204,
       "name": "getAllAnalyses",
       "kind": "function",
       "parameters": [
@@ -34107,7 +34121,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 216,
+      "line": 217,
       "name": "ScrapingRule",
       "kind": "interface",
       "parameters": []
@@ -34115,7 +34129,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 226,
+      "line": 227,
       "name": "getScrapingRule",
       "kind": "function",
       "parameters": [
@@ -34125,7 +34139,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 234,
+      "line": 235,
       "name": "putScrapingRule",
       "kind": "function",
       "parameters": [
@@ -34135,7 +34149,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 245,
+      "line": 246,
       "name": "CrawlTracking",
       "kind": "interface",
       "parameters": []
@@ -34143,7 +34157,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 257,
+      "line": 258,
       "name": "getCrawlTracking",
       "kind": "function",
       "parameters": [
@@ -34153,7 +34167,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 265,
+      "line": 266,
       "name": "updateCrawlTracking",
       "kind": "function",
       "parameters": [
@@ -34164,7 +34178,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 293,
+      "line": 294,
       "name": "GeoIntelligence",
       "kind": "interface",
       "parameters": []
@@ -34172,7 +34186,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 309,
+      "line": 310,
       "name": "getGeoInsights",
       "kind": "function",
       "parameters": [
@@ -34182,7 +34196,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 318,
+      "line": 319,
       "name": "putGeoInsight",
       "kind": "function",
       "parameters": [
@@ -34192,7 +34206,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 332,
+      "line": 333,
       "name": "MarketVelocity",
       "kind": "interface",
       "parameters": []
@@ -34200,7 +34214,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 343,
+      "line": 344,
       "name": "getMarketVelocity",
       "kind": "function",
       "parameters": [
@@ -34211,7 +34225,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 355,
+      "line": 356,
       "name": "NeighborhoodBoundary",
       "kind": "interface",
       "parameters": []
@@ -34219,7 +34233,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 364,
+      "line": 365,
       "name": "getNeighborhoodBoundaries",
       "kind": "function",
       "parameters": [
@@ -34229,7 +34243,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 373,
+      "line": 374,
       "name": "putNeighborhoodBoundary",
       "kind": "function",
       "parameters": [
@@ -34239,7 +34253,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 380,
+      "line": 381,
       "name": "getNeighborhood",
       "kind": "function",
       "parameters": [
@@ -34250,7 +34264,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 406,
+      "line": 407,
       "name": "checkForBase64Images",
       "kind": "function",
       "parameters": [
@@ -34261,7 +34275,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 435,
+      "line": 436,
       "name": "rejectBase64Images",
       "kind": "function",
       "parameters": [
@@ -34271,7 +34285,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 446,
+      "line": 447,
       "name": "listingExists",
       "kind": "function",
       "parameters": [
@@ -34281,7 +34295,7 @@
     {
       "module": "src/lib/dynamodb.ts",
       "source_path": "src/lib/dynamodb.ts",
-      "line": 455,
+      "line": 456,
       "name": "getListingPhotos",
       "kind": "function",
       "parameters": [
@@ -38388,7 +38402,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 25,
+      "line": 26,
       "name": "RecommenderWPA",
       "kind": "interface",
       "parameters": []
@@ -38396,7 +38410,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 56,
+      "line": 57,
       "name": "WPAResult",
       "kind": "interface",
       "parameters": []
@@ -38404,7 +38418,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 68,
+      "line": 69,
       "name": "getDocClient",
       "kind": "function",
       "parameters": []
@@ -38412,7 +38426,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 89,
+      "line": 91,
       "name": "getCachedWPA",
       "kind": "function",
       "parameters": [
@@ -38422,7 +38436,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 112,
+      "line": 114,
       "name": "cacheWPA",
       "kind": "function",
       "parameters": [
@@ -38432,7 +38446,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 132,
+      "line": 134,
       "name": "fetchImageAsBase64",
       "kind": "function",
       "parameters": [
@@ -38442,7 +38456,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 201,
+      "line": 203,
       "name": "runWPA",
       "kind": "function",
       "parameters": [
@@ -38452,7 +38466,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 324,
+      "line": 326,
       "name": "runWPABatch",
       "kind": "function",
       "parameters": [
@@ -38463,7 +38477,7 @@
     {
       "module": "src/lib/recommender/wpaShortlist.ts",
       "source_path": "src/lib/recommender/wpaShortlist.ts",
-      "line": 373,
+      "line": 375,
       "name": "getWPAForListings",
       "kind": "function",
       "parameters": [
@@ -39671,7 +39685,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 31,
+      "line": 32,
       "name": "WpaMode",
       "kind": "type",
       "parameters": []
@@ -39679,7 +39693,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 33,
+      "line": 34,
       "name": "WpaCacheEntry",
       "kind": "interface",
       "parameters": []
@@ -39687,7 +39701,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 49,
+      "line": 50,
       "name": "WpaDescriptions",
       "kind": "interface",
       "parameters": []
@@ -39695,7 +39709,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 62,
+      "line": 63,
       "name": "WpaScores",
       "kind": "interface",
       "parameters": []
@@ -39703,7 +39717,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 123,
+      "line": 124,
       "name": "WpaInstantResult",
       "kind": "interface",
       "parameters": []
@@ -39711,7 +39725,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 129,
+      "line": 130,
       "name": "WpaFullResult",
       "kind": "interface",
       "parameters": []
@@ -39719,7 +39733,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 146,
+      "line": 147,
       "name": "getDocClient",
       "kind": "function",
       "parameters": []
@@ -39727,7 +39741,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 167,
+      "line": 169,
       "name": "generatePhotoHash",
       "kind": "function",
       "parameters": [
@@ -39737,7 +39751,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 179,
+      "line": 181,
       "name": "getWpaCached",
       "kind": "function",
       "parameters": [
@@ -39749,7 +39763,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 224,
+      "line": 226,
       "name": "setWpaCached",
       "kind": "function",
       "parameters": [
@@ -39763,7 +39777,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 259,
+      "line": 261,
       "name": "invalidateWpaCache",
       "kind": "function",
       "parameters": [
@@ -39773,7 +39787,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 283,
+      "line": 285,
       "name": "getWpaCacheByCity",
       "kind": "function",
       "parameters": [
@@ -39783,7 +39797,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 314,
+      "line": 316,
       "name": "WpaCacheStats",
       "kind": "interface",
       "parameters": []
@@ -39791,7 +39805,7 @@
     {
       "module": "src/lib/wpa/cache.ts",
       "source_path": "src/lib/wpa/cache.ts",
-      "line": 323,
+      "line": 325,
       "name": "getWpaCacheStats",
       "kind": "function",
       "parameters": []
@@ -42539,7 +42553,7 @@
     {
       "module": "src/scripts/aws/create-dynamodb-tables.ts",
       "source_path": "src/scripts/aws/create-dynamodb-tables.ts",
-      "line": 33,
+      "line": 35,
       "name": "TableDefinition",
       "kind": "interface",
       "parameters": []

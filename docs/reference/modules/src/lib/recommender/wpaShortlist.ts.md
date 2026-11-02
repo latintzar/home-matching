@@ -4,14 +4,14 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `RecommenderWPA` | interface | [L25](../../../../../../src/lib/recommender/wpaShortlist.ts#L25) |  |
-| `WPAResult` | interface | [L56](../../../../../../src/lib/recommender/wpaShortlist.ts#L56) |  |
-| `getDocClient` | function | [L68](../../../../../../src/lib/recommender/wpaShortlist.ts#L68) |  |
-| `getCachedWPA` | function | [L89](../../../../../../src/lib/recommender/wpaShortlist.ts#L89) | listingId |
-| `cacheWPA` | function | [L112](../../../../../../src/lib/recommender/wpaShortlist.ts#L112) | wpa |
-| `fetchImageAsBase64` | function | [L132](../../../../../../src/lib/recommender/wpaShortlist.ts#L132) | url |
-| `runWPA` | function | [L201](../../../../../../src/lib/recommender/wpaShortlist.ts#L201) | listing |
-| `runWPABatch` | function | [L324](../../../../../../src/lib/recommender/wpaShortlist.ts#L324) | listings, options |
-| `getWPAForListings` | function | [L373](../../../../../../src/lib/recommender/wpaShortlist.ts#L373) | listings |
+| `RecommenderWPA` | interface | [L26](../../../../../../src/lib/recommender/wpaShortlist.ts#L26) |  |
+| `WPAResult` | interface | [L57](../../../../../../src/lib/recommender/wpaShortlist.ts#L57) |  |
+| `getDocClient` | function | [L69](../../../../../../src/lib/recommender/wpaShortlist.ts#L69) |  |
+| `getCachedWPA` | function | [L91](../../../../../../src/lib/recommender/wpaShortlist.ts#L91) | listingId |
+| `cacheWPA` | function | [L114](../../../../../../src/lib/recommender/wpaShortlist.ts#L114) | wpa |
+| `fetchImageAsBase64` | function | [L134](../../../../../../src/lib/recommender/wpaShortlist.ts#L134) | url |
+| `runWPA` | function | [L203](../../../../../../src/lib/recommender/wpaShortlist.ts#L203) | listing |
+| `runWPABatch` | function | [L326](../../../../../../src/lib/recommender/wpaShortlist.ts#L326) | listings, options |
+| `getWPAForListings` | function | [L375](../../../../../../src/lib/recommender/wpaShortlist.ts#L375) | listings |
 
-Imports: `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `@/lib/gemini-rest-client`, `./harvestFilter`
+Imports: `@aws-sdk/client-dynamodb`, `@/lib/wpa/table-contracts`, `@aws-sdk/lib-dynamodb`, `@/lib/gemini-rest-client`, `./harvestFilter`

@@ -1,0 +1,186 @@
+{
+  "scope": "Current Supabase household/search profile; DynamoDB and retained renovation experiments are separate modules.",
+  "historical_files_preserved": true,
+  "sources_in_application_order": [
+    {
+      "path": "supabase/migrations/001_core_tables.sql",
+      "sha256": "7e946ec468ef73fad27942051de01c055abb34b690462ba4a5079faf1d60f049"
+    },
+    {
+      "path": "supabase/migrations/002_pipeline_tables.sql",
+      "sha256": "63c28aa6dd6eb1fdd14722ed1f7972f1f8f9802b108ee7d9dccc2e6890451d9d"
+    },
+    {
+      "path": "supabase/migrations/004_deepdive_output_tables.sql",
+      "sha256": "7b2590388df54ddf0d7cde3216c4a72aed9dfb37ec02d68d5ba600340db0fa53"
+    },
+    {
+      "path": "supabase/migrations/005_after_photos_table.sql",
+      "sha256": "04b49f18f11a25ecf01a2aafe170235268ba0bf0bae8dde2ec46adb5bed9ecfb"
+    },
+    {
+      "path": "supabase/migrations/006_user_profiles_auth.sql",
+      "sha256": "ce64b2108d5cd173249c3441cedc574cf905d6966f03c7f39d0730933e8fb59e"
+    },
+    {
+      "path": "supabase/migrations/010_recommender_tables.sql",
+      "sha256": "ec61e52230ef0d184ddd4dcedb5e5176f0cf98db98721cf73d3b0f6667eb2a67"
+    },
+    {
+      "path": "supabase/migrations/056_create_user_lifestyle_profiles.sql",
+      "sha256": "218e3df4705c18133b54dc8c7f25ee56fef95e6a99235bf4086be798244e83d8"
+    },
+    {
+      "path": "supabase/migrations/008_create_text_analysis_results_table.sql",
+      "sha256": "31bce4a85fc6772b8cdbb54b054fce16628e49b5afa7184e97b81bdc29d39734"
+    },
+    {
+      "path": "supabase/migrations/013_intake_delivery_preferences.sql",
+      "sha256": "47099edb6eda5ab8de8574becd0f111da9596fa10ca5e33f10f644a3c6362752"
+    },
+    {
+      "path": "supabase/migrations/014_architecture_improvement_tables.sql",
+      "sha256": "228f20df9e8cf2c2f611883674fc75e630dbb3a44d01f858b4f95d359848467e"
+    },
+    {
+      "path": "supabase/migrations/018_agents_table.sql",
+      "sha256": "8cb4de69bdf709525e3abd004c7f214c495375863cafce091c9811835d817bec"
+    },
+    {
+      "path": "supabase/migrations/020_vibe_check_tables.sql",
+      "sha256": "2efce5f4d1514b0d077aa0aaecf0b40ebd21e24e822a682d002439dd9a56d5a3"
+    },
+    {
+      "path": "supabase/migrations/021_daily_recommendations.sql",
+      "sha256": "80176f0ffce3f14ad3421cd495126e82bd5f75bb3573fdfb5b4d4a9ff430d2ec"
+    },
+    {
+      "path": "supabase/migrations/048_raw_listings.sql",
+      "sha256": "12dcf9ef9a97f960b2f563d8c1aa5ab65ba09651da1d6430fe9916356b213ba0"
+    },
+    {
+      "path": "supabase/migrations/049_add_agent_notes_to_listings.sql",
+      "sha256": "4a52f137f9e7d1239bffe7f691a25b6fdce8d68967ad7631998788037cb8327e"
+    },
+    {
+      "path": "supabase/migrations/050_add_reference_number_to_listings.sql",
+      "sha256": "0cfdc877d5d5b75e30c185f0386e0921755039b2db9512a2b17b2309388eb59e"
+    },
+    {
+      "path": "supabase/migrations/051_add_idealista_filters.sql",
+      "sha256": "8ca9680ca2c947149fc620a20afb5133af7d6f1895aa255e618cfc021e14e527"
+    },
+    {
+      "path": "supabase/migrations/051_add_listing_specs.sql",
+      "sha256": "9db0191ac8ee8cd50866a989aa1f3105230b4cd9055deb9a8f7525cc86ffc833"
+    },
+    {
+      "path": "supabase/migrations/052_add_remaining_amenities.sql",
+      "sha256": "4a1984e28c3fae7369dca6e85096a668e6b4464fe5d52d776844767c2cb6b6ea"
+    },
+    {
+      "path": "supabase/migrations/053_add_orientation_condition.sql",
+      "sha256": "ffe96f935c60d8b9989770726f76a2c27e7a91e389d825a72d31c69bb3cb6e1a"
+    },
+    {
+      "path": "supabase/migrations/054_add_balcony_terrace_orientation.sql",
+      "sha256": "30c7d95ad4bdf2124017a094951a2f45bb8355bdde7049bce403c5749f94f1f2"
+    },
+    {
+      "path": "supabase/migrations/055_add_floor_details.sql",
+      "sha256": "fb23f6335f75efe82a73c39450788835dc3ce6d10245788f3908f31770e85271"
+    },
+    {
+      "path": "supabase/migrations/057_restore_core_fields.sql",
+      "sha256": "f3aa0d0ac95393b15fb6af1a25826528e4269c9c881d785eca87674518449801"
+    },
+    {
+      "path": "supabase/migrations/058_restore_listing_status.sql",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "supabase/migrations/060_add_reference_number_index.sql",
+      "sha256": "b1e4cad7535b1c53c67944296b49039990a9338b48c3c73cd0caea5cec87c287"
+    },
+    {
+      "path": "supabase/migrations/061_harvest_engine_tables.sql",
+      "sha256": "fd1bd21d27e365c3d41c9541b43fba767f109d1a7c1e435040f7b99a2dd75665"
+    },
+    {
+      "path": "supabase/migrations/062_listing_map_table.sql",
+      "sha256": "ed939787f8a5d3fece8f584b223f660dc3899af6299aa3063481e65091f5527f"
+    },
+    {
+      "path": "supabase/migrations/063_flexibility_preferences.sql",
+      "sha256": "bac8189dd8f81aefdd6bd8d3746386cc2bd00241c2ce8c549972aa7f04855bab"
+    },
+    {
+      "path": "supabase/migrations/064_pro_clients.sql",
+      "sha256": "b6283e098d414bd58ac2426aab39a6f7bd5722fe7f9ae89b21d77da71b47f24f"
+    },
+    {
+      "path": "supabase/migrations/065_viewings.sql",
+      "sha256": "34f1bf2bf9e7a5174b8b2531ae69e3278a213f1d106e87d74e50f03e767fc257"
+    },
+    {
+      "path": "supabase/migrations/066_subscriptions.sql",
+      "sha256": "75cc82beba4968b0812d0268718df85f519ccbaafdb717c719a984640dfdf1a6"
+    },
+    {
+      "path": "supabase/migrations/067_analytics_events.sql",
+      "sha256": "d877d125b2076d90648e1d14db6ebdfd0c377b999c5cf261ae58dbb561378a8f"
+    },
+    {
+      "path": "supabase/migrations/068_p0_user_tables.sql",
+      "sha256": "34ee1a45863a61fc903170ad58565c7ce0810be371be00d75ee65f6003e48b10"
+    },
+    {
+      "path": "supabase/migrations/069_add_needs_summary_and_language.sql",
+      "sha256": "484a5c7053da34c162ca2d88fbc4c2415e35ccd7f717d4ebb72453d7660f815e"
+    },
+    {
+      "path": "supabase/migrations/070_onboarding_states.sql",
+      "sha256": "3cae6b8c1bf1e5f40f2220a2ffccdde75f731ba8c142cd208cfafea6d5bce3b8"
+    },
+    {
+      "path": "supabase/migrations/071_billing_tables.sql",
+      "sha256": "9f5644f39e75bd8d043d9176a81c9913fa46d48437a5d3e4574a132c2ccd50af"
+    },
+    {
+      "path": "supabase/migrations/075_linked_profiles.sql",
+      "sha256": "8bece86da894b83e5ff3030892779c68722194954bf5a2e5544ca8330c369115"
+    },
+    {
+      "path": "db/bootstrap/current-contracts.sql",
+      "sha256": "873162846cf672f3fe245dd37efbbb3cb36e8bbd167655a961491b7b2ff8b8ee"
+    },
+    {
+      "path": "supabase/migrations/202611010001_private_profile_policies.sql",
+      "sha256": "29b18adc284ecd7762ef467c0de357169b695a4805fedbf994d439561a02a25f"
+    },
+    {
+      "path": "supabase/migrations/202611010002_analytics_actor_policies.sql",
+      "sha256": "c77152ec912f27751f630813f28aedefdd2d67bb911558413e0e8f66086afc32"
+    },
+    {
+      "path": "supabase/migrations/202611020001_private_pro_clients.sql",
+      "sha256": "00c87c3d0d8f5db354a891cc3c792055e2ec5d8920213db886c80673aa33ec62"
+    },
+    {
+      "path": "db/bootstrap/access.sql",
+      "sha256": "12f15bb222c7dd1d2b6fd82e19fe62a211c374b2308ac79cf46f427a09bc96cc"
+    }
+  ],
+  "normalizations": [
+    "single outer transaction",
+    "listing-wide room_analyses selected over earlier cluster variant",
+    "deepdive FK creation order fixed",
+    "UUID lifestyle profile with additive retained fields",
+    "nullable anonymous session ID",
+    "opaque text cross-store household IDs",
+    "UUID note IDs match signal source_id",
+    "conditional existing realtime publication",
+    "fresh explicit grants and caller-RLS views",
+    "trailing formatting whitespace removed in generated copy"
+  ]
+}

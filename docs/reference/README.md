@@ -289,7 +289,7 @@ Generated from the retained source with the TypeScript compiler API. Symbol name
 | [src/lib/vertex-ai-usage.ts](areas/src-lib-vertex-ai-usage.ts.md) | 1 | 2 |
 | [src/lib/vertex-rag.ts](areas/src-lib-vertex-rag.ts.md) | 1 | 8 |
 | [src/lib/vibe-maps](areas/src-lib-vibe-maps.md) | 2 | 23 |
-| [src/lib/wpa](areas/src-lib-wpa.md) | 1 | 14 |
+| [src/lib/wpa](areas/src-lib-wpa.md) | 2 | 14 |
 | [src/middleware.ts](areas/src-middleware.ts.md) | 1 | 2 |
 | [src/parked/bulk-harvester](areas/src-parked-bulk-harvester.md) | 45 | 268 |
 | [src/scripts/aggregateCensusToNeighborhoods.ts](areas/src-scripts-aggregateCensusToNeighborhoods.ts.md) | 1 | 10 |

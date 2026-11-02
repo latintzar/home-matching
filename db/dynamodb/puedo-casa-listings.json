@@ -1,0 +1,58 @@
+{
+  "TableName": "puedo-casa-listings",
+  "KeySchema": [
+    {
+      "AttributeName": "listing_id",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "city",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "domain",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "listing_id",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "city-index",
+      "KeySchema": [
+        {
+          "AttributeName": "city",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "listing_id",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    },
+    {
+      "IndexName": "domain-index",
+      "KeySchema": [
+        {
+          "AttributeName": "domain",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "listing_id",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

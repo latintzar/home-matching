@@ -14,6 +14,7 @@
  */
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { WPA_TABLE_NAMES } from '@/lib/wpa/table-contracts';
 import { DynamoDBDocumentClient, PutCommand, GetCommand } from '@aws-sdk/lib-dynamodb';
 import { callGeminiRest, GeminiImageInput } from '@/lib/gemini-rest-client';
 import { FilteredListing } from './harvestFilter';
@@ -72,6 +73,7 @@ function getDocClient(): DynamoDBDocumentClient {
       credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+        sessionToken: process.env.AWS_SESSION_TOKEN,
       },
     });
     docClient = DynamoDBDocumentClient.from(client);
@@ -90,7 +92,7 @@ async function getCachedWPA(listingId: string): Promise<RecommenderWPA | null> {
   try {
     const client = getDocClient();
     const result = await client.send(new GetCommand({
-      TableName: 'leo-wpa-cache',
+      TableName: WPA_TABLE_NAMES.shortlist,
       Key: { listing_id: listingId },
     }));
     
@@ -113,7 +115,7 @@ async function cacheWPA(wpa: RecommenderWPA): Promise<void> {
   try {
     const client = getDocClient();
     await client.send(new PutCommand({
-      TableName: 'leo-wpa-cache',
+      TableName: WPA_TABLE_NAMES.shortlist,
       Item: wpa,
     }));
     console.log(`[WPA] Cached result for ${wpa.listing_id}`);

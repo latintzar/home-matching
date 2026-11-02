@@ -4,11 +4,11 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getDocClient` | function | [L34](../../../../../../../../src/app/api/wpa/score/route.ts#L34) |  |
-| `getCachedScores` | function | [L54](../../../../../../../../src/app/api/wpa/score/route.ts#L54) | listingId |
-| `cacheScores` | function | [L74](../../../../../../../../src/app/api/wpa/score/route.ts#L74) | scores |
-| `generateScores` | function | [L162](../../../../../../../../src/app/api/wpa/score/route.ts#L162) | listingId, description |
-| `POST` | function | [L319](../../../../../../../../src/app/api/wpa/score/route.ts#L319) | request |
-| `GET` | function | [L376](../../../../../../../../src/app/api/wpa/score/route.ts#L376) | request |
+| `getDocClient` | function | [L35](../../../../../../../../src/app/api/wpa/score/route.ts#L35) |  |
+| `getCachedScores` | function | [L56](../../../../../../../../src/app/api/wpa/score/route.ts#L56) | listingId |
+| `cacheScores` | function | [L76](../../../../../../../../src/app/api/wpa/score/route.ts#L76) | scores |
+| `generateScores` | function | [L164](../../../../../../../../src/app/api/wpa/score/route.ts#L164) | listingId, description |
+| `POST` | function | [L321](../../../../../../../../src/app/api/wpa/score/route.ts#L321) | request |
+| `GET` | function | [L378](../../../../../../../../src/app/api/wpa/score/route.ts#L378) | request |
 
-Imports: `next/server`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `@/lib/gemini-rest-client`, `../describe/route`, `@/types/wpa-score`, `@/types/wpa-score`
+Imports: `next/server`, `@aws-sdk/client-dynamodb`, `@aws-sdk/lib-dynamodb`, `@/lib/gemini-rest-client`, `../describe/route`, `@/lib/wpa/table-contracts`, `@/types/wpa-score`, `@/types/wpa-score`

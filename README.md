@@ -50,11 +50,14 @@ Each browser has a private local workspace. SQLite state lives outside the check
 
 The native sample uses its own local guest workspace. Provider-backed APIs authenticate through your Supabase project. Set `HOME_MATCHING_OPERATOR_USER_ID` to your own verified account UUID for property processing, image generation, ingestion and backoffice tools; household APIs keep records scoped to the signed-in user. Stripe callbacks verify their signature and scheduled jobs require a configured cron secret. [Configured API setup](docs/configured-api-security.md) covers the exact credentials, roles and tests.
 
+[Fresh database](docs/fresh-database.md) installs the current household/search schema through a private CLI command and supplies AWS table inputs. It explains the current cache contracts and which retained experimental modules have separate setup.
+
 ## Build with it
 
 - [Product tour](docs/product-tour.md): complete home-search journey, product areas and source map.
 - [Calculation guide](docs/guide.md): first deterministic result, changes and next steps.
 - [Setup](docs/setup.md): private configuration with your accounts and full-app dependencies.
+- [Fresh database](docs/fresh-database.md): SQL bootstrap, household privacy, AWS keys/indexes and isolated verification.
 - [Configured API access](docs/configured-api-security.md): verified household identity, operator tools and signed callbacks.
 - [Workflows](docs/workflows.md): property analysis, household fit, voice and location.
 - [Architecture](docs/architecture.md): modules, storage contracts and execution boundaries.

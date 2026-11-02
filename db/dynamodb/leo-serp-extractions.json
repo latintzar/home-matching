@@ -1,0 +1,38 @@
+{
+  "TableName": "leo-serp-extractions",
+  "KeySchema": [
+    {
+      "AttributeName": "page_id",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "neighborhood_id",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "neighborhood_id",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "page_id",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "neighborhood-index",
+      "KeySchema": [
+        {
+          "AttributeName": "neighborhood_id",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `TableDefinition` | interface | [L33](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L33) |  |
+| `TableDefinition` | interface | [L35](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L35) |  |
 | `tableExists` | function | [L181](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L181) | tableName |
 | `createTable` | function | [L190](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L190) | table |
 | `listExistingTables` | function | [L216](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L216) |  |
 | `main` | function | [L221](../../../../../../src/scripts/aws/create-dynamodb-tables.ts#L221) |  |
 
-Imports: `@aws-sdk/client-dynamodb`, `dotenv`
+Imports: `@aws-sdk/client-dynamodb`, `dotenv`, `../../lib/wpa/table-contracts`

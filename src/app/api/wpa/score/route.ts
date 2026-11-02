@@ -17,6 +17,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, PutCommand, GetCommand } from '@aws-sdk/lib-dynamodb';
 import { callGeminiRest } from '@/lib/gemini-rest-client';
 import { WPADescription } from '../describe/route';
+import { WPA_TABLE_NAMES } from '@/lib/wpa/table-contracts';
 
 // ============================================================================
 // Types - 35 Dimensions
@@ -38,6 +39,7 @@ function getDocClient(): DynamoDBDocumentClient {
       credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+        sessionToken: process.env.AWS_SESSION_TOKEN,
       },
     });
     docClient = DynamoDBDocumentClient.from(client);
@@ -49,7 +51,7 @@ function getDocClient(): DynamoDBDocumentClient {
 // Cache Functions
 // ============================================================================
 
-const WPA_SCORES_TABLE = 'leo-wpa-cache';
+const WPA_SCORES_TABLE = WPA_TABLE_NAMES.scores;
 
 async function getCachedScores(listingId: string): Promise<WPAScores | null> {
   try {

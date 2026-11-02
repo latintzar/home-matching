@@ -1,0 +1,50 @@
+{
+  "TableName": "leo-geo-intelligence",
+  "KeySchema": [
+    {
+      "AttributeName": "geohash",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "insight_id",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "city",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "geohash",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "insight_id",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "insight_type",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "city-type-index",
+      "KeySchema": [
+        {
+          "AttributeName": "city",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "insight_type",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

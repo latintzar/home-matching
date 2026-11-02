@@ -1,0 +1,38 @@
+{
+  "TableName": "airbnb_reviews_tagged",
+  "KeySchema": [
+    {
+      "AttributeName": "review_id",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "neighborhood",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "neighborhood",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "review_id",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "neighborhood-index",
+      "KeySchema": [
+        {
+          "AttributeName": "neighborhood",
+          "KeyType": "HASH"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

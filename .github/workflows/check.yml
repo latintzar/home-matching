@@ -59,6 +59,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm ci
+      - run: node tools/build-dynamodb-schema.mjs --check
+      - run: node --test tests/database/wpa-cache-contracts.test.mjs
       - run: node --experimental-strip-types --test tests/first-match.test.mjs tests/native-sample.test.mjs tests/native-fit.test.mjs tests/lazy-resource.test.mjs tests/sample-request.test.mjs
       - run: python3 -m unittest discover -s tests -p 'test_*.py'
       - run: python3 tools/sample-app.py build --base-path /apps/home-matching

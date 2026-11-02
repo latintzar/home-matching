@@ -4,10 +4,10 @@
 
 | Symbol | Kind | Line | Parameters |
 |---|---|---:|---|
-| `getClient` | function | [L121](../../../../scripts/setup-dynamodb-tables.ts#L121) |  |
-| `tableExists` | function | [L135](../../../../scripts/setup-dynamodb-tables.ts#L135) | client, tableName |
-| `createTable` | function | [L147](../../../../scripts/setup-dynamodb-tables.ts#L147) | client, tableConfig |
-| `listAllTables` | function | [L191](../../../../scripts/setup-dynamodb-tables.ts#L191) | client |
-| `main` | function | [L200](../../../../scripts/setup-dynamodb-tables.ts#L200) |  |
+| `getClient` | function | [L148](../../../../scripts/setup-dynamodb-tables.ts#L148) |  |
+| `tableExists` | function | [L163](../../../../scripts/setup-dynamodb-tables.ts#L163) | client, tableName |
+| `createTable` | function | [L175](../../../../scripts/setup-dynamodb-tables.ts#L175) | client, tableConfig |
+| `listAllTables` | function | [L219](../../../../scripts/setup-dynamodb-tables.ts#L219) | client |
+| `main` | function | [L228](../../../../scripts/setup-dynamodb-tables.ts#L228) |  |
 
-Imports: `@aws-sdk/client-dynamodb`
+Imports: `@aws-sdk/client-dynamodb`, `../src/lib/wpa/table-contracts`
